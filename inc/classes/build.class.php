@@ -16,7 +16,7 @@ class build {
 	public function __construct() {
 		global $config;
 		$this->config = $config;
-		$this->page = (isset($_GET["p"])&&!empty($_GET["p"])?$_GET["a"]:"home");
+		$this->page = (isset($_GET["p"])&&!empty($_GET["p"])?$_GET["p"]:"home");
 	}
 	public function build() {
 		$config = $this->config;
