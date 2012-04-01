@@ -72,7 +72,7 @@ if (isset($rsb))
 						'.$ar["middle"]["text"].'
 						</div>
 						<div class="sb-end"></div>';
-echo '			<div class="clear"></div>
+echo '</div>			<div class="clear"></div>
 			</div>
 			<div class="mui mend"></div>
 		</div>
