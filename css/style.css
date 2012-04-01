@@ -1,0 +1,466 @@
+/*---------------------------------------------------*/
+/* Global Properties --------------------------------*/
+
+html, body, * {
+	padding:0; 
+	margin:0;
+}
+
+	body {
+		background:#000000 url("../images/ui/bg.jpg") no-repeat;
+		background-attachment: fixed;
+		background-position: top center;
+		text-align:center;
+		color:#fff6cc;
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:12px;
+	}
+	
+		.left {
+			float:left;
+		}
+		
+		.right {
+			float:right;
+		}
+
+		.clear {clear:both}
+		
+		.clearfix {clear:both; height:1px;}
+		
+		hr.hr {display:none;}
+	
+		a {text-decoration:none; color:#fd0}
+		
+			a:hover {color:#fd0;}
+			
+			a:active {color:#fd0;}
+		
+			a:focus {outline:none;}
+			
+			a img {border:none;}
+		
+/*---------------------------------------------------*/
+/* Base Elements ------------------------------------*/
+
+	#wrapper {
+		width:968px;
+		text-align:left;
+		margin:0 auto;
+	}
+	
+		.wrap960 {
+			width:960px;
+			margin:0 auto;
+		}
+		
+		.wrap930 {
+			width:930px;
+			margin:0 auto;
+		}
+		
+		.wrap600 {
+			width:600px;
+			margin:0 auto;
+		}
+		
+/*---------------------------------------------------*/
+/* Header -------------------------------------------*/
+
+#header {
+	height:239px;
+	overflow:hidden;
+}
+	
+
+	
+	#header #logo {
+		display: block;
+		margin:auto;
+		width: 808px;
+	}
+/*---------------------------------------------------*/
+/* Navbar -------------------------------------------*/
+
+#navbar {
+	height:67px;
+	background:url("../images/ui/navbar.png");
+}
+
+	#navbar ul {
+		margin:15px 0 0 57.5px;;
+		width:960px;
+		list-style:none;
+	}
+	
+		#navbar ul li {
+			display:block;
+			float:left;
+		}
+		
+			#navbar ul li a {
+				display:block;
+				height:34px;
+				width:89px;
+				margin:0 8.5px;
+				float:left;
+				line-height:34px;
+				background:url("../images/ui/navbar_links.png");
+				text-align:center;
+				font-size:14px;
+				color:#ffc;
+				text-shadow:0 1px 3px #210;
+			}
+			
+				#navbar ul li a:hover {
+					color:#ff9;
+					background-position:0 -34px;
+			}
+				
+				#navbar ul li a:active {
+					color:#ff9;
+					background-position:0 -68px;
+				}					
+				
+				#navbar ul li a.current	{
+					color:#ff9 !important;
+					background-position:0 -68px;
+				}
+				
+/*---------------------------------------------------*/
+/* Main Frame ---------------------------------------*/
+
+#main {
+	margin:20px auto;
+}
+
+	.mui {
+		background:url("../images/ui/main_ui.png");
+	}
+	
+		.mtop {
+			height:16px;
+		}
+		
+		.mend {
+			height:16px;
+			background-position:bottom left;
+		}
+		
+		.mcon {
+			min-height:500px;
+			background-position:top right;
+			background-repeat:repeat-y;
+		}
+			
+			.sidebar, #content {
+			  float:left;
+			  min-height:600px;
+			}
+			
+				.sidebar {
+					width:208px;
+				}
+				
+				#content {
+					width:508px;
+				}
+					
+/*---------------------------------------------------*/
+/* Content ------------------------------------------*/
+
+.postui {
+	background:url("../images/ui/content_post_ui.png");
+}
+
+	.post-title {
+		height:51px;
+		line-height:50px;
+	}
+	
+	.post-end {
+		background-position:left bottom;
+		height:12px;
+		margin-bottom:25px;
+	}
+	
+	.post-con {
+		background-position:center right;
+		background-repeat:repeat-y;
+		line-height:1.8;
+		font-size:11px;
+	}
+	
+		.post-title h2 {
+			float:left;
+			color:#ffc;
+			font-size:14px;
+			text-shadow:0 0 5px #ffc;
+			text-indent:42px;
+		}
+		
+			.post-title h2 a {
+				color:#ffc;
+			}
+			
+			span.date {
+				display:block;
+				float:right;
+				text-align:center;
+				color:#ffc;
+				text-shadow:0 0 8px #fff;
+				font-size:10px;
+				margin-right:20px;
+			}
+
+		.con-wrap {
+			padding:8px 25px;
+		}
+		
+			.con-wrap p {
+				padding-bottom:15px;
+			}
+			
+			.con-wrap img.thumb {
+				float:left;
+				padding:1px;
+				border:1px solid #ffc;
+				margin:0 10px 5px 0;
+			}
+
+				a.more {
+					width:101px;
+					height:26px;
+					display:block;
+					background:url("../images/ui/content_button.png");
+					color:#00507a;
+					line-height:26px !important;
+					font-size:11px;
+					text-transform:uppercase;
+					text-indent:20px;
+					text-shadow:0 1px 0 #FFF, 0 1px 5px #FFF, 0 0px 8px #FFF;
+				}
+				
+					a.more:hover {
+						color:#fd0;
+						background-position:center left;
+					}	
+					
+					a.more:active {
+						color:#fd0;
+						background-position:bottom left;
+					}
+						
+/*---------------------------------------------------*/
+/* Sidebars -----------------------------------------*/
+
+#sidebar-left {
+	margin:0 7px 0 15px;
+}
+
+#sidebar-right {
+	margin:0 15px 0 7px;
+}
+
+	.sb-title {
+		height:51px;
+		background:url("../images/ui/sidebar_ui_title_default.png");
+		line-height:51px;
+	}
+	
+	.sb-end {
+		background:url("../images/ui/sidebar_ui_end.png");
+		height:13px;
+		margin-bottom:15px;
+	}
+	
+	.sb-con {
+		background:url("../images/ui/sidebar_ui_con.png") repeat-y top center;
+		padding:5px 10px;
+	}
+	
+	
+		
+			.sidebar h3 {
+				color:#ffc;
+				text-shadow:0 1px 4px #ffc;
+				font-size:14px;
+				text-indent:42px;
+			}
+			
+			.sb-sep {
+				height:4px;
+				margin:10px auto;
+				background:url("../images/ui/sidebar_sep.png") no-repeat top center;
+				clear:both;
+			}
+			
+			.stat .sb-sep {
+				margin:1px;
+			}
+			
+
+
+	/*-------------------------------- NewWorld2 ----*/
+	/* Login ----------------------------------------*/
+	
+	form#login {
+		width:172px;
+		margin:0 auto;
+	}
+	
+		input.bar {
+			color:#a7a7a7;
+			margin:5px auto;
+			font-size:11px;
+			background:url("../images/ui/sidebar_login_bar.png");
+			border:1px solid #583115;
+			padding:8px 5px;
+			width:160px;
+		}
+		
+			input.bar:hover {
+				color:#fd0;
+				background-position:center left;
+			}	
+			
+			input.bar:active,
+			input.bar:focus {
+				color:#fd0;
+				background-position:bottom left;
+			}				
+			
+		input.btn {
+			border:none;
+			display:block;
+			height:32px;
+			width:82px;
+			margin:10px 0 4px;
+			background:url("../images/ui/sidebar_login_btn.png");
+			cursor:pointer;
+			color:#ffc;
+			font-size:12px;
+			text-shadow:0 0 3px #ffc;
+			text-align:center;
+		}
+		
+			*>input.btn {
+				padding-bottom:5px;
+			}
+		
+			input.btn:hover {
+				color:#ff9;
+				background-position:center center;
+			}
+			
+			input.btn:active {
+				color:#ff9;
+				background-position:bottom center;
+			}				
+
+	/*-----------------------------------------------*/
+	/* Status ---------------------------------------*/
+	
+	
+	p.on, p.off, p.info {
+		height:28px;
+		line-height:28px;
+		background:url("../images/ui/sidebar_stat_bullets.png") no-repeat;
+		margin:0 0 0 8px;
+		text-indent:14px;
+	}
+
+		p.off {
+			background-position:center left;
+		}
+		
+		p.info {
+			background-position:bottom left;
+		}
+
+	/*-----------------------------------------------*/
+	/* Special Buttons ------------------------------*/
+	
+	a.special {
+		display:block;
+		height:71px;
+		width:208px;
+		margin:0 auto 10px;
+	}
+	
+/*---------------------------------------------------*/
+/* Misc ---------------------------------------------*/
+
+.rel {
+	position:relative;
+	bottom:50px;
+	left:135px;
+}
+
+.sep {
+	height:4px;
+	width:491px;
+	position:relative;
+	right:18px;
+	margin:5px auto 10px;
+	background:url("../images/ui/content_sep.png") no-repeat top center;
+}
+
+.s15 {
+	height:15px;
+}
+
+.cp {
+	display:none;
+}
+
+	a.sb-link {
+		color:#ff9;
+		margin:9px 18px;
+		display:block;
+		font-size:11px;
+		padding-left:12px;
+		background:url("../images/ui/link_bullet.png") no-repeat 0 3px;
+	}
+	
+		a.sb-link:hover {
+			color:#fd0;
+		}
+	
+		a.sb-link:active {
+			color:#fd0;
+		}
+		
+/*---------------------------------------------------*/
+/* Footer -------------------------------------------*/
+
+#footer {
+	background:url("../images/ui/footer.png") no-repeat top center;
+	height:99px;
+	font-size:11px;
+	color:#ffc;
+	line-height:59px;
+}
+
+	#footer .left {
+		margin-left:40px;
+	}
+	
+	#footer .right {
+		margin-right:40px;
+	}
+
+		#footer a {
+			color:#ffdd00;
+		}		
+		
+			#footer a:hover {
+				text-decoration:underline;
+			}
+			
+			#footer a:active {
+				color:#ffdd00;
+			}
+
+/*---------------------------------------------------*/
+/*---------------------------------------------------*/

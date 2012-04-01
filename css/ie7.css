@@ -1,0 +1,39 @@
+/*-------------------------------------*/
+/*  IE7 and lower CSS fixes 
+/*  Coded by Aziz Natour (azizgfx@gmail.com)
+/*  © 2010. All rights reserved.
+/*-------------------------------------*/
+
+#items {
+	position:relative;
+	top:20px;
+}
+
+#prevBtn a, 
+#nextBtn a {
+	position:relative;
+	bottom:35px;
+}
+			
+#nextBtn a {
+	background-position:-14px 0;
+}
+
+#nextBtn a:hover {
+	background-position:-14px -18px;
+}
+
+#nextBtn a:active {
+	background-position:-14px -36px;
+}
+
+#prevBtn a {
+}
+
+#prevBtn a:hover {
+	background-position:0 -18px;
+}
+
+#prevBtn a:active {
+	background-position:0 -36px;
+}
