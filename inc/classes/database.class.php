@@ -16,9 +16,11 @@ class database {
 	}
 	public function create($name,$config) {
 		$this->$name = mysql_connect($config["host"],$config["user"],$config["pass"]);
+		if (!$this->$name) return false;
 		$this->conlist[] =$name;
 		$name .="db";
 		$this->$name = $config["db"];
+		return true;
 	}
 	public function __destruct() {
 		foreach ($this->conlist as $conname)

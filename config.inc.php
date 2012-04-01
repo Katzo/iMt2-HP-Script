@@ -43,6 +43,5 @@ $pages = array(
 		"title" => false, // Overwrite title
 		"plugins" => array("statistics") // List all plugins you want to load
 	),
-	
 );
 ?>

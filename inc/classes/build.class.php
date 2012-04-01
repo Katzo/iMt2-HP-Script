@@ -13,12 +13,13 @@ class build {
 	private $jslist = array();
 	private $jsfilelist = array();
 	private $config;
-	public function __construct($config) {
+	public function __construct() {
 		global $config;
 		$this->config = $config;
 		$this->page = (isset($_GET["p"])&&!empty($_GET["p"])?$_GET["a"]:"home");
 	}
 	public function build() {
+		$config = $this->config;
 		$db = new database;
 		$lsb = array();
 		$cont = array();

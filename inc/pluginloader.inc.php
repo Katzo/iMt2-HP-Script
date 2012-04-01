@@ -6,8 +6,8 @@
  * 
  * This file autoloads all .php files in the plugin folder which you configured via $page[$_GET["p"]]["plugins"]
  */
- foreach ($page[$p]["plugin"] as $file) { 
-    $filename = $file.".php";
+ foreach ($pages[$p]["plugins"] as $file) { 
+    $filename =$config["path"]["includes"].$config["path"]["plugins"]. $file.".php";
     include($filename);
  }
  
