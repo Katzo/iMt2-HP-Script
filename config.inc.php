@@ -36,6 +36,17 @@ $config = array(
 		"plugins" => "plugins/", // Path for plugins (include path.plugins path)
 	),
 );
+$navilinks = array(
+	"header" =>array(
+		array(
+			"url" => "index.php?p=home",
+			"name" => "Home",
+			"page" => "home"
+		),
+	),
+	"footer" => array(
+	)
+);
 // Pages
 $pages = array(
 //   v this is $_GET["p"]
