@@ -1,6 +1,7 @@
 <?php
 include("config.inc.php");
 include($config["path"]["includes"]."common.inc.php");
+if (!isset($pages[$p])) e404();
 $build = new build;
 foreach ($navilinks["header"] as $n)
 	$build->addNavi($n);
