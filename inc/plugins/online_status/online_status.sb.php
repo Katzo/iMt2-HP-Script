@@ -17,7 +17,7 @@ $cached = mysql_fetch_object($cachedq);
 if (!isset($cached->time) || time() > $cached->time+$plugin_conf["cachetimeout"]) {
 	$status = array();
 	foreach($plugin_conf["check"] as $ar) {
-		$c = fsockopen($ar["host"],$ar["port"],$errno,$errstr,$plugin_conf["timeout"]);
+		$c = @fsockopen($ar["host"],$ar["port"],$errno,$errstr,$plugin_conf["timeout"]);
 		if ($c) {
 			fclose($c);
 			$status[] = array("name" => $ar["name"],"status" => 1);
