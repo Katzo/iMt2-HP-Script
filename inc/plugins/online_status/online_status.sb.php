@@ -31,12 +31,13 @@ if (!isset($cached->time) || time() > $cached->time+$plugin_conf["cachetimeout"]
 		mysql_query("INSERT INTO ".$db->gamedb["homepage"].".online_status (time,enc) VALUES('".time()."','".$status."')",$db->game);
 }
 $status = json_decode($cached->enc);
+var_dump($status);
 $out = "";
-foreach($status as $ar) 
-	if ($ar["status"])
-		$out .= '<p class="on">'.$ar["name"]." ".$plugin_conf["online"].'</p><div class="sb-sep"></div>';
+foreach($status as $stat) 
+	if ($stat["status"])
+		$out .= '<p class="on">'.$stat["name"]." ".$plugin_conf["online"].'</p><div class="sb-sep"></div>';
 	else
-		$out .= '<p class="off">'.$ar["name"]." ".$plugin_conf["offline"].'</p><div class="sb-sep"></div>';
+		$out .= '<p class="off">'.$stat["name"]." ".$plugin_conf["offline"].'</p><div class="sb-sep"></div>';
 $content = array("head" => array("title" => $plugin_conf["title"]),"middle" => array("text" => $out));
 unset($plugin_conf);
 ?>
