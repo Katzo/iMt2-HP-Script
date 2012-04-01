@@ -26,9 +26,9 @@ if (!isset($cached->time) || $cached->time < time()+$plugin_conf["cachetimeout"]
 	// Player online
 	$playero = mysql_fetch_object(mysql_query("SELECT count(*) as c FROM ".$db->gamedb["player"].".player WHERE last_play > DATE_SUB(NOW(), INTERVAL 10 MINUTE)",$db->game));
 	if (isset($db->hp))
-		mysql_query("INSERT INTO ".$db->hpdb["homepage"].".statistics (time,acc,player,guild,item,playero) VALUES(".time().",".$acc->c.".".$player->c.",".$guild->c.",".$item->c.",".$playero->c.")",$db->hp);
+		mysql_query("INSERT INTO ".$db->hpdb["homepage"].".statistics (time,acc,player,guild,item,playero) VALUES('".time()."','".$acc->c."','".$player->c."','".$guild->c."','".$item->c."','".$playero->c."')",$db->hp);
 	else
-		mysql_query("INSERT INTO ".$db->gamedb["homepage"].".statistics (time,acc,player,guild,item,playero) VALUES(".time().",".$acc->c.".".$player->c.",".$guild->c.",".$item->c.",".$playero->c.")",$db->game);
+		mysql_query("INSERT INTO ".$db->gamedb["homepage"].".statistics (time,acc,player,guild,item,playero) VALUES('".time()."','".$acc->c."','".$player->c."','".$guild->c."','".$item->c."','".$playero->c."')",$db->game);
 	if (mysql_error())
 		die(mysql_error());
 }
