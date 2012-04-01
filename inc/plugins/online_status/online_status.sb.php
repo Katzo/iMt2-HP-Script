@@ -13,7 +13,7 @@ if (isset($db->hp))
 	$cachedq = mysql_query("SELECT * FROM ".$db->hpdb["homepage"].".online_status ORDER BY time DESC LIMIT 1",$db->hp);
 else
 	$cachedq = mysql_query("SELECT * FROM ".$db->gamedb["homepage"].".online_status  ORDER BY time DESC LIMIT 1",$db->game);
-$cached = mysql_fetch_object($cachdq);
+$cached = mysql_fetch_object($cachedq);
 if (!isset($cached->time) || time() > $cached->time+$plugin_conf["cachetimeout"]) {
 	$status = array();
 	foreach($plugin_config["check"] as $ar) {
