@@ -26,11 +26,11 @@ if (!isset($cached->time) || time() > $cached->time+$plugin_conf["cachetimeout"]
 	}
 	$status = json_encode($status);
 	if (isset($db->hp)) 
-		mysql_query("INSERT INTO ".$db->hpdb["homepage"].".online_status (time,array) VALUES('".time()."','".$status."')",$db->hp);
+		mysql_query("INSERT INTO ".$db->hpdb["homepage"].".online_status (time,enc) VALUES('".time()."','".$status."')",$db->hp);
 	else
-		mysql_query("INSERT INTO ".$db->gamedb["homepage"].".online_status (time,array) VALUES('".time()."','".$status."')",$db->game);
+		mysql_query("INSERT INTO ".$db->gamedb["homepage"].".online_status (time,enc) VALUES('".time()."','".$status."')",$db->game);
 }
-$status = json_decode($cached->array);
+$status = json_decode($cached->enc);
 $out = "";
 foreach($status as $ar) 
 	if ($ar["status"])
