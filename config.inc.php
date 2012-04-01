@@ -16,7 +16,8 @@ $config = array(
 				"account" => "account",
 				"common" => "common",
 				"player" => "player",
-				"log" => "log"
+				"log" => "log",
+				"board" => "board",
 			)
 		/* 
 		 * Just on a sidenote:
