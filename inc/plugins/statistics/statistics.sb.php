@@ -32,11 +32,11 @@ if ($cached->time < time()+$plugin_conf["cachetimeout"]) {
 }
 $content = array(
 	"head" => array("title" => $plugin_conf["title"]),
-	"middle" => '<p class="info"><strong>'.$cached->acc.'</strong> '.$plugin_conf["acc"].'</p>' .
+	"middle" => array("text" => '<p class="info"><strong>'.$cached->acc.'</strong> '.$plugin_conf["acc"].'</p>' .
 				'<div class="sb-sep"></div><p class="info"><strong>'.$cached->playero.'</strong> '.$plugin_conf["playero"].'</p>' .
 				'<div class="sb-sep"></div><p class="info"><strong>'.$cached->player.'</strong> '.$plugin_conf["player"].'</p>'.
 				'<div class="sb-sep"></div><p class="info"><strong>'.$cached->guild.'</strong> '.$plugin_conf["guild"].'</p>'.
-				'<div class="sb-sep"></div><p class="info"><strong>'.$cached->item.'</strong> '.$plugin_conf["item"].'</p>'
+				'<div class="sb-sep"></div><p class="info"><strong>'.$cached->item.'</strong> '.$plugin_conf["item"].'</p>')
 );
 var_dump($content);
 unset($plugin_conf);
