@@ -58,8 +58,8 @@ if (isset($con))
 							'.((isset($ar["footer"]))?'<div class="sep"></div>'.((isset($ar["footer"]["more"]))?'<a href="#" class="more">Read More</a>':$ar["footer"]["plain"]):'').'
 						</div>
 					</div> 
-					<div class="postui post-end"></div>'; 
-		echo '</div>';
+					<div class="postui post-end"></div></div>'; 
+echo '</div><div class="sidebar" id="sidebar-right">';
 if (isset($rsb))
 	foreach ($rsb as $ar)
 		if (isset($ar["plain"]))
@@ -70,8 +70,7 @@ if (isset($rsb))
 						'.$ar["middle"]["text"].'
 						</div>
 						<div class="sb-end"></div>';
-echo '	</div>
-				<div class="clear"></div>
+echo '			<div class="clear"></div>
 			</div>
 			<div class="mui mend"></div>
 		</div>
