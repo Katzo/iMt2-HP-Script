@@ -30,7 +30,7 @@ if (!isset($cached->time) || time() > $cached->time+$plugin_conf["cachetimeout"]
 	else
 		mysql_query("INSERT INTO ".$db->gamedb["homepage"].".online_status (time,enc) VALUES('".time()."','".$status."')",$db->game);
 }
-$status = json_decode($cached->enc);
+$status = json_decode($cached->enc,true);
 var_dump($status);
 $out = "";
 foreach($status as $stat) 
