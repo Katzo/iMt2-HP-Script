@@ -40,8 +40,8 @@ $navilinks = array(
 	"header" =>array(
 		array(
 			"url" => "index.php?p=home",
-			"name" => "Home",
-			"page" => "home"
+			"text" => "Home",
+			"page" => "home",
 		),
 	),
 	"footer" => array(
