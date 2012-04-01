@@ -14,7 +14,7 @@ if (isset($db->hp))
 else
 	$cachedq = mysql_query("SELECT * FROM ".$db->gamedb["homepage"].".online_status  ORDER BY time DESC LIMIT 1",$db->game);
 $cached = mysql_fetch_object($cachdq);
-if ($cached->time < time()+$plugin_conf["cachetimeout"]) {
+if (!isset($cached->time) || time() > $cached->time+$plugin_conf["cachetimeout"]) {
 	$status = array();
 	foreach($plugin_config["check"] as $ar) {
 		$c = fsockopen($ar["host"],$ar["port"],$errno,$errstr,$plugin_config["timeout"]);
