@@ -31,7 +31,7 @@ echo '			</ul>
 			<div class="mui mtop"></div>
 			<div class="mui mcon">
 				<div class="sidebar" id="sidebar-left">';
-foreach ($this->lsb as $ar)
+foreach ($lsb as $ar)
 	if (isset($ar["plain"]))
 		echo $ar["plain"];
 	else
@@ -42,7 +42,7 @@ foreach ($this->lsb as $ar)
 					<div class="sb-end"></div>';
 echo '				</div>
 				<div id="content">';
-	foreach ($this->con as $ar)
+	foreach ($con as $ar)
 		if (isset($ar["plain"]))
 			echo $ar["plain"];
 		else
@@ -58,7 +58,7 @@ echo '				</div>
 					</div> 
 					<div class="postui post-end"></div>'; 
 		echo '</div>';
-foreach ($this->rsb as $ar)
+foreach ($rsb as $ar)
 	if (isset($ar["plain"]))
 		echo $ar["plain"];
 	else
