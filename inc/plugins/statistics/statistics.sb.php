@@ -13,8 +13,7 @@ if (isset($db->hp))
 	$cachedq = mysql_query("SELECT * FROM ".$db->hpdb["homepage"].".statistics ORDER BY time DESC LIMIT 1",$db->hp);
 else
 	$cachedq = mysql_query("SELECT * FROM ".$db->gamedb["homepage"].".statistics ORDER BY time DESC LIMIT 1",$db->game);
-echo mysql_error();
-$cached = mysql_fetch_object($cachdq);
+$cached = mysql_fetch_object($cachedq);
 if ($cached->time < time()+$plugin_conf["cachetimeout"]) {
 	// Acc total
 	$acc = mysql_fetch_object(mysql_query("SELECT count(*) as c FROM ".$db->gamedb["account"].".account",$db->game));
