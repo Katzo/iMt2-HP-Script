@@ -48,7 +48,8 @@ if (isset($con))
 		if (isset($ar["plain"]))
 			echo $ar["plain"];
 		else
-			echo '<div class="postui post-title">
+			echo '<div class="postui post-con">
+					<div class="postui post-title">
 						<h2>'.$ar["head"]["title"].'</h2>
 						'.((isset($ar["head"]["date"]))?'<span class="date">by admin on June 29, 2010</span>':'').'
 					</div>
@@ -58,7 +59,8 @@ if (isset($con))
 							'.((isset($ar["footer"]))?'<div class="sep"></div>'.((isset($ar["footer"]["more"]))?'<a href="#" class="more">Read More</a>':$ar["footer"]["plain"]):'').'
 						</div>
 					</div> 
-					<div class="postui post-end"></div></div>'; 
+					<div class="postui post-end"></div>
+				  </div>'; 
 echo '</div><div class="sidebar" id="sidebar-right">';
 if (isset($rsb))
 	foreach ($rsb as $ar)
