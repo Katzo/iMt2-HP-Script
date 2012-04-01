@@ -40,6 +40,5 @@ $content = array(
 				'<div class="sb-sep"></div><p class="info"><strong>'.$cached->guild.'</strong> '.$plugin_conf["guild"].'</p>'.
 				'<div class="sb-sep"></div><p class="info"><strong>'.$cached->item.'</strong> '.$plugin_conf["item"].'</p>')
 );
-var_dump($content);
 unset($plugin_conf);
 ?>
