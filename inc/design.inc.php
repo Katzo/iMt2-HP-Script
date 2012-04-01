@@ -31,17 +31,19 @@ echo '			</ul>
 			<div class="mui mtop"></div>
 			<div class="mui mcon">
 				<div class="sidebar" id="sidebar-left">';
-foreach ($lsb as $ar)
-	if (isset($ar["plain"]))
-		echo $ar["plain"];
-	else
-		echo '<div class="sb-title"><h3>'.$ar["head"]["title"].'</h3></div>
-					<div class="sb-con">
-					'.$ar["middle"]["text"].'
-					</div>
-					<div class="sb-end"></div>';
+if (isset($lsb))
+	foreach ($lsb as $ar)
+		if (isset($ar["plain"]))
+			echo $ar["plain"];
+		else
+			echo '<div class="sb-title"><h3>'.$ar["head"]["title"].'</h3></div>
+						<div class="sb-con">
+						'.$ar["middle"]["text"].'
+						</div>
+						<div class="sb-end"></div>';
 echo '				</div>
 				<div id="content">';
+if (isset($con))
 	foreach ($con as $ar)
 		if (isset($ar["plain"]))
 			echo $ar["plain"];
@@ -58,15 +60,16 @@ echo '				</div>
 					</div> 
 					<div class="postui post-end"></div>'; 
 		echo '</div>';
-foreach ($rsb as $ar)
-	if (isset($ar["plain"]))
-		echo $ar["plain"];
-	else
-		echo '<div class="sb-title"><h3>'.$ar["head"]["title"].'</h3></div>
-					<div class="sb-con">
-					'.$ar["middle"]["text"].'
-					</div>
-					<div class="sb-end"></div>';
+if (isset($rsb))
+	foreach ($rsb as $ar)
+		if (isset($ar["plain"]))
+			echo $ar["plain"];
+		else
+			echo '<div class="sb-title"><h3>'.$ar["head"]["title"].'</h3></div>
+						<div class="sb-con">
+						'.$ar["middle"]["text"].'
+						</div>
+						<div class="sb-end"></div>';
 echo '	</div>
 				<div class="clear"></div>
 			</div>
