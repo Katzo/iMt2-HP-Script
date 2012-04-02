@@ -17,7 +17,7 @@ echo mysql_error();
 $content = array("multi" => true);
 while ($res = mysql_fetch_object($q))
 	$content[] = array(
-		"title" => array(
+		"head" => array(
 			"title" => htmlentities($res->topic),
 			"date" => $plugin_conf["by"].' <a href="'.$plugin_conf["boardurl"].'?page=User&userID='.$res->userID.'">'.$res->username.', '.timetostr($res->time).'</a>',
 		),
@@ -25,7 +25,7 @@ while ($res = mysql_fetch_object($q))
 			"text" => htmlentities($res->firstPostPreview)
 		), 
 		"footer" => array(
-			"more" => $plugin_conf["boardurl"].'?page=Thread&ThreadID='.$res->ThreadID
+			"more" => $plugin_conf["boardurl"].'?page=Thread&ThreadID='.$res->threadID
 		)
 	);
 
