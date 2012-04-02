@@ -25,7 +25,7 @@ while ($res = mysql_fetch_object($q))
 			"text" => htmlentities($res->firstPostPreview)
 		), 
 		"footer" => array(
-			"more" => $plugin_conf["boardurl"].'?page=Thread&ThreadID='.$res->threadID,
+			"more" => $plugin_conf["boardurl"].'?page=Thread&threadID='.$res->threadID,
 			"what" => $plugin_conf["more"]
 		)
 	);
