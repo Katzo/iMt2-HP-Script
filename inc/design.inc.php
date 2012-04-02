@@ -44,8 +44,8 @@ if (isset($lsb))
 echo '				</div>
 				<div id="content">';
 unset($ar);
-if (isset($con))
-	foreach ($con as $ar)
+if (isset($cont))
+	foreach ($cont as $ar)
 		if (isset($ar["plain"]))
 			echo $ar["plain"];
 		else
