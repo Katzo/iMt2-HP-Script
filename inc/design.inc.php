@@ -52,7 +52,7 @@ if (isset($cont))
 			echo '
 					<div class="postui post-title">
 						<h2>'.$ar["head"]["title"].'</h2>
-						'.((isset($ar["head"]["date"]))?'<span class="date">by admin on June 29, 2010</span>':'').'
+						'.((isset($ar["head"]["date"]))?'<span class="date">'.$ar["head"]["date"].'</span>':'').'
 					</div>
 					<div class="postui post-con">
 						<div class="con-wrap">
