@@ -40,8 +40,12 @@ class build {
 			if (isset($content)) unset($content);
 			include($file);
 			if (!isset($content) || !is_array($content)) $this->error("The file ".$file." didnt produce any kind of array :(");
-			$cont[] = $content;
-			var_dump($cont);
+			if (isset($content["multi"])) {
+				unset($content["multi"]);
+				foreach($content as $ar) 
+					$cont[] = $ar;
+			}else
+				$cont[] = $content;
 		}
 		include($this->config["path"]["includes"]."/design.inc.php"); // Pass the generated content to design.inc.php for final design echoing
 	}
