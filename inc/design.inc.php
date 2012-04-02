@@ -32,7 +32,7 @@ echo '			</ul>
 			<div class="mui mcon">
 				<div class="sidebar" id="sidebar-left">';
 if (isset($lsb))
-	foreach ($lsb as $ar)
+	foreach ($lsb as $ar) 
 		if (isset($ar["plain"]))
 			echo $ar["plain"];
 		else
@@ -43,24 +43,25 @@ if (isset($lsb))
 						<div class="sb-end"></div>';
 echo '				</div>
 				<div id="content">';
+unset($ar);
 if (isset($con))
 	foreach ($con as $ar)
 		if (isset($ar["multi"])) {
 			unset($ar["multi"]);
 			foreach($ar as $ar2) {
-			echo '<div class="postui post-con">
-					<div class="postui post-title">
-						<h2>'.$ar2["head"]["title"].'</h2>
-						'.((isset($ar2["head"]["date"]))?'<span class="date">by admin on June 29, 2010</span>':'').'
-					</div>
-					<div class="postui post-con">
-						<div class="con-wrap">
-							<p>'.((isset($ar2["middle"]["img"]))?'<img class="thumb" src="'.$ar2["middle"]["img"]["src"].'" alt="'.$ar2["middle"]["img"]["alt"].'" />':'').$ar2["middle"]["text"].'</p>
-							'.((isset($ar2["footer"]))?'<div class="sep"></div>'.((isset($ar2["footer"]["more"]))?'<a href="#" class="more">Read More</a>':$ar2["footer"]["plain"]):'').'
+				echo '<div class="postui post-con">
+						<div class="postui post-title">
+							<h2>'.$ar2["head"]["title"].'</h2>
+							'.((isset($ar2["head"]["date"]))?'<span class="date">by admin on June 29, 2010</span>':'').'
 						</div>
-					</div> 
-					<div class="postui post-end"></div>
-				  </div>'; 
+						<div class="postui post-con">
+							<div class="con-wrap">
+								<p>'.((isset($ar2["middle"]["img"]))?'<img class="thumb" src="'.$ar2["middle"]["img"]["src"].'" alt="'.$ar2["middle"]["img"]["alt"].'" />':'').$ar2["middle"]["text"].'</p>
+								'.((isset($ar2["footer"]))?'<div class="sep"></div>'.((isset($ar2["footer"]["more"]))?'<a href="#" class="more">Read More</a>':$ar2["footer"]["plain"]):'').'
+							</div>
+						</div> 
+						<div class="postui post-end"></div>
+					  </div>'; 
 			}
 		}
 		if (isset($ar["plain"]))
@@ -80,6 +81,7 @@ if (isset($con))
 					<div class="postui post-end"></div>
 				  </div>'; 
 echo '</div><div class="sidebar" id="sidebar-right">';
+unset($ar);
 if (isset($rsb))
 	foreach ($rsb as $ar)
 		if (isset($ar["plain"]))
