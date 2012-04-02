@@ -11,7 +11,8 @@
 include($config["path"]["includes"].$config["path"]["plugins"]."wbb_news/config.inc.php");
 if (!isset($db->$plugin_conf["wbbcon"])) $this->error("I could not find the database connection ".$plugin_conf["wbbcon"]);
 $wbbdb = $plugin_conf["wbbcon"]."db";
-if (!isset($db->$wbbdb[$plugin_conf["wbbcon"]])) $this->error("I could not find the database index ".$plugin_conf["wbbdb"]);
+if (!isset($db->$wbbdb[$plugin_conf["wbbdb"]])){ var_dump($db);
+	$this->error("I could not find the database index ".$plugin_conf["wbbdb"]); }
 $q = mysql_query("SELECT threadID,topic,firstPostPreview,userID,username,wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_thread.time FROM ".$db->$wbbdb[$plugin_conf["wbbcon"]].".wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_thread JOIN ".$db->$wbbdb[$plugin_conf["wbbcon"]].".wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_board ON wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_thread.boardID = wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_board.boardID OR wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_thread.boardID = wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_board.parentID WHERE wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_board.parentID = '".$plugin_conf["id"]."' or wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_board.boardID = '".$plugin_conf["id"]."' and isDeleted=0 ORDER BY time DESC LIMIT ".$plugin_conf["count"]);
 $content = array("multi" => true);
 while ($res = mysql_fetch_object($q)) {
