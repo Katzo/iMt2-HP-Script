@@ -37,6 +37,7 @@ $config = array(
 		"plugins" => "plugins/", // Path for plugins (include path.plugins path)
 	),
 );
+// Navi
 $navilinks = array(
 	"header" =>array(
 		array(
@@ -47,6 +48,21 @@ $navilinks = array(
 	),
 	"footer" => array(
 	)
+);
+// Lang
+$lang = array(
+	"time" => array(
+		"s" => "seconds",
+		"S" => "second",
+		"m" => "minutes",
+		"M" => "minute",
+		"h" => "hours",
+		"H" => "hour",
+		"a" => "ago",
+		"af" => "a few",
+		"format" => "%value %time %ago",
+		"tformat" => "d.m.y H:i"
+	),
 );
 // Pages
 $pages = array(
