@@ -14,7 +14,7 @@ $wbbdb = $plugin_conf["wbbcon"]."db";
 if (!array_key_exists("board",$db->$wbbdb)) $this->error("I could not find the database index board");
 $q = mysql_query("SELECT threadID,topic,firstPostPreview,userID,username,wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_thread.time FROM ".$db->$wbbdb["board"].".wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_thread JOIN ".$db->$wbbdb["board"].".wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_board ON wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_thread.boardID = wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_board.boardID OR wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_thread.boardID = wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_board.parentID WHERE wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_board.parentID = '".$plugin_conf["id"]."' or wbb".$plugin_conf["boardid"]."_".$plugin_conf["installationid"]."_board.boardID = '".$plugin_conf["id"]."' and isDeleted=0 ORDER BY time DESC LIMIT ".$plugin_conf["count"]);
 $content = array("multi" => true);
-while ($res = mysql_fetch_object($q)) {
+while ($res = mysql_fetch_object($q))
 	$content[] = array(
 		"title" => array(
 			"title" => htmlentities($res->topic),
@@ -27,6 +27,6 @@ while ($res = mysql_fetch_object($q)) {
 			"more" => $plugin_conf["boardurl"].'?page=Thread&ThreadID='.$res->ThreadID
 		)
 	);
-}
+
 // ?page=Thread&threadID=7
 ?>

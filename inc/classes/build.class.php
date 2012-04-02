@@ -25,21 +25,21 @@ class build {
 		$cont = array();
 		$srb = array();
 		foreach ($this->lsidebarlist as $file) {
-			$content = false;
+			if (isset($content)) unset($content);
 			include($file);
-			if (!is_array($content)) $this->error("The file ".$file." didnt produce any kind of array :(");
+			if (!isset($content) || !is_array($content)) $this->error("The file ".$file." didnt produce any kind of array :(");
 			$lsb[] = $content;
 		}
 		foreach ($this->rsidebarlist as $file) {
-			$content = false;
+			if (isset($content)) unset($content);
 			include($file);
-			if (!is_array($content)) $this->error("The file ".$file." didnt produce any kind of array :(");
+			if (!isset($content) || !is_array($content)) $this->error("The file ".$file." didnt produce any kind of array :(");
 			$rsb[] = $content;
 		}
 		foreach ($this->contentboxlist as $file) {
-			$content = false;
+			if (isset($content)) unset($content);
 			include($file);
-			if (!is_array($content)) $this->error("The file ".$file." didnt produce any kind of array :(");
+			if (!isset($content) || !is_array($content)) $this->error("The file ".$file." didnt produce any kind of array :(");
 			$cont[] = $content;
 		}
 		include($this->config["path"]["includes"]."/design.inc.php"); // Pass the generated content to design.inc.php for final design echoing
