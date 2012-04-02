@@ -19,6 +19,7 @@ class build {
 		$this->page = (isset($_GET["p"])&&!empty($_GET["p"])?$_GET["p"]:"home");
 	}
 	public function build() {
+		global $lang;
 		$config = $this->config;
 		$db = new database;
 		$lsb = array();
@@ -76,7 +77,8 @@ class build {
 		 * 			"img" => array("src" => "img/news_01.png","alt" => "News 1") // doesnt need to be set
 		 * 		)
 		 * 		"footer" => array(  // doesnt need to be set
-		 * 			"more" => "http://forum.examplemt2.com/thread.php?id=123"
+		 * 			"more" => "http://forum.examplemt2.com/thread.php?id=123",
+		 * 			"what" => "Read more"
 		 * 			 // OR
 		 * 			"plain" => "<img src='stuff.png'/>"
 		 * 		)

@@ -16,6 +16,7 @@ $plugin_conf = array(
 	"boardid" => 1,
 	"installationid" => 1,
 	"boardurl" => "http://board.examplemt2.com/", // 
-	"by" => "by"
+	"by" => "by",
+	"more" => "Read more"
 );
 ?>

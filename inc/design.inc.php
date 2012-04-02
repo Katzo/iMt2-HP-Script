@@ -57,7 +57,7 @@ if (isset($cont))
 					<div class="postui post-con">
 						<div class="con-wrap">
 							<p>'.((isset($ar["middle"]["img"]))?'<img class="thumb" src="'.$ar["middle"]["img"]["src"].'" alt="'.$ar["middle"]["img"]["alt"].'" />':'').$ar["middle"]["text"].'</p>
-							'.((isset($ar["footer"]))?'<div class="sep"></div>'.((isset($ar["footer"]["more"]))?'<a href="#" class="more">Read More</a>':$ar["footer"]["plain"]):'').'
+							'.((isset($ar["footer"]))?'<div class="sep"></div>'.((isset($ar["footer"]["more"])&&isset($ar["footer"]["what"]))?'<a href="'.$ar["footer"]["more"].'" class="more">'.$ar["footer"]["what"].'</a>':'').((isset($ar["footer"]["plain"]))?$ar["footer"]["plain"]:''):'').'
 						</div>
 					</div> 
 					<div class="postui post-end"></div>'; 
