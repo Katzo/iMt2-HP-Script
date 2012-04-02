@@ -19,7 +19,7 @@ while ($res = mysql_fetch_object($q))
 	$content[] = array(
 		"head" => array(
 			"title" => htmlentities($res->topic),
-			"date" => $plugin_conf["by"].' <a href="'.$plugin_conf["boardurl"].'?page=User&userID='.$res->userID.'">'.$res->username.', '.timetostr($res->time).'</a>',
+			"date" => $plugin_conf["by"].' <a href="'.$plugin_conf["boardurl"].'?page=User&userID='.$res->userID.'">'.$res->username.'</a>, '.timetostr($res->time).'',
 		),
 		"middle" => array(
 			"text" => htmlentities($res->firstPostPreview)
