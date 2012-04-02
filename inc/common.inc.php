@@ -31,7 +31,7 @@
 		return timeformat(1,$lang["time"]["H"]);
 	if ($hours < 24)
 		return timeformat($hours,$lang["time"]["h"]);
-	return date($lang["time"]["format"],$timestamp);
+	return date($lang["time"]["tformat"],$timestamp);
  }
  function timeformat($value,$time) {
  	global $lang;
