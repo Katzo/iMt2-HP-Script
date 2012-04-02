@@ -47,7 +47,6 @@ class build {
 			}else
 				$cont[] = $content;
 		}
-		var_dump($cont);
 		include($this->config["path"]["includes"]."/design.inc.php"); // Pass the generated content to design.inc.php for final design echoing
 	}
 	public function addNavi($what) { 
