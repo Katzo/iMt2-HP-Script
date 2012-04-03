@@ -1,4 +1,6 @@
 <?php
+if (!session_id())
+	session_start();
 include("config.inc.php");
 include($config["path"]["includes"]."common.inc.php");
 if (!isset($pages[$p])) e404();
