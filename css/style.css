@@ -15,7 +15,12 @@ html, body, * {
 		font-family:Verdana, Geneva, sans-serif;
 		font-size:12px;
 	}
-	
+		.error {
+			color:#730000;
+		}
+		.ok {
+			color:#00A300;
+		}
 		.left {
 			float:left;
 		}
