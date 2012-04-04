@@ -11,8 +11,8 @@ class database {
 	}
 	public function __construct() {
 		global $config;
-		foreach ($config["db"] as $name => $config)
-			$this->create($name,$config) or $this->error("I could not connect to the database connection ".$name."! :/".mysql_error());
+		foreach ($config["db"] as $name => $dbconfig)
+			$this->create($name,$dbconfig) or $this->error("I could not connect to the database connection ".$name."! :/".mysql_error());
 	}
 	public function create($name,$config) {
 		$this->$name = mysql_connect($config["host"],$config["user"],$config["pass"]);
