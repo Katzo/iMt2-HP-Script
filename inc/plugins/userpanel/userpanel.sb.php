@@ -1,4 +1,5 @@
 <?php
+include($config["path"]["includes"].$config["path"]["plugins"]."userpanel/config.inc.php");
 if (isset($_SESSION["user"]) &&!empty($_SESSION["user"])) {
 	// "Your account" here
 }else{
