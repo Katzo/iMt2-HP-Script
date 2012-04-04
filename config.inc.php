@@ -85,6 +85,6 @@ $pages = array(
 );
 // Ajax
 $ajax = array(
-	"dologin" => "includes/plugins/userpanel/dologin.ajax.php"
+	"dologin" => "userpanel/dologin.ajax.php"
 );
 ?>
