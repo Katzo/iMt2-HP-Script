@@ -29,7 +29,8 @@ $config = array(
 	"settings" => array(
 		"title" => "ExampleMt2",
 		"baseurl" => "http://examplemt2.com",
-		"meta-desc" => "This is the example base design of the iMt2 Homepoage Script by iMer" // Meta Describtion tag for search engines
+		"coin" => "cash", // Coin column in account table
+		
 	),
 	"path" => array(
 		"includes" => "inc/", // General Path for includes
@@ -63,6 +64,16 @@ $lang = array(
 		"format" => "%value %time %ago",
 		"tformat" => "d.m.y H:i"
 	),
+	"misc" => array(
+		"fillout" => "Please fill out all fields",
+		"coin" => "Coin",
+		"coins" => "Coins",
+		"noacc" => "No account with that password or username found",
+		"pass" => "Password",
+		"user" => "Username",
+		"login" => "Login",
+		"register" => "Register"
+	),
 );
 // Pages
 $pages = array(
@@ -71,5 +82,9 @@ $pages = array(
 		"title" => false, // Overwrite title
 		"plugins" => array("statistics") // List all plugins you want to load
 	),
+);
+// Ajax
+$ajax = array(
+	"dologin" => "includes/plugins/userpanel/logindo.ajax.php"
 );
 ?>

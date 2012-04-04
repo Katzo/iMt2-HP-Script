@@ -161,7 +161,8 @@ class build {
 	 		$this->jslist[]=$what;
 	}
 	public function addJSFile($what) {
-	 	$this->jsfilelist[]=$what;
+		if (!in_array($what,$this->jsfilelist)) 
+	 		$this->jsfilelist[]=$what;
 	}
 	
 	public function __destruct (){
