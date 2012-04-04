@@ -8,10 +8,8 @@
  * It shows a login thingy or a user logged in stuff in the sidebar 
  */
 $plugin_conf = array(
-	"register_link" => "?p=register",
-	"forgotpass_link" => "?p=forgot",
 	"title_login" => "Login",
 	"title_loggedin" => "Your Account", // I don't know how to call it.. :<
-	"left" => true, // Sidebar, 1 -> left, 0 -> right 
+	"left" => false, // Sidebar, 1/true -> left, 0/false -> right 
 );
 ?>

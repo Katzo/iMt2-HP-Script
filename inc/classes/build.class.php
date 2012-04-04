@@ -14,13 +14,10 @@ class build {
 	private $jsfilelist = array();
 	private $config;
 	public function __construct() {
-		global $config;
-		$this->config = $config;
 		$this->page = (isset($_GET["p"])&&!empty($_GET["p"])?$_GET["p"]:"home");
 	}
 	public function build() {
-		global $lang;
-		$config = $this->config;
+		global $lang,$urlmap,$config;
 		$db = new database;
 		$lsb = array();
 		$cont = array();
@@ -48,7 +45,7 @@ class build {
 			}else
 				$cont[] = $content;
 		}
-		include($this->config["path"]["includes"]."/design.inc.php"); // Pass the generated content to design.inc.php for final design echoing
+		include($config["path"]["includes"]."/design.inc.php"); // Pass the generated content to design.inc.php for final design echoing
 	}
 	public function addNavi($what) { 
 		/* 

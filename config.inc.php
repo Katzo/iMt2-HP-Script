@@ -50,31 +50,6 @@ $navilinks = array(
 	"footer" => array(
 	)
 );
-// Lang
-$lang = array(
-	"time" => array(
-		"s" => "seconds",
-		"S" => "second",
-		"m" => "minutes",
-		"M" => "minute",
-		"h" => "hours",
-		"H" => "hour",
-		"a" => "ago",
-		"af" => "a few",
-		"format" => "%value %time %ago",
-		"tformat" => "d.m.y H:i"
-	),
-	"misc" => array(
-		"fillout" => "Please fill out all fields",
-		"coin" => "Coin",
-		"coins" => "Coins",
-		"noacc" => "No account with that password or username found",
-		"pass" => "Password",
-		"user" => "Username",
-		"login" => "Login",
-		"register" => "Register"
-	),
-);
 // Pages
 $pages = array(
 //   v this is $_GET["p"]
@@ -85,6 +60,13 @@ $pages = array(
 );
 // Ajax
 $ajax = array(
-	"dologin" => "userpanel/dologin.ajax.php"
+	"dologin" => "userpanel/dologin.ajax.php",
+	"logout" => "userpanel/logout.php",
+);
+// URL Map
+$urlmap = array(
+	"forgot_password" => "?p=forgot", // URLs for Stuff - you dont have to search in every config to change them ..
+	"donate" => "?p=donate", 
+	"support" => "http://support.examplemt2.org", 
 );
 ?>
