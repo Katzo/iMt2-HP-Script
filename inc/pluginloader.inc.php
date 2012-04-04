@@ -7,7 +7,7 @@
  * This file autoloads all .php files in the plugin folder which you configured via $page[$_GET["p"]]["plugins"]
  */
  if (isset($isajax)){
- 	$filename =$config["path"]["includes"].$config["path"]["plugins"].$ajax[$p].".php";
+ 	$filename =$config["path"]["includes"].$config["path"]["plugins"].$ajax[$p];
 	include($filename);
 }else
 	 foreach ($pages[$p]["plugins"] as $file) { 
