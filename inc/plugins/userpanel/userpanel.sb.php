@@ -9,7 +9,7 @@ if (isset($_SESSION["user"]) &&!empty($_SESSION["user"])) {
 			"title" => $plugin_conf["title_login"],
 		),
 		"middle" => array(
-			"text" => '<div id="loginres"></div><form id="loginform" onsubmit="javascript:asubmit(\'#loginform\',\'ajax.php?p=logindo\',function (data){res = jQuery.parseJSON(data);if(res.error) $(\'#loginres\').addClass(\'error\').html(res.error); elseif(res.ok) window.location.reload(); else $(\'#loginres\').addClass(\'error\').html("Unknown error!");}); return false;">
+			"text" => '<div id="loginres"></div><form id="loginform" onsubmit="javascript:asubmit(\'#loginform\',\'ajax.php?p=logindo\',function (data){res = jQuery.parseJSON(data);if(res.error) $(\'#loginres\').addClass(\'error\').html(res.error); else if(res.ok) window.location.reload(); else $(\'#loginres\').addClass(\'error\').html("Unknown error!");}); return false;">
 							<input class="bar" type="text" name="user" placeholder="'.$lang["misc"]["user"].'" />
 							<input class="bar" type="password" name="pass" placeholder="'.$lang["misc"]["pass"].'" />
 							<input class="btn left" type="submit" name="submit" value="'.$lang["misc"]["login"].'" />
