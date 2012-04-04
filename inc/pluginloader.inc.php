@@ -9,13 +9,10 @@
  if (isset($ajax)){
  	$filename =$config["path"]["includes"].$config["path"]["plugins"].$ajax[$p].".php";
 	include($filename);
-
-	 }
-else {
+}else
 	 foreach ($pages[$p]["plugins"] as $file) { 
 	    $filename =$config["path"]["includes"].$config["path"]["plugins"]. $file.".php";
 	    include($filename);
 }
-	
  
 ?>
