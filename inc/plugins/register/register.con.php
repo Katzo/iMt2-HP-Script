@@ -105,7 +105,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 							<tr><td>'.$lang["misc"]["pass"].'</td><td><input class="bar" type="password" placeholder="'.$lang["misc"]["pass"].'" name="pass" id="pass" onblur="javascript:regcheck(\'pass\');" /></td><td id="passres"></td></tr>
 							<tr><td>'.$lang["misc"]["repeat"].'</td><td><input class="bar" type="password" placeholder="'.$lang["misc"]["repeat"].'" name="repeat" id="repeat" onblur="if ($(this).val() !=$(\'#pass\').val()) $(\'#repeatres\').addClass(\'error\').html(\''.$lang["reg"]["passrepeat_error"].'\')" /></td><td id="repeatres"></td></tr>
 							<tr><td>'.$lang["misc"]["email"].'</td><td><input class="bar" type="text" placeholder="'.$lang["misc"]["email"].'" name="email" id="email" onblur="javascript:regcheck(\'email\');" '.((isset($_POST["email"]))?'value="'.$_POST["email"].'" ':'').'/></td><td id="emailres"></td></tr>
-							<tr><td>'.$lang["misc"]["code"].'</td><td><input class="bar" type="text" placeholder="'.$lang["misc"]["code"].'" name="code" id="code" onblur="javascript:regcheck(\'code\');" '.((isset($_POST["code"]))?'value="'.$_POST["code"].'" ':'').'/></td><td id="emailres"></td></tr>
+							<tr><td>'.$lang["misc"]["code"].'</td><td><input class="bar" type="text" placeholder="'.$lang["misc"]["code"].'" name="code" id="code" onblur="javascript:regcheck(\'code\');" '.((isset($_POST["code"]))?'value="'.$_POST["code"].'" ':'').'/></td><td id="coderes"></td></tr>
 							'.((is_array($plugin_conf["captcha"]))?'<tr><td colspan="3">'.recaptcha_get_html($plugin_conf["captcha"]["public_key"]).'</td></tr>':'').'
 							<tr><td></td><td><input class="btn" type="submit" name="submit" value="'.$lang["misc"]["submit"].'"/></td><td></td>
 						</table></form>',
