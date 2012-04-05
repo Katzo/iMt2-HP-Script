@@ -81,7 +81,7 @@ echo '</div>			<div class="clear"></div>
 		<hr class="hr" />
 		<div id="footer">
 			<div class="left">
-				<p><a href="https://github.com/imermcmaps/iMt2-HP-Script">iMt2 Hp Script</a> by <a href="http://imer.cc">iMer</a></p>
+				<p><a href="https://github.com/imermcmaps/iMt2-HP-Script">iMt2 HP Script</a> by <a href="http://imer.cc">iMer</a> &middot; Design by <a href="http://energymt2.org/">Sirius</a></p>
 			</div>
 			<div class="right">';
 			foreach ($this->footerlist as $ar)
