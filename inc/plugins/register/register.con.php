@@ -34,7 +34,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 				) 
 			);
 		}
-		mysql_query('UPDATE '.$db->gamedb["account"].'.account WHERE id="'.$res->id.'" and status="EMAIL"');
+		mysql_query('UPDATE '.$db->gamedb["account"].'.account SET status="OK" WHERE id="'.$res->id.'" and status="EMAIL"');
 		if (mysql_affected_rows($db->game)) 
 			$content = array(
 				"head" => array(
