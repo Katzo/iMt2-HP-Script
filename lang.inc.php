@@ -14,6 +14,7 @@ $lang = array(
 		"tformat" => "d.m.y H:i"
 	),
 	"misc" => array(
+		"ok" => "&radic;",
 		"fillout" => "Please fill out all fields",
 		"coin" => "Coin",
 		"coins" => "Coins",

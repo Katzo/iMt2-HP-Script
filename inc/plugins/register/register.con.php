@@ -8,8 +8,6 @@
  * guess what it does.
  */
 include($config["path"]["includes"].$config["path"]["plugins"]."register/config.inc.php");
-// Note to self: https://developers.google.com/recaptcha/docs/php for captcha
-
 if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 	$content = array(
 		"head" => array(
@@ -102,10 +100,10 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 				"title" => $lang["misc"]["register"],
 			),
 			"middle" => array(
-				"text" => ((isset($regerror))?'<font class="error">'.$regerror.'</font>':'').'<form method="POST"><table>
+				"text" => ((isset($regerror))?'<font class="error">'.$regerror.'</font>':'').'<form method="POST"><table style="width:90%;">
 							<tr><td>'.$lang["misc"]["user"].'</td><td><input class="bar" type="text" placeholder="'.$lang["misc"]["user"].'" name="user" id="user" onblur="javascript:regcheck(\'user\');" '.((isset($_POST["user"]))?'value="'.$_POST["user"].'" ':'').'/></td><td id="userres"></td></tr>
 							<tr><td>'.$lang["misc"]["pass"].'</td><td><input class="bar" type="password" placeholder="'.$lang["misc"]["pass"].'" name="pass" id="pass" onblur="javascript:regcheck(\'pass\');" /></td><td id="passres"></td></tr>
-							<tr><td>'.$lang["misc"]["repeat"].'</td><td><input class="bar" type="password" placeholder="'.$lang["misc"]["repeat"].'" name="repeat" id="repeat" onblur="if ($(this).val() !=$(\'#pass\').val()) $(\'#repeatres\').addClass(\'error\').html(\'\')" /></td><td id="repeatres"></td></tr>
+							<tr><td>'.$lang["misc"]["repeat"].'</td><td><input class="bar" type="password" placeholder="'.$lang["misc"]["repeat"].'" name="repeat" id="repeat" onblur="if ($(this).val() !=$(\'#pass\').val()) $(\'#repeatres\').addClass(\'error\').html(\''.$lang["reg"]["passrepeat_error"].'\')" /></td><td id="repeatres"></td></tr>
 							<tr><td>'.$lang["misc"]["email"].'</td><td><input class="bar" type="text" placeholder="'.$lang["misc"]["email"].'" name="email" id="email" onblur="javascript:regcheck(\'email\');" '.((isset($_POST["email"]))?'value="'.$_POST["email"].'" ':'').'/></td><td id="emailres"></td></tr>
 							<tr><td>'.$lang["misc"]["code"].'</td><td><input class="bar" type="text" placeholder="'.$lang["misc"]["code"].'" name="code" id="code" onblur="javascript:regcheck(\'code\');" '.((isset($_POST["code"]))?'value="'.$_POST["code"].'" ':'').'/></td><td id="emailres"></td></tr>
 							'.((is_array($plugin_conf["captcha"]))?'<tr><td colspan="3">'.recaptcha_get_html($plugin_conf["captcha"]["public_key"]).'</td></tr>':'').'
