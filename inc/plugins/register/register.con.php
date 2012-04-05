@@ -56,7 +56,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 					$regerror .=$lang["reg"]["multiacc_error"]."<br/>";				
 			}
 			
-			if (!isset($regerror)){
+			if (empty($regerror)){
 				$qstrboni = "";
 				$qstrbonival = "";
 				foreach ($plugin_conf["itemshop_boni"] as $what_boni => $len_boni){
