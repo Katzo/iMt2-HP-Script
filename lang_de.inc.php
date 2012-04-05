@@ -55,6 +55,8 @@ $lang = array(
 		"emailbody" => "Hallo %username,\nUm deine Registrierung auf ".$config["settings"]["name"]." zu vervollständigen, musst du nur auf diesen Link klicken:\n".$config["settings"]["baseurl"].$urlmap["register"]."&key=%key\n\nDein ".$config["settings"]["name"]." Team",
 		"success_emailverify" => "Deine Registration war erfolgreich!<br/>Wir haben dir eine Email geschickt um deine Email Adresse zu bestätigen<br/>Bitte klicke den Link in der Email um deinen Account zu bestätigen",
 		"success" => "Deine Registration war erfolgreich!",
+		"verify_error" => "Verzifizierung fehlgeschlagen!<br/>Bitte kopiere den Link wenn du Probleme hast!",
+		"verify_success" => "Du hast deinen Account erfolgreich verifiziert!<br/>Du kannst nun mit ihm spielen!",
 	),
 );
 

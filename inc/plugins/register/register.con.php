@@ -17,6 +17,44 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 			"text" => $lang["reg"]["register_loggedin"],
 		)
 	);
+}elseif (isset($_GET["key"])) {
+	if (strlen($_GET["key"]) == 32){
+		if (isset($db->hp))
+			$q = mysql_query('SELECT id FROM '.$db->hpdb["homepage"].'.email_verify WHERE key="'.mysql_real_escape_string($_GET["key"]).'"',$db->hp);
+		else
+			$q = mysql_query('SELECT id FROM '.$db->hpdb["homepage"].'.email_verify WHERE key="'.mysql_real_escape_string($_GET["key"]).'"',$db->hp);
+		$res = mysql_fetch_object($q);
+		if (!$res) {
+			$content = array(
+				"head" => array(
+					"title" => $lang["misc"]["register"],
+				),
+				"middle" => array(
+					"text" => $lang["reg"]["verify_error"]
+				) 
+			);
+		}
+		mysql_query('UPDATE '.$db->gamedb["account"].'.account WHERE id="'.$res->id.'" and status="EMAIL"');
+		if (mysql_affected_rows($db->game)) 
+			$content = array(
+				"head" => array(
+					"title" => $lang["misc"]["register"],
+				),
+				"middle" => array(
+					"text" => $lang["reg"]["verify_success"]
+				) 
+			);
+		else
+			$content = array(
+				"head" => array(
+					"title" => $lang["misc"]["register"],
+				),
+				"middle" => array(
+					"text" => $lang["reg"]["verify_error"]
+				) 
+			);
+	} 
+		
 }elseif ($plugin_conf["enabled"]){
 	if (is_array($plugin_conf["captcha"])) include($config["path"]["includes"]."recaptchalib.php");
 	if (isset($_POST["submit"])){
