@@ -28,9 +28,10 @@ $config = array(
 	),
 	"settings" => array(
 		"title" => "ExampleMt2",
+		"name" => "ExampleMt2",
 		"baseurl" => "http://examplemt2.com",
 		"coin" => "cash", // Coin column in account table
-		
+		"email_header" => 'From: Noreply <noreply@examplemt2.com>' . "\r\n", // Mail headers for sending mails
 	),
 	"path" => array(
 		"includes" => "inc/", // General Path for includes

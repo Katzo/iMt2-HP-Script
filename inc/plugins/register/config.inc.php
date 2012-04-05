@@ -11,10 +11,18 @@ $plugin_conf=array(
 	"enabled" => true, // Enable Registration
 	"verifyemail" => false, // Enable Email Verification (You might run into trouble here if your mail server is blocked for some reason)
 	"multiemail" => true, // Multiple accounts per email
-	"minpwlen" => 6,
-	"maxpwlen" => 16,
+	"minpasslen" => 6,
+	"maxpasslen" => 16,
 	"minuserlen" => 4,
 	"maxuserlen" => 16,
+	"itemshop_boni" => array(
+		"gold_expire" => 7,
+		"silver_expire" => 7,
+		"safebox_expire" => 7,
+		"autoloot_expire" => 7,
+		"fish_mind_expire" => 7,
+		"money_drop_rate_expire" => 7,
+	),
 	"captcha" => false, // Enable captcha - its probably not necessary though unless your have problems with spammers
 	/*
 	 * If you want to use the captcha provide an array:

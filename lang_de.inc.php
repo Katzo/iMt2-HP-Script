@@ -43,6 +43,17 @@ $lang = array(
 		"register_loggedin" => 'Du hast schon einen Account!<br/>Wenn das nicht dein Account ist logge dich bitte aus: <a href="'.$urlmap["logout"].'">Logout</a>',
 		"passrepeat_error" => "Das Passwort und die Wiederholung stimmen nicht &uuml;berein.",
 		"account_exists" => "Ein Account mit diesem Namen existiert bereits.",
+		"codelen_error" => "Dein L&ouml;schcode muss 7 Zeichen lang sein.",
+		"email_error" => "Deine Email scheint nicht richtig zu sein",
+		"multiacc_error" => "Du hast bereits einen Account auf dieser Email",
+		"userminlen_error" => "Dein Username muss mindestens %len Zeichen lang sein",
+		"usermaxlen_error" => "Dein Username darf maximal %len Zeichen lang sein",
+		"passminlen_error" => "Dein Passwort muss mindestens %len Zeichen lang sein",
+		"passmaxlen_error" => "Dein Passwort darf maximal %len Zeichen lang sein",
+		"emailsubject" => "Deine Registration auf ".$config["settings"]["name"],
+		"emailbody" => "Hallo %username,\nUm deine Registrierung auf ".$config["settings"]["name"]." zu vervollständigen, musst du nur auf diesen Link klicken:\n".$config["settings"]["baseurl"].$urlmap["register"]."&key=%key\n\nDein ".$config["settings"]["name"]." Team",
+		"success_emailverify" => "Deine Registration war erfolgreich!<br/>Wir haben dir eine Email geschickt um deine Email Adresse zu bestätigen<br/>Bitte klicke den Link in der Email um deinen Account zu bestätigen",
+		"success" => "Deine Registration war erfolgreich!",
 	),
 );
 

@@ -36,12 +36,63 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
             	$regerror .= $lang["misc"]["fillout"]."<br/>";
             if (!($_POST["pass"] === $_POST["repeat"]))
             	$regerror .= $lang["reg"]["passrepeat_error"]."<br/>";
+            if (strlen($_POST["user"]) < $plugin_conf["minuserlen"])
+            	$regerror .= str_replace("%len",$plugin_conf["minuserlen"],$lang["reg"]["userminlen_error"]);
+            if (strlen($_POST["user"]) > $plugin_conf["maxuserlen"])
+            	$regerror .= str_replace("%len",$plugin_conf["maxuserlen"],$lang["reg"]["usermaxlen_error"]);
+            if (strlen($_POST["pass"]) < $plugin_conf["minpasslen"])
+            	$regerror .= str_replace("%len",$plugin_conf["minpasslen"],$lang["reg"]["passminlen_error"]);
+            if (strlen($_POST["pass"]) > $plugin_conf["maxpasslen"])
+            	$regerror .= str_replace("%len",$plugin_conf["maxpasslen"],$lang["reg"]["passmaxlen_error"]);
             if (strlen($_POST["code"]) != 7)
             	$regerror .= $lang["reg"]["codelen_error"]."<br/>";
-			$q = mysql_query('SELECT id FROM '.$db->gamedb["account"].'.account WHERE user="'.mysql_real_escape_string($_POST["user"]).'" LIMIT 1',$db->game);	
+            if(!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,5})^", $_POST["email"])) 
+            	$regerror .= $lang["reg"]["email_error"]."<br/>";
+			$q = mysql_query('SELECT id FROM '.$db->gamedb["account"].'.account WHERE login="'.mysql_real_escape_string($_POST["user"]).'" LIMIT 1',$db->game);	
 			if (mysql_num_rows($q))
 				$regerror .=$lang["reg"]["account_exists"]."<br/>";
-				
+			if (!$plugin_conf["multiacc"]){
+				$q = mysql_query('SELECT id FROM '.$db->gamedb["account"].'.account WHERE email="'.mysql_real_escape_string($_POST["email"]).'"');
+				if (mysql_num_rows($q)) 
+					$regerror .=$lang["reg"]["multiacc_error"]."<br/>";				
+			}
+			
+			if (!isset($regerror)){
+				$qstrboni = "";
+				$qstrbonival = "";
+				foreach ($plugin_conf["itemshop_boni"] as $what_boni => $len_boni){
+					$qstrboni = ",".$what_boni;
+					$qstrbonival = ",DATE_ADD(NOW(),INTERVAL ".$len_boni." DAY)";
+				}	
+				if ($plugin_conf["verify_email"]){
+					$key= md5(microtime().unique_id());
+
+					mysql_query('INSERT INTO '.$db->gamedb["account"].'.account (login,password,social_id,email,status'.$qstrboni.') VALUES("'.mysql_real_escape_string($_POST["user"]).'",PASSWORD("'.mysql_real_escape_string($_POST["pass"]).'"),"'.mysql_real_escape_string($_POST["code"]).'","'.mysql_real_escape_string($_POST["email"]).'","EMAIL"'.$qstrbonival.')',$db->game);
+					if (isset($db->hp)) 
+						mysql_query('INSERT INTO '.$db->hpdb["homepage"].'.email_verify VALUES("'.mysql_insert_id().'","'.$key.'")',$db->hp);
+					else
+						mysql_query('INSERT INTO '.$db->gamedb["homepage"].'.email_verify VALUES("'.mysql_insert_id().'","'.$key.'")',$db->game);
+					mail($_POST["email"],str_replace("%username",$_POST["user"],$lang["reg"]["emailsubject"],str_replace("%key",$_POST["key"],str_replace("%username",$_POST["user"],$lang["reg"]["emailbody"]))),$config["config"]["email_headers"]);
+					$content = array(
+						"head" => array(
+							"title" => $lang["misc"]["register"],
+						),
+						"middle" => array(
+							"text" => $lang["reg"]["success_emailverify"]
+						)
+					);
+				}else{
+					mysql_query('INSERT INTO '.$db->gamedb["account"].'.account (login,password,social_id,email'.$qstrboni.') VALUES("'.mysql_real_escape_string($_POST["user"]).'",PASSWORD("'.mysql_real_escape_string($_POST["pass"]).'"),"'.mysql_real_escape_string($_POST["code"]).'","'.mysql_real_escape_string($_POST["email"]).'",'.$qstrbonival.')',$db->game);
+					$content = array(
+						"head" => array(
+							"title" => $lang["misc"]["register"],
+						),
+						"middle" => array(
+							"text" => $lang["reg"]["success"]
+						)
+					);
+				}
+			}
 		}
 	}
 	if (!isset($_POST["submit"]) || isset($regerror)){

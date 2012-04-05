@@ -35,6 +35,7 @@ $lang = array(
 		"itemshop" => "Itemshop",
 		"settings" => "Settings",
 		"submit" => "Submit",
+		"banned" => "Your account is banned",
 	),
 	"reg" => array(
 		"captcha_error" => "The captcha you entered is wrong.",
@@ -42,6 +43,17 @@ $lang = array(
 		"register_loggedin" => 'You already have an account.<br/>If this is not your account please <a href="'.$urlmap["logout"].'">Logout</a>',
 		"passrepeat_error" => "The password and the repeated one didn't match.",
 		"account_exists" => "An account with this name already exists",
+		"codelen_error" => "Your code has to be 7 characters long",
+		"email_error" => "Your email doesnt seem to be valid",
+		"multiacc_error" => "There is already an account on this email",
+		"userminlen_error" => "Your username has to be at least %len characters long",
+		"usermaxlen_error" => "Your username must be under %len characters long",
+		"passminlen_error" => "Your password has to be at least %len characters long",
+		"passmaxlen_error" => "Your password must be under %len characters long",
+		"emailsubject" => "Your registration on ".$config["settings"]["name"],
+		"emailbody" => "Hello %username,\nTo complete your registration on ".$config["settings"]["name"]." you just have to click this link:\n".$config["settings"]["baseurl"].$urlmap["register"]."&key=%key\nYour ".$config["settings"]["name"]." Team",
+		"success_emailverify" => "Your Registration was sucessfull!<br/>An email was sent to verify your email adress is valid.<br/>Please click the link in the email to verify your account.",
+		"success" => "Your Registration was sucessfull!",
 	),
 );
 
