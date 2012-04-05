@@ -72,5 +72,6 @@ $urlmap = array(
 	"itemshop" => "?p=itemshop",
 	"char" => "?p=char",
 	"register" => "?p=register",
+	"logout" => "ajax.php?p=logout",
 );
 ?>

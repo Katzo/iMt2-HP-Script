@@ -18,7 +18,8 @@ if (isset($_SESSION["user"]) &&!empty($_SESSION["user"])) {
 						<div class="sb-sep"></div>
 						<a class="sb-link" href="'.$urlmap["char"].'">'.$lang["misc"]["char"].'</a>
 						<a class="sb-link" href="'.$urlmap["itemshop"].'">'.$lang["misc"]["itemshop"].'</a>
-						<a class="sb-link" href="'.$urlmap["settings"].'">'.$lang["misc"]["settings"].'</a>'
+						<a class="sb-link" href="'.$urlmap["settings"].'">'.$lang["misc"]["settings"].'</a>
+						<a class="sb-link" href="'.$urlmap["logout"].'">'.$lang["misc"]["logout"].'</a>'
 		),
 	); 
 }else{

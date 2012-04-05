@@ -19,7 +19,11 @@ if ($plugin_conf["enabled"]){
 			),
 			"middle" => array(
 				"text" => '<form method="POST"><table>
-							<tr><td>'.$lang["misc"]["user"].'</td><td><input type="text" placeholder="'.$lang["misc"]["user"].'"/></td><td id="ures"></td></tr>
+							<tr><td>'.$lang["misc"]["user"].'</td><td><input type="text" placeholder="'.$lang["misc"]["user"].'" name="user" id="user" onblur="javascript:checkreg(\'user\');"/></td><td id="userres"></td></tr>
+							<tr><td>'.$lang["misc"]["pass"].'</td><td><input type="text" placeholder="'.$lang["misc"]["pass"].'" name="pass" id="pass" onblur="javascript:checkreg(\'pass\');"/></td><td id="passres"></td></tr>
+							<tr><td>'.$lang["misc"]["repeat"].'</td><td><input type="text" placeholder="'.$lang["misc"]["repeat"].'" name="repeat" id="repeat" onblur="javascript:checkreg(\'repeat\');"/></td><td id="repeatres"></td></tr>
+							<tr><td>'.$lang["misc"]["email"].'</td><td><input type="text" placeholder="'.$lang["misc"]["email"].'" name="repeat" id="repeat" onblur="javascript:checkreg(\'email\');"/></td><td id="emailres"></td></tr>
+							<tr><td>'.$lang["misc"]["code"].'</td><td><input type="text" placeholder="'.$lang["misc"]["code"].'" name="repeat" id="repeat" onblur="javascript:checkreg(\'email\');"/></td><td id="emailres"></td></tr>
 						</table></form>',
 			)
 		);
