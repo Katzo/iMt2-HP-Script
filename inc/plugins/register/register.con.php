@@ -110,9 +110,9 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 					mysql_query('INSERT INTO '.$db->gamedb["account"].'.account (login,password,social_id,email,status'.$qstrboni.') VALUES("'.mysql_real_escape_string($_POST["user"]).'",PASSWORD("'.mysql_real_escape_string($_POST["pass"]).'"),"'.mysql_real_escape_string($_POST["code"]).'","'.mysql_real_escape_string($_POST["email"]).'","EMAIL"'.$qstrbonival.')',$db->game);
 					echo mysql_error();
 					if (isset($db->hp)) 
-						mysql_query('INSERT INTO '.$db->hpdb["homepage"].'.email_verify VALUES("'.mysql_insert_id().'","'.$key.'")',$db->hp);
+						mysql_query('INSERT INTO '.$db->hpdb["homepage"].'.email_verify VALUES("'.mysql_insert_id($db->game).'","'.$key.'")',$db->hp);
 					else
-						mysql_query('INSERT INTO '.$db->gamedb["homepage"].'.email_verify VALUES("'.mysql_insert_id().'","'.$key.'")',$db->game);
+						mysql_query('INSERT INTO '.$db->gamedb["homepage"].'.email_verify VALUES("'.mysql_insert_id($db->game).'","'.$key.'")',$db->game);
 					mail($_POST["email"],str_replace("%username",$_POST["user"],$lang["reg"]["emailsubject"]),str_replace("%key",$key,str_replace("%username",$_POST["user"],$lang["reg"]["emailbody"])),$config["settings"]["email_header"]);
 					$content = array(
 						"head" => array(
