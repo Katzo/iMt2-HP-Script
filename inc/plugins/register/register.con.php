@@ -37,13 +37,13 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
             if (!($_POST["pass"] === $_POST["repeat"]))
             	$regerror .= $lang["reg"]["passrepeat_error"]."<br/>";
             if (strlen($_POST["user"]) < $plugin_conf["minuserlen"])
-            	$regerror .= str_replace("%len",$plugin_conf["minuserlen"],$lang["reg"]["userminlen_error"]);
+            	$regerror .= str_replace("%len",$plugin_conf["minuserlen"],$lang["reg"]["userminlen_error"])."<br/>";
             if (strlen($_POST["user"]) > $plugin_conf["maxuserlen"])
-            	$regerror .= str_replace("%len",$plugin_conf["maxuserlen"],$lang["reg"]["usermaxlen_error"]);
+            	$regerror .= str_replace("%len",$plugin_conf["maxuserlen"],$lang["reg"]["usermaxlen_error"])."<br/>";
             if (strlen($_POST["pass"]) < $plugin_conf["minpasslen"])
-            	$regerror .= str_replace("%len",$plugin_conf["minpasslen"],$lang["reg"]["passminlen_error"]);
+            	$regerror .= str_replace("%len",$plugin_conf["minpasslen"],$lang["reg"]["passminlen_error"])."<br/>";
             if (strlen($_POST["pass"]) > $plugin_conf["maxpasslen"])
-            	$regerror .= str_replace("%len",$plugin_conf["maxpasslen"],$lang["reg"]["passmaxlen_error"]);
+            	$regerror .= str_replace("%len",$plugin_conf["maxpasslen"],$lang["reg"]["passmaxlen_error"])."<br/>";
             if (strlen($_POST["code"]) != 7)
             	$regerror .= $lang["reg"]["codelen_error"]."<br/>";
             if(!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,5})^", $_POST["email"])) 
