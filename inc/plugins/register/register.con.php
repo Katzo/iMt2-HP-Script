@@ -51,8 +51,9 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 			$q = mysql_query('SELECT id FROM '.$db->gamedb["account"].'.account WHERE login="'.mysql_real_escape_string($_POST["user"]).'" LIMIT 1',$db->game);	
 			if (mysql_num_rows($q))
 				$regerror .=$lang["reg"]["account_exists"]."<br/>";
-			if (!$plugin_conf["multiacc"]){
+			if (!$plugin_conf["multiemail"]){
 				$q = mysql_query('SELECT id FROM '.$db->gamedb["account"].'.account WHERE email="'.mysql_real_escape_string($_POST["email"]).'"');
+				echo mysql_error();
 				if (mysql_num_rows($q)) 
 					$regerror .=$lang["reg"]["multiacc_error"]."<br/>";				
 			}
