@@ -24,5 +24,5 @@ $build->addJS("function regcheck(what){
 	  },
 	});
 }
-}");
+");
 ?>
