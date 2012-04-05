@@ -1,7 +1,7 @@
 <?php
-if (!isset($_GET["what"]) || empty($_GET["what"])) exit;
+if (!isset($_POST["what"]) || empty($_POST["what"])) exit;
 include($config["path"]["includes"].$config["path"]["plugins"]."register/config.inc.php");
-switch ($_GET["what"]){
+switch ($_POST["what"]){
 	case "user":
 		if (strlen($_POST["value"]) < $plugin_conf["minuserlen"])
        		die(json_encode(array("error" => str_replace("%len",$plugin_conf["minuserlen"],$lang["reg"]["userminlen_error"]))));
@@ -25,7 +25,7 @@ switch ($_GET["what"]){
          die(json_encode(array("ok" => $lang["misc"]["ok"])));
          break;
     case "code":
-    	if (strlen($_GET["value"]) != 7)
+    	if (strlen($_POST["value"]) != 7)
     		die(json_encode(array("error" => $lang["reg"]["codelen_error"])));
     	die(json_encode(array("ok" => $lang["misc"]["ok"])));
 }
