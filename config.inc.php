@@ -68,5 +68,8 @@ $urlmap = array(
 	"forgot_password" => "?p=forgot", // URLs for Stuff - you dont have to search in every config to change them ..
 	"donate" => "?p=donate", 
 	"support" => "http://support.examplemt2.org", 
+	"settings" => "?p=settings", 
+	"itemshop" => "?p=itemshop",
+	"char" => "?p=char",
 );
 ?>

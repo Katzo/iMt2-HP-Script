@@ -27,6 +27,9 @@ $lang = array(
 		"hello" => "Hello <b>%username</b>,",
 		"youcoin" => "You have <b>%coins</b> %coinname!",
 		"donate" => "Donate?",
+		"char" => "Your characters",
+		"itemshop" => "Itemshop",
+		"settings" => "Settings",
 	),
 );
 
