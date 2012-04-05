@@ -36,7 +36,7 @@ $lang = array(
 		"settings" => "Einstellungen",
 		"captcha_error" => "Den Captcha, den du eingegeben hast, stimmt nicht.",
 		"register_closed" => "Die Registration ist im Moment leider geschlossen.<br/>Bitte versuche es sp&auml;ter nocheinmal, da dies h&ouml;chstwahrscheinlich nur eine tempor&auml;re Ma&szlig;nahme ist.",
-		"register_loggedin" => 'Du hast schon einen Account!<br/>Wenn das nicht dein Account ist logge dich bitte aus: <a href="'.$urlmap["logout"].'">'.$lang["misc"]["logout"].'</a>',
+		"register_loggedin" => 'Du hast schon einen Account!<br/>Wenn das nicht dein Account ist logge dich bitte aus: <a href="'.$urlmap["logout"].'">Logout</a>',
 		"submit" => "Absenden",
 	),
 );

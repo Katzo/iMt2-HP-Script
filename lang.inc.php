@@ -36,7 +36,7 @@ $lang = array(
 		"settings" => "Settings",
 		"captcha_error" => "The captcha you entered is wrong.",
 		"register_closed" => "The registration is currently closed<br/>Please check back later cause this is probably just temporary.",
-		"register_loggedin" => 'You already have an account.<br/>If this is not your account please <a href="'.$urlmap["logout"].'">'.$lang["misc"]["logout"].'</a>',
+		"register_loggedin" => 'You already have an account.<br/>If this is not your account please <a href="'.$urlmap["logout"].'">Logout</a>',
 		"submit" => "Submit",
 	),
 );
