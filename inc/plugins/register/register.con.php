@@ -11,7 +11,16 @@ include($config["path"]["includes"].$config["path"]["plugins"]."register/config.
 // Note to self: https://developers.google.com/recaptcha/docs/php for captcha
 if ($plugin_conf["enabled"]){
 	if (isset($_POST["submit"])){
-		// Reg here
+		if (isset($_POST["user"]) && isset($_POST["pass"]) && isset($_POST["repeat"]) && isset($_POST["email"]) && isset($_POST["code"]) && (!is_array($plugin_conf["captcha"]) || isset($_POST["recaptcha_response_field"]))) {
+			if (is_array($plugin_conf["captcha"])){
+				$captcha_check = recaptcha_check_answer ($plugin_conf["captcha"]["private_key"],
+                                        $_SERVER["REMOTE_ADDR"],
+                                        $_POST["recaptcha_challenge_field"],
+                                        $_POST["recaptcha_response_field"]);
+                if (!$captcha_check->is_valid) $regerror = $lang["misc"]["captcha_error"];
+            }
+				
+		}
 	}
 	if (!isset($_POST["submit"]) || isset($regerror)){
 		if (is_array($plugin_conf["captcha"])) include($config["path"]["includes"]."recaptchalib.php");
@@ -20,7 +29,7 @@ if ($plugin_conf["enabled"]){
 				"title" => $lang["misc"]["register"],
 			),
 			"middle" => array(
-				"text" => '<form method="POST"><table>
+				"text" => ((isset($regerror))?'<font class="error">'.$regerror.'</font>':'').'<form method="POST"><table>
 							<tr><td>'.$lang["misc"]["user"].'</td><td><input class="bar" type="text" placeholder="'.$lang["misc"]["user"].'" name="user" id="user" onblur="javascript:regcheck(\'user\');" '.((isset($_POST["user"]))?'value="'.$_POST["user"].'" ':'').'/></td><td id="userres"></td></tr>
 							<tr><td>'.$lang["misc"]["pass"].'</td><td><input class="bar" type="text" placeholder="'.$lang["misc"]["pass"].'" name="pass" id="pass" onblur="javascript:regcheck(\'pass\');" /></td><td id="passres"></td></tr>
 							<tr><td>'.$lang["misc"]["repeat"].'</td><td><input class="bar" type="text" placeholder="'.$lang["misc"]["repeat"].'" name="repeat" id="repeat" onblur="if ($(this).val() !=$(\'#pass\').val()) $(\'#repeatres\').addClass(\'error\').html(\'\')" /></td><td id="repeatres"></td></tr>
