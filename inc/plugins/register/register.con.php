@@ -72,7 +72,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 						mysql_query('INSERT INTO '.$db->hpdb["homepage"].'.email_verify VALUES("'.mysql_insert_id().'","'.$key.'")',$db->hp);
 					else
 						mysql_query('INSERT INTO '.$db->gamedb["homepage"].'.email_verify VALUES("'.mysql_insert_id().'","'.$key.'")',$db->game);
-					mail($_POST["email"],str_replace("%username",$_POST["user"],$lang["reg"]["emailsubject"],str_replace("%key",$_POST["key"],str_replace("%username",$_POST["user"],$lang["reg"]["emailbody"]))),$config["config"]["email_headers"]);
+					mail($_POST["email"],str_replace("%username",$_POST["user"],$lang["reg"]["emailsubject"],str_replace("%key",$key,str_replace("%username",$_POST["user"],$lang["reg"]["emailbody"]))),$config["settings"]["email_headers"]);
 					$content = array(
 						"head" => array(
 							"title" => $lang["misc"]["register"],
