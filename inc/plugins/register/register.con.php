@@ -67,6 +67,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 					$key= md5(microtime().uniqid());
 
 					mysql_query('INSERT INTO '.$db->gamedb["account"].'.account (login,password,social_id,email,status'.$qstrboni.') VALUES("'.mysql_real_escape_string($_POST["user"]).'",PASSWORD("'.mysql_real_escape_string($_POST["pass"]).'"),"'.mysql_real_escape_string($_POST["code"]).'","'.mysql_real_escape_string($_POST["email"]).'","EMAIL"'.$qstrbonival.')',$db->game);
+					echo mysql_error();
 					if (isset($db->hp)) 
 						mysql_query('INSERT INTO '.$db->hpdb["homepage"].'.email_verify VALUES("'.mysql_insert_id().'","'.$key.'")',$db->hp);
 					else
