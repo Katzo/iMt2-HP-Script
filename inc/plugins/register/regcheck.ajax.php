@@ -18,9 +18,9 @@ switch ($_POST["what"]){
         die(json_encode(array("ok" => $lang["misc"]["ok"])));
 		break;
 	case "pass":
-		 if (strlen($_POST["pass"]) < $plugin_conf["minpasslen"])
+		 if (strlen($_POST["value"]) < $plugin_conf["minpasslen"])
            	die(json_encode(array("error" => str_replace("%len",$plugin_conf["minpasslen"],$lang["reg"]["passminlen_error"]))));
-         if (strlen($_POST["pass"]) > $plugin_conf["maxpasslen"])
+         if (strlen($_POST["value"]) > $plugin_conf["maxpasslen"])
            		die(json_encode(array("error" => str_replace("%len",$plugin_conf["maxpasslen"],$lang["reg"]["passmaxlen_error"]))));
          die(json_encode(array("ok" => $lang["misc"]["ok"])));
          break;
