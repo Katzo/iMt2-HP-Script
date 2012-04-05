@@ -9,7 +9,18 @@
  */
 include($config["path"]["includes"].$config["path"]["plugins"]."register/config.inc.php");
 // Note to self: https://developers.google.com/recaptcha/docs/php for captcha
-if ($plugin_conf["enabled"]){
+
+if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
+	$content = array(
+		"head" => array(
+			"title" => $lang["misc"]["register"],
+		),
+		"middle" => array(
+			"text" => $lang["misc"]["register_loggedin"],
+		)
+	);
+}elseif ($plugin_conf["enabled"]){
+	if (is_array($plugin_conf["captcha"])) include($config["path"]["includes"]."recaptchalib.php");
 	if (isset($_POST["submit"])){
 		if (isset($_POST["user"]) && isset($_POST["pass"]) && isset($_POST["repeat"]) && isset($_POST["email"]) && isset($_POST["code"]) && (!is_array($plugin_conf["captcha"]) || isset($_POST["recaptcha_response_field"]))) {
 			if (is_array($plugin_conf["captcha"])){
@@ -23,7 +34,6 @@ if ($plugin_conf["enabled"]){
 		}
 	}
 	if (!isset($_POST["submit"]) || isset($regerror)){
-		if (is_array($plugin_conf["captcha"])) include($config["path"]["includes"]."recaptchalib.php");
 		$content = array(
 			"head" => array(
 				"title" => $lang["misc"]["register"],

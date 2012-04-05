@@ -35,6 +35,7 @@ $lang = array(
 		"itemshop" => "Itemshop",
 		"settings" => "Settings",
 		"register_closed" => "The registration is currently closed<br/>Please check back later cause this is probably just temporary.",
+		"register_loggedin" => 'You already have an account.<br/>If this is not your account please <a href="'.$urlmap["logout"].'">'.$lang["misc"]["logout"].'</a>',
 		"submit" => "Submit",
 	),
 );
