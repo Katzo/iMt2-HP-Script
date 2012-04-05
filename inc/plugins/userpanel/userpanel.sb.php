@@ -6,7 +6,7 @@ if (isset($_SESSION["user"]) &&!empty($_SESSION["user"])) {
 			"title" => $plugin_conf["title_loggedin"],
 		),
 		"middle" => array(
-			"text" => str_replace("%username",$_SESSION["user"],$lang["misc"]["hello"]).'<br/>'.str_replace("%coinname",$lang["misc"]["coins"],str_replace("%coins",$_SESSION["coins"],$lang["misc"]["youcoin"])).'<a href="'.$urlmap["donate"].'">'.$lang["misc"]["donate"].'</a><br/>
+			"text" => str_replace("%username",$_SESSION["user"],$lang["misc"]["hello"]).'<br/>'.str_replace("%coinname",$lang["misc"]["coins"],str_replace("%coins",$_SESSION["coins"],$lang["misc"]["youcoin"])).' <a href="'.$urlmap["donate"].'">'.$lang["misc"]["donate"].'</a><br/>
 						<div class="sb-sep"></div>
 						<a class="sb-link" href="'.$urlmap["char"].'">'.$lang["misc"]["char"].'</a>
 						<a class="sb-link" href="'.$urlmap["itemshop"].'">'.$lang["misc"]["itemshop"].'</a>
