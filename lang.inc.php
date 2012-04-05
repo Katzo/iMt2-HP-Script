@@ -42,7 +42,7 @@ $lang = array(
 		"captcha_error" => "The captcha you entered is wrong.",
 		"register_closed" => "The registration is currently closed<br/>Please check back later cause this is probably just temporary.",
 		"register_loggedin" => 'You already have an account.<br/>If this is not your account please <a href="'.$urlmap["logout"].'">Logout</a>',
-		"passrepeat_error" => "The password and the repeated one didn't match.",
+		"passrepeat_error" => "The password and the repeated one didnt match.",
 		"account_exists" => "An account with this name already exists",
 		"codelen_error" => "Your code has to be 7 characters long",
 		"email_error" => "Your email doesnt seem to be valid",
