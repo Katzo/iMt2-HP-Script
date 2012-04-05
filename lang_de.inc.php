@@ -35,6 +35,7 @@ $lang = array(
 		"itemshop" => "Itemshop",
 		"settings" => "Einstellungen",
 		"register_closed" => "Die Registration ist im Moment leider geschlossen.<br/>Bitte versuche es sp&auml;ter nocheinmal, da dies h&ouml;chstwahrscheinlich nur eine tempor&auml;re Ma&szlig;nahme ist.",
+		"submit" => "Absenden",
 	),
 );
 
