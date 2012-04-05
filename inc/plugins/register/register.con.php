@@ -23,6 +23,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 			$q = mysql_query('SELECT id FROM '.$db->hpdb["homepage"].'.email_verify WHERE key="'.mysql_real_escape_string($_GET["key"]).'"',$db->hp);
 		else
 			$q = mysql_query('SELECT id FROM '.$db->gamedb["homepage"].'.email_verify WHERE key="'.mysql_real_escape_string($_GET["key"]).'"',$db->game);
+		echo mysql_error();
 		$res = mysql_fetch_object($q);
 		if (!$res) {
 			$content = array(
