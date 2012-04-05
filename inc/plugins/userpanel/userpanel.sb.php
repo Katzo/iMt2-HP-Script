@@ -1,4 +1,12 @@
 <?php
+/*
+ * This belongs to iMers iMt2-HP-Script
+ * https://github.com/imermcmaps/iMt2-HP-Script
+ * iMer.cc 2012
+ * 
+ * This is a default plugin called userpanel
+ * It shows a login thingy or a user logged in stuff in the sidebar 
+ */
 include($config["path"]["includes"].$config["path"]["plugins"]."userpanel/config.inc.php");
 if (isset($_SESSION["user"]) &&!empty($_SESSION["user"])) {
 		$content = array(
@@ -24,7 +32,7 @@ if (isset($_SESSION["user"]) &&!empty($_SESSION["user"])) {
 							<input class="bar" type="text" name="user" placeholder="'.$lang["misc"]["user"].'" />
 							<input class="bar" type="password" name="pass" placeholder="'.$lang["misc"]["pass"].'" />
 							<input class="btn left" type="submit" name="submit" value="'.$lang["misc"]["login"].'" />
-							</form><form method="link" action="'.$plugin_conf["register_link"].'">
+							</form><form method="link" action="'.$urlmap["register"].'">
 							<input class="btn right" type="submit" name="register" value="'.$lang["misc"]["register"].'" />
 							<div class="clear"></div></form>
 						<div class="sb-sep"></div>

@@ -3,6 +3,8 @@
  * This belongs to iMers iMt2-HP-Script
  * https://github.com/imermcmaps/iMt2-HP-Script
  * iMer.cc 2012
+ * 
+ * It's part of the userpanel plugin buts probably more basic (its made for it though!)
  */
 if (!isset($_POST["user"]) || !isset($_POST["pass"]))
 	exit;

@@ -8,7 +8,7 @@ echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.or
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>'.$this->config["settings"]["title"].'</title>
+    <title>'.$config["settings"]["title"].'</title>
     <link rel="shortcut icon" href="favicon.gif" />
     <link rel="icon" type="image/gif" href="favicon.gif" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
@@ -17,7 +17,7 @@ echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.or
 <body>
 	 <div id="wrapper">
 		<div id="header">
-			<a id="logo" href="'.$this->config["settings"]["baseurl"].'" title="Logo"><img src="images/logo/logo.png" alt="Logo" /></a>
+			<a id="logo" href="'.$config["settings"]["baseurl"].'" title="Logo"><img src="images/logo/logo.png" alt="Logo" /></a>
 		</div>
 		<div id="navbar">
 		<div class="clearfix"></div>

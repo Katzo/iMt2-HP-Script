@@ -71,5 +71,6 @@ $urlmap = array(
 	"settings" => "?p=settings", 
 	"itemshop" => "?p=itemshop",
 	"char" => "?p=char",
+	"register" => "?p=register",
 );
 ?>
