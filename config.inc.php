@@ -42,10 +42,16 @@ $config = array(
 $navilinks = array(
 	"header" =>array(
 		array(
-			"url" => "index.php?p=home",
+			"url" => "?p=home",
 			"text" => "Home",
 			"page" => "home",
 		),
+		array( // Yay for variable header MESS! :(
+			"url" => ((isset($_SESSION["user"]) && !empty($_SESSION["user"]))?"?p=settings":"?p=register"),
+			"text" => ((isset($_SESSION["user"]) && !empty($_SESSION["user"]))?"Settings":"Register"),
+			"page" => ((isset($_SESSION["user"]) && !empty($_SESSION["user"]))?"settings":"register"),
+		),
+		
 	),
 	"footer" => array(
 	)
@@ -55,8 +61,13 @@ $pages = array(
 //   v this is $_GET["p"]
 	"home" => array(
 		"title" => false, // Overwrite title
-		"plugins" => array("statistics") // List all plugins you want to load
+		"plugins" => array("statistics","online_status","wbb_news","userpanel") // List all plugins you want to load
 	),
+	"register" => array(
+		"title" => false, // Overwrite title
+		"plugins" => array("statistics","online_status","register","userpanel") // List all plugins you want to load
+	),
+	
 );
 // Ajax
 $ajax = array(
