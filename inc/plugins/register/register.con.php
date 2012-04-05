@@ -33,28 +33,30 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 					"text" => $lang["reg"]["verify_error"]
 				) 
 			);
+		}else{
+			mysql_query('UPDATE '.$db->gamedb["account"].'.account SET status="OK" WHERE id="'.$res->id.'" and status="EMAIL"',$db->game);
+			if (mysql_affected_rows($db->game)) 
+				$content = array(
+					"head" => array(
+						"title" => $lang["misc"]["register"],
+					),
+					"middle" => array(
+						"text" => $lang["reg"]["verify_success"]
+					) 
+				);
+			else
+				$content = array(
+					"head" => array(
+						"title" => $lang["misc"]["register"],
+					),
+					"middle" => array(
+						"text" => $lang["reg"]["verify_error"]
+					) 
+				);
 		}
-		mysql_query('UPDATE '.$db->gamedb["account"].'.account SET status="OK" WHERE id="'.$res->id.'" and status="EMAIL"',$db->game);
-		if (mysql_affected_rows($db->game)) 
-			$content = array(
-				"head" => array(
-					"title" => $lang["misc"]["register"],
-				),
-				"middle" => array(
-					"text" => $lang["reg"]["verify_success"]
-				) 
-			);
-		else
-			$content = array(
-				"head" => array(
-					"title" => $lang["misc"]["register"],
-				),
-				"middle" => array(
-					"text" => $lang["reg"]["verify_error"]
-				) 
-			);
 	} 
-		
+	
+	
 }elseif ($plugin_conf["enabled"]){
 	if (is_array($plugin_conf["captcha"])) include($config["path"]["includes"]."recaptchalib.php");
 	if (isset($_POST["submit"])){
