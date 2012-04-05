@@ -34,10 +34,14 @@ $lang = array(
 		"char" => "Your characters",
 		"itemshop" => "Itemshop",
 		"settings" => "Settings",
+		"submit" => "Submit",
+	),
+	"reg" => array(
 		"captcha_error" => "The captcha you entered is wrong.",
 		"register_closed" => "The registration is currently closed<br/>Please check back later cause this is probably just temporary.",
 		"register_loggedin" => 'You already have an account.<br/>If this is not your account please <a href="'.$urlmap["logout"].'">Logout</a>',
-		"submit" => "Submit",
+		"passrepeat_error" => "The password and the repeated one didn't match.",
+		"account_exists" => "An account with this name already exists",
 	),
 );
 

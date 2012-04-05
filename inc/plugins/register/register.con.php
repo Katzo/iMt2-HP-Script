@@ -16,20 +16,31 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 			"title" => $lang["misc"]["register"],
 		),
 		"middle" => array(
-			"text" => $lang["misc"]["register_loggedin"],
+			"text" => $lang["reg"]["register_loggedin"],
 		)
 	);
 }elseif ($plugin_conf["enabled"]){
 	if (is_array($plugin_conf["captcha"])) include($config["path"]["includes"]."recaptchalib.php");
 	if (isset($_POST["submit"])){
+		
 		if (isset($_POST["user"]) && isset($_POST["pass"]) && isset($_POST["repeat"]) && isset($_POST["email"]) && isset($_POST["code"]) && (!is_array($plugin_conf["captcha"]) || isset($_POST["recaptcha_response_field"]))) {
+			$regerror="";
 			if (is_array($plugin_conf["captcha"])){
 				$captcha_check = recaptcha_check_answer ($plugin_conf["captcha"]["private_key"],
                                         $_SERVER["REMOTE_ADDR"],
                                         $_POST["recaptcha_challenge_field"],
                                         $_POST["recaptcha_response_field"]);
-                if (!$captcha_check->is_valid) $regerror = $lang["misc"]["captcha_error"];
+                if (!$captcha_check->is_valid) $regerror .= $lang["reg"]["captcha_error"]."<br/>";
             }
+            if ((empty($_POST["user"]) || empty($_POST["pass"]) || empty($_POST["repeat"]) || empty($_POST["email"]) || empty($_POST["code"]))) 
+            	$regerror .= $lang["misc"]["fillout"]."<br/>";
+            if (!($_POST["pass"] === $_POST["repeat"]))
+            	$regerror .= $lang["reg"]["passrepeat_error"]."<br/>";
+            if (strlen($_POST["code"]) != 7)
+            	$regerror .= $lang["reg"]["codelen_error"]."<br/>";
+			$q = mysql_query('SELECT id FROM '.$db->gamedb["account"].'.account WHERE user="'.mysql_real_escape_string($_POST["user"]).'" LIMIT 1',$db->game);	
+			if (mysql_num_rows($q))
+				$regerror .=$lang["reg"]["account_exists"]."<br/>";
 				
 		}
 	}
@@ -57,7 +68,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 			"title" => $lang["misc"]["register"],
 		),
 		"middle" => array(
-			"text" => $lang["misc"]["register_closed"],
+			"text" => $lang["reg"]["register_closed"],
 		)
 	);
 unset($plugin_conf);
