@@ -136,7 +136,7 @@ class build {
 		 * 
 		 */
 		if (file_exists($what))
-			$this->lsidebarlist[] = $what;
+			$this->rsidebarlist[] = $what;
 		else
 			$this->error("Tried to add the file ".$what." to the right sidebar, but i could find it :(");
 	}
