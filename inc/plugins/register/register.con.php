@@ -63,7 +63,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 					$qstrboni = ",".$what_boni;
 					$qstrbonival = ",DATE_ADD(NOW(),INTERVAL ".$len_boni." DAY)";
 				}	
-				if ($plugin_conf["verify_email"]){
+				if ($plugin_conf["verifyemail"]){
 					$key= md5(microtime().unique_id());
 
 					mysql_query('INSERT INTO '.$db->gamedb["account"].'.account (login,password,social_id,email,status'.$qstrboni.') VALUES("'.mysql_real_escape_string($_POST["user"]).'",PASSWORD("'.mysql_real_escape_string($_POST["pass"]).'"),"'.mysql_real_escape_string($_POST["code"]).'","'.mysql_real_escape_string($_POST["email"]).'","EMAIL"'.$qstrbonival.')',$db->game);
