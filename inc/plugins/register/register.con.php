@@ -94,7 +94,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 			}
 		}
 	}
-	if (!isset($_POST["submit"]) || isset($regerror)){
+	if (!isset($_POST["submit"]) || (isset($regerror) && $regerror != "")){
 		$content = array(
 			"head" => array(
 				"title" => $lang["misc"]["register"],
