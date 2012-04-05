@@ -30,6 +30,7 @@ $lang = array(
 		"char" => "Your characters",
 		"itemshop" => "Itemshop",
 		"settings" => "Settings",
+		"register_closed" => "The registration is currently closed<br/>Please check back later cause this is probably just temporary.",
 	),
 );
 
