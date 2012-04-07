@@ -7,7 +7,7 @@
     elseif (!mysql_errno()) // bla code
     //table exist*/
 echo "<!-- Building ranking cache! -->";
-$q = mysql_query("SELECT id,name,level,job FROM ".$db->gamedb["player"].".player LEFT JOIN ".$db->gamedb["common"].".gmlist ON gmlist.mName = player.name WHERE gmlist.mName is null AND account.status = 'OK' ORDER BY level DESC,exp DESC",$db->game); 
+$q = mysql_query("SELECT player.id,player.name,player.level,player.job FROM ".$db->gamedb["player"].".player LEFT JOIN ".$db->gamedb["common"].".gmlist ON gmlist.mName = player.name WHERE gmlist.mName is null AND account.status = 'OK' ORDER BY level DESC,exp DESC",$db->game); 
 $i=0; // General
 $wi=0; // Warrior
 $ai=0; // Assasin (spelling..)
