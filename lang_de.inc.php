@@ -22,6 +22,7 @@ $lang = array(
 		"pass" => "Passwort",
 		"repeat" => "Wiederholen",
 		"user" => "Username",
+		"level" => "Level",
 		"email" => "Email",
 		"code" => "L&ouml;schcode",
 		"login" => "Login",
