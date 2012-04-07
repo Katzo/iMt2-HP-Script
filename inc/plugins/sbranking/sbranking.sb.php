@@ -24,9 +24,9 @@ if ($plugin_conf["buildcache"]) {
 		// I want to say this again. IT IS REALLY STUPID TO DO THIS (FOR LARGER DATABASES!)
 }
 if (isset($db->hp)) 
-	$q = mysql_query("SELECT i,name,level FROM ".$db->hpdb["homepage"].".ranking_cache ORDER BY i DESC LIMIT 10",$db->hp);
+	$q = mysql_query("SELECT i,name,level FROM ".$db->hpdb["homepage"].".ranking_cache ORDER BY i ASC LIMIT 10",$db->hp);
 else
-	$q = mysql_query("SELECT i,name,level FROM ".$db->gamedb["homepage"].".ranking_cache ORDER BY i DESC LIMIT 10",$db->game);
+	$q = mysql_query("SELECT i,name,level FROM ".$db->gamedb["homepage"].".ranking_cache ORDER BY i ASC LIMIT 10",$db->game);
 $b = "";
 while ($res = mysql_fetch_object($q))
 	$b .="<tr><td>".$res->i."</td><td>".$res->name."</td><td>".$res->level."</td></tr>";
