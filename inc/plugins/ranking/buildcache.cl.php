@@ -6,6 +6,7 @@ if (isset($config["db"]["hp"])) {
 	$hp = mysql_connect($config["db"]["hp"]["host"],$config["db"]["hp"]["user"],$config["db"]["hp"]["pass"]);
 }
 $q = mysql_query("SELECT id,name,level,job FROM ".$config["db"]["game"]["db"]["player"].".player JOIN ".$config["db"]["game"]["db"]["account"].".account ON player.account_id = account.id LEFT JOIN ".$config["db"]["game"]["db"]["common"].".gmlist ON gmlist.mName = player.name WHERE gmlist.mName is null AND account.status = 'OK' ORDER BY level DESC,exp DESC",$game);
+echo mysql_error();
 $i=0; // General
 $wi=0; // Warrior
 $ai=0; // Assasin (spelling..)
