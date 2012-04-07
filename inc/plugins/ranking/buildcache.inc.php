@@ -43,7 +43,7 @@ while ($res = mysql_fetch_object($q)) {
 		mysql_query("REPLACE INTO ".$db->gamedb["homepage"].".ranking_cache VALUES('".$i."','".$jr."','".$res->id."','".$res->name."','".$res->job."','".$res->level."','".time()."')",$db->game);
 }
 if (isset($db->hp))
-	mysql_query("ALTER TABLE ".$db->hpdb["homepage"]."ranking_cache comment='".time()."'",$db->hp);
+	mysql_query("ALTER TABLE ".$db->hpdb["homepage"].".ranking_cache comment='".time()."'",$db->hp);
 else
-	mysql_query("ALTER TABLE ".$db->gamedb["homepage"]."ranking_cache comment='".time()."'",$db->game);
+	mysql_query("ALTER TABLE ".$db->gamedb["homepage"].".ranking_cache comment='".time()."'",$db->game);
 ?>
