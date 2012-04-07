@@ -6,6 +6,7 @@
     }
     elseif (!mysql_errno()) // bla code
     //table exist*/
+echo "<!-- Building ranking cache! -->";
 if (isset($db->hp))
 	$q = mysql_query("SELECT id,name,level,job FROM ".$db->gamedb["player"].".player ORDER BY level DESC,exp DESC",$db->game); // can't do this with joins :/
 else
