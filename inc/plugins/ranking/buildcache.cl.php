@@ -32,12 +32,12 @@ while ($res = mysql_fetch_object($q)) {
 	// I dont need any fancy rebuilt only things that didnt get rebuilt yet protection here.
 	// It just rebuilts the whole table.
 	if (isset($hp))
-		mysql_query("REPLACE INTO ".$config["db"]["hp"]["db"]["player"].".ranking_cache VALUES('".$i."','".$jr."','".$res->id."','".$res->name."','".$res->job."','".$res->level."','".time()."')",$hp);
+		mysql_query("REPLACE INTO ".$config["db"]["hp"]["db"]["homepage"].".ranking_cache VALUES('".$i."','".$jr."','".$res->id."','".$res->name."','".$res->job."','".$res->level."','".time()."')",$hp);
 	else
-		mysql_query("REPLACE INTO ".$config["db"]["game"]["db"]["player"].".ranking_cache VALUES('".$i."','".$jr."','".$res->id."','".$res->name."','".$res->job."','".$res->level."','".time()."')",$game);
+		mysql_query("REPLACE INTO ".$config["db"]["game"]["db"]["homepage"].".ranking_cache VALUES('".$i."','".$jr."','".$res->id."','".$res->name."','".$res->job."','".$res->level."','".time()."')",$game);
 }
 if (isset($hp))
-	mysql_query("ALTER TABLE ".$config["db"]["hp"]["db"]["player"]."ranking_cache comment='".time()."'",$hp);
+	mysql_query("ALTER TABLE ".$config["db"]["hp"]["db"]["player"].".ranking_cache comment='".time()."'",$hp);
 else
-	mysql_query("ALTER TABLE ".$config["db"]["game"]["db"]["player"]."ranking_cache comment='".time()."'",$game);
+	mysql_query("ALTER TABLE ".$config["db"]["game"]["db"]["player"].".ranking_cache comment='".time()."'",$game);
 ?>
