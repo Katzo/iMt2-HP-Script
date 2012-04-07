@@ -11,7 +11,12 @@
 $plugin_conf = array(
 	"wbbcon" => "game", // Name of the wbb connection
 	"wbbdb" => "board", // Name of wbb database index
-	"id" => 1, // Boards (including sub-boards) from which threads are taken
+	"id" => 1,
+	/* Provide a single id or an array with the board ids from where threads are taken (Sub Forums included!)
+	 * "id" => 1,
+	 * or 
+	 * "id" => array(1,2,3,4,5,6,7),
+	 */
 	"count" => 5, // how many
 	"boardid" => 1,
 	"installationid" => 1,

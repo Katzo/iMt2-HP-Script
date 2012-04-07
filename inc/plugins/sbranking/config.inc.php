@@ -18,7 +18,7 @@ $plugin_conf = array(
 	/*
 	 * I do NOT recommend using this for larger databases.
 	 * You should set up a cronjob that executes:
-	 * php /path/to/website/includes/plugins/statistics/buildcache.cl.php
+	 * php /path/to/website/inc/plugins/statistics/buildcache.cl.php
 	 */
 );
 ?>

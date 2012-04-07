@@ -6,7 +6,7 @@
     }
     elseif (!mysql_errno()) // bla code
     //table exist*/
-$q = mysql_query("SELECT id,name,level,job FROM ".$db->gamedb["player"].".player ORDER BY level DESC",$db->game);
+$q = mysql_query("SELECT id,name,level,job FROM ".$db->gamedb["player"].".player ORDER BY level DESC,exp DESC",$db->game); // do fancy join ranking_cache and check for time. it'll be overly complicated for split connections :/
 $i=0; // General
 $wi=0; // Warrior
 $ai=0; // Assasin (spelling..)
@@ -31,8 +31,12 @@ while ($res = mysql_fetch_object($q)) {
 		$jr = $sai;
 	}
 	if (isset($db->hp))
-		mysql_query("INSERT INTO ".$db->hpdb["homepage"].".ranking_cache_new VALUES('".$i."','".$jr."','".$id."','".$name."','".$job."','".time()."')",$db->hp);
+		mysql_query("REPLACE INTO ".$db->hpdb["homepage"].".ranking_cache VALUES('".$i."','".$jr."','".$id."','".$name."','".$job."','".time()."')",$db->hp);
 	else
-		mysql_query("INSERT INTO ".$db->gamedb["homepage"].".ranking_cache_new VALUES('".$i."','".$jr."','".$id."','".$name."','".$job."','".time()."')",$db->game);
+		mysql_query("REPLACE INTO ".$db->gamedb["homepage"].".ranking_cache VALUES('".$i."','".$jr."','".$id."','".$name."','".$job."','".time()."')",$db->game);
 }
+if (isset($db->hp))
+	mysql_query("ALTER TABLE ".$db->hpdb["homepage"]."ranking_cache comment='".time()."'",$db->hp);
+else
+	mysql_query("ALTER TABLE ".$db->gamedb["homepage"]."ranking_cache comment='".time()."'",$db->game);
 ?>
