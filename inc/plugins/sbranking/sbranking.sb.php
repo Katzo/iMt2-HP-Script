@@ -35,7 +35,7 @@ $content = array(
 		"title" => $lang["misc"]["ranking"]
 	),
 	"middle" => array(
-		"text" => '<table class="sbranking"><tr><td>#</td><td>'.$lang["misc"]["username"].'</td><td>'.$lang["misc"]["level"].'</td>'.$b."</table>"
+		"text" => '<table class="sbranking"><tr><td>#</td><td>'.$lang["misc"]["user"].'</td><td>'.$lang["misc"]["level"].'</td>'.$b."</table>"
 	)
 );
 unset($plugin_conf);
