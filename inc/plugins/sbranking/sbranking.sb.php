@@ -19,7 +19,7 @@ if ($plugin_conf["buildcache"]) {
 	 else
 	 	$q = mysql_query("SELECT TABLE_COMMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = '".$db->gamedb["homepage"]."' and TABLE_NAME='ranking_cache' LIMIT 1",$db->game);
 	$res = mysql_fetch_object($q);
-	if ($res && time() > $res->TABLE_COMMENT+$plugin_conf["cachetimeout"]) 
+	if (time() > $res->TABLE_COMMENT+$plugin_conf["cachetimeout"]) 
 		include($config["path"]["includes"].$config["path"]["plugins"]."ranking/buildcache.inc.php");
 		// I want to say this again. IT IS REALLY STUPID TO DO THIS (FOR LARGER DATABASES!)
 }
