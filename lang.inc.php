@@ -35,6 +35,7 @@ $lang = array(
 		"char" => "Your characters",
 		"itemshop" => "Itemshop",
 		"settings" => "Settings",
+		"ranking" => "Ranking",
 		"submit" => "Submit",
 		"banned" => "Your account is banned",
 	),

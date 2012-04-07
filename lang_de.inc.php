@@ -35,6 +35,7 @@ $lang = array(
 		"char" => "Deine Charaktere",
 		"itemshop" => "Itemshop",
 		"settings" => "Einstellungen",
+		"ranking" => "Rangliste",
 		"submit" => "Absenden",
 
 	),
