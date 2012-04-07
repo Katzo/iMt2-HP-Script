@@ -29,8 +29,6 @@ if (!isset($cached->time) || time() > $cached->time+$plugin_conf["cachetimeout"]
 		mysql_query("INSERT INTO ".$db->hpdb["homepage"].".statistics (time,acc,player,guild,item,playero) VALUES('".time()."','".$acc->c."','".$player->c."','".$guild->c."','".$item->c."','".$playero->c."')",$db->hp);
 	else
 		mysql_query("INSERT INTO ".$db->gamedb["homepage"].".statistics (time,acc,player,guild,item,playero) VALUES('".time()."','".$acc->c."','".$player->c."','".$guild->c."','".$item->c."','".$playero->c."')",$db->game);
-	if (mysql_error())
-		die(mysql_error());
 }
 $content = array(
 	"head" => array("title" => $plugin_conf["title"]),

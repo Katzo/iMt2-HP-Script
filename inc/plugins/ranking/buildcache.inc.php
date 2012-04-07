@@ -3,6 +3,7 @@
  * This belongs to iMers iMt2-HP-Script
  * https://github.com/imermcmaps/iMt2-HP-Script
  * iMer.cc 2012
+ * 
  */
 $q = mysql_query("SELECT player.id,player.name,player.level,player.job FROM ".$db->gamedb["player"].".player JOIN ".$db->gamedb["account"].".account ON player.account_id = account.id LEFT JOIN ".$db->gamedb["common"].".gmlist ON gmlist.mName = player.name WHERE gmlist.mName is null AND account.status = 'OK' ORDER BY level DESC,exp DESC",$db->game); 
 $i=0; // General
