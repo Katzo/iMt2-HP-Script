@@ -11,8 +11,8 @@
  
 $plugin_conf = array(
 	"title" => "Ranking", // Title
-	"left" => true, // Sidebar, 1 -> left, 0 -> right 
-	"count" => 10, // how many players to list
+	"left" => false, // Sidebar, 1 -> left, 0 -> right 
+	"count" => 15, // how many players to list
 	"buildcache" => true, // Build the cache when someone views the site
 	"cachetimeout" =>144000, // in seconds  (Default: 4hours)
 	/*

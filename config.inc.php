@@ -86,5 +86,6 @@ $urlmap = array(
 	"char" => "?p=char",
 	"register" => "?p=register",
 	"logout" => "ajax.php?p=logout",
+	"ranking" => "?p=logout",
 );
 ?>
