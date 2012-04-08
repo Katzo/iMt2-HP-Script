@@ -13,6 +13,8 @@ $sui=0; // Sura
 $sai=0; // Shaman
 while ($res = mysql_fetch_object($q)) {
 	$i++;
+	if ($res->job > 3)
+		$res->job -=4;
 	if ($res->job == 0 || $res->job == 4) {
 		$wi++;
 		$jr = $wi;

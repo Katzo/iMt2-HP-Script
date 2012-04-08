@@ -19,19 +19,21 @@ while ($res = mysql_fetch_object($q)) {
 	if (time() < $c->time+$plugin_cache["cachetimeout"]*1.5)
 		continue;
 	$i++;
-	if ($res->job == 0 || $res->job == 4) {
+	if ($res->job > 3)
+		$res->job -=4;
+	if ($res->job == 0) {
 		$wi++;
 		$jr = $wi;
 	}
-	if ($res->job == 1 || $res->job == 5) {
+	if ($res->job == 1) {
 		$ai++;
 		$jr = $ai;
 	}
-	if ($res->job == 2 || $res->job == 6) {
+	if ($res->job == 2 ) {
 		$sui++;
 		$jr = $sui;
 	}
-	if ($res->job == 3 || $res->job == 7) {
+	if ($res->job == 3) {
 		$sai++;
 		$jr = $sai;
 	}
