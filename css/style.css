@@ -273,7 +273,7 @@ html, body, * {
 	width:95%;
 	border-collapse: collapse;
 }
-.ranking table td,.ranking  table th {
+.ranking td,.ranking th {
   border: 1px solid black;
 }
 .ranking table tr:first-child th {
