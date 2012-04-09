@@ -52,7 +52,11 @@ $navilinks = array(
 			"text" => ((isset($_SESSION["user"]) && !empty($_SESSION["user"]))?"Settings":"Register"),
 			"page" => ((isset($_SESSION["user"]) && !empty($_SESSION["user"]))?"settings":"register"),
 		),
-		
+		array(
+			"url" => "?p=ranking",
+			"text" => "Ranking",
+			"page" => "ranking",
+		),
 	),
 	"footer" => array(
 	)
@@ -90,6 +94,6 @@ $urlmap = array(
 	"char" => "?p=char",
 	"register" => "?p=register",
 	"logout" => "ajax.php?p=logout",
-	"ranking" => "?p=logout",
+	"ranking" => "?p=ranking",
 );
 ?>
