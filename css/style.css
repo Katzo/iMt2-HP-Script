@@ -261,6 +261,10 @@ html, body, * {
 .rankingsearch {
 	margin:auto;
 }
+.rankingsearch {
+	float:left;
+	display:inline-block;
+}
 /* Some fancy only inner borders css here :) */
 .ranking table {
 	width:95%;
