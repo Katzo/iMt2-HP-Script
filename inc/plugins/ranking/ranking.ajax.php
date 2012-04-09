@@ -19,7 +19,7 @@ if (isset($_POST["page"]) && isset($_POST["name"]) && isset($_POST["job"])) {
 		$bsql = ' FROM '.$db->hpdb["homepage"].'.ranking '.($where?'WHERE ':'').($name?'name LIKE "%'.mysql_real_escape_string($_POST["name"]).'%" ':'').($job&&$name?'AND ':'').($job?'job ="'.(int)$_POST["job"].'"':'').'LIMIT '.$limit;
 	else
 		$bsql = ' FROM '.$db->gamedb["homepage"].'.ranking '.($where?'WHERE ':'').($name?'name LIKE "%'.mysql_real_escape_string($_POST["name"]).'%" ':'').($job&&$name?'AND ':'').($job?'job ="'.(int)$_POST["job"].'"':'').'LIMIT '.$limit;
-	$q = mysql_query($select.$sql,(isset($db->hp)?$db->hp:$db->game));
+	$q = mysql_query($select.$bsql,(isset($db->hp)?$db->hp:$db->game));
 	echo '<table><tr><th>#</th><th>'.$lang["misc"]["classrank"].'</th><th>'.$lang["misc"]["charname"].'</th><th>'.$lang["misc"]["class"].'</th><th>'.$lang["misc"]["level"].'</th></tr>';
 	while ($res = mysql_fetch_object($q)){
 		if ($res->job == 0 )
@@ -33,7 +33,7 @@ if (isset($_POST["page"]) && isset($_POST["name"]) && isset($_POST["job"])) {
 		echo '<tr><td>'.$res->i.'</td><td>'.$res->ji.'</td><td>'.$res->name.'</td><td>'.$j.'</td><td>'.$res->level.'</td></tr>';
 	}
 	echo "</table>";
-	$count = mysql_fetch_object(mysql_query($selcount.$sql))->c;
+	$count = mysql_fetch_object(mysql_query($selcount.$bsql))->c;
 	$totalPages = $count/$plugin_conf["cpp"];
 	if ($totalPages < 13) {
 		for($i=1;$i <=$totalPages;$i++) {
