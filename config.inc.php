@@ -68,7 +68,10 @@ $pages = array(
 		"title" => false, // Overwrite title
 		"plugins" => array("statistics","online_status","register","userpanel") // List all plugins you want to load
 	),
-	
+	"ranking" => array(
+		"title" => false, // Overwrite title
+		"plugins" => array("statistics","online_status","ranking","userpanel") // List all plugins you want to load
+	),
 );
 // Ajax
 $ajax = array(
