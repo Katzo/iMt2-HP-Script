@@ -255,15 +255,17 @@ html, body, * {
 						color:#fd0;
 						background-position:bottom left;
 					}
+.rankingbuttons {
+	text-align: center;
+}
 .rankingbuttons input{
 	float:left;
 }
 .rankingsearch {
-	margin:auto;
+	text-align:center;
 }
-.rankingsearch input{
-	float:left;
-	display:inline-block;
+.rankingsearch .btn input {
+	display:inline-block !important;
 }
 /* Some fancy only inner borders css here :) */
 .ranking table {
