@@ -34,7 +34,7 @@ if (isset($_POST["page"]) && isset($_POST["name"]) && isset($_POST["job"])) {
 	}
 	echo "</table>";
 	$count = mysql_fetch_object(mysql_query($selcount.$sql))->c;
-	$totalpages = $count/$plugin_conf["cpp"];
+	$totalPages = $count/$plugin_conf["cpp"];
 	if ($totalPages < 13) {
 		for($i=1;$i <=$totalPages;$i++) {
 			if ($i == $rpage) 
