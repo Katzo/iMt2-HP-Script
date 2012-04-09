@@ -21,6 +21,7 @@ $lang = array(
 		"coins" => "Coins",
 		"noacc" => "Kein Account mit diesem Usernamen oder Passwort gefunden ",
 		"pass" => "Passwort",
+		"oldpass" => "Altes Passwort",
 		"repeat" => "Wiederholen",
 		"user" => "Username",
 		"level" => "Level",

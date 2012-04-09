@@ -7,7 +7,7 @@
  * This is a default plugin called statistics
  * It shows total (online) players, accounts, guilds, items and stuff
  */
- include($config["path"]["includes"].$config["path"]["plugins"]."statistics/config.inc.php");
+include($config["path"]["includes"].$config["path"]["plugins"]."statistics/config.inc.php");
 if ($plugin_conf["left"])
 	$build->addLSidebar($config["path"]["includes"].$config["path"]["plugins"]."statistics/statistics.sb.php");
 else

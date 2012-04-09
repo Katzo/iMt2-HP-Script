@@ -21,6 +21,7 @@ $lang = array(
 		"coins" => "Coins",
 		"noacc" => "No account with that password or username found",
 		"pass" => "Password",
+		"oldpass" => "Old password",
 		"repeat" => "Repeat",
 		"user" => "Username",
 		"level" => "Level",
@@ -79,6 +80,11 @@ $lang = array(
 		"graphics" => "Graphics Card",
 		"sound" => "Sound Card",
 	),
+	"settings" => array(
+		"change_password" => "Change Password",
+		"change_password_text" => "You may change your password here.<br/>You just have to enter your old one to verify you own this account.<br/>",
+		"change_email" => "Change Email",
+	)
 );
 
 ?>
