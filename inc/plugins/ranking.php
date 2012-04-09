@@ -22,7 +22,7 @@ function ranking(){
 			$('#rankingres').html(data);
 		},
 	});
-	$('#rloading').fadeOut();
+	$('#rloading').hide();
 }
 ranking();");
 ?>
