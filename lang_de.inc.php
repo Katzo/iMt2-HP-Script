@@ -88,6 +88,10 @@ $lang = array(
 		"reset_safebox_text" => "Hier kannst du dein Lagerpasswort zur&uuml;cksetzen<br/>Falls du dies tust, wird es zu <b>0000000</b> geändert<br/>Du musst nur dein Passwort eingeben, um zu best&auml;tigen, dass dies dein Account ist<br/>",
 		"change_email" => "Email &auml;ndern",
 		"change_email_text" => "hier kannst du deine aktuelle Email &auml;ndern<br/>Du musst nur dein Passwort eingeben, um zu best&auml;tigen, dass dies dein Account ist<br/>",
+		"pass_error" => "Das Passwort stimmt nicht überein!",
+		"pass_changed" => "Dein Passwort wurde erfolgreich ge&auml;ndert!",
+		"code_changed" => "Dein L&ouml;schcode wurde erfolgreich ge&auml;ndert!",
+		"safebox_reseted" => "Dein Lagerpasswort wurde erfolgreich zur&uuml;ckgesetzt! (Es ist jetzt <b>0000000</b>)",
 	)
 );
 

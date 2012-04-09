@@ -89,6 +89,10 @@ $lang = array(
 		"reset_safebox_text" => "You may reset your safebox password here.<br/>It will be changed to <b>0000000</b><br/>You just have to enter your password to verify you own this account<br/>",
 		"change_email" => "Change email",
 		"change_email_text" => "You may change your current email here.<br/>You just have to enter your password to verify you own this account<br/>",
+		"pass_error" => "Your password didn't match!",
+		"pass_changed" => "Your password was successfully changed!",
+		"code_changed" => "Your code was successfully changed!",
+		"safebox_reseted" => "Your safebox password was successfully reseted! (It's <b>0000000</b> now)",
 	)
 );
 
