@@ -20,7 +20,7 @@ $content = array(
 				<input class="btn" type="button" value="'.$lang["misc"]["sura"].'" onclick="javascript:g_rjob=2;g_rpage=1;ranking();"/>
 				<input class="btn" type="button" value="'.$lang["misc"]["shaman"].'" onclick="javascript:g_rjob=3;g_rpage=1;ranking();"/></div>
 				<br/><br/><br/>
-				<img id="rloading" src="images/ui/loading_bar.gif" style="margin:auto;"/>
+				<img id="rloading" src="images/ui/loading_bar.gif" style="margin:auto;display:block;"/>
 				<div id="rankingres" class="ranking"></div>'
 	)
 );
