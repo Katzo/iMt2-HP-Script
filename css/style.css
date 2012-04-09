@@ -293,6 +293,32 @@ html, body, * {
 .ranking table tr th:last-child {
   border-right: 0;
 }
+/* Some fancy only inner borders css here :) */
+.innertable {
+	text-align: center;
+}
+.innertable table {
+	width:100%;
+	border-collapse: collapse;
+}
+.innertable td,.ranking th {
+  border: 2px solid #cc9933;
+}
+.innertable table tr:first-child th {
+  border-top: 0;
+}
+.innertable table tr:last-child td {
+  border-bottom: 0;
+}
+.innertable table tr td:first-child,
+.innertable table tr th:first-child {
+  border-left: 0;
+}
+.innertable table tr td:last-child,
+.innertable table tr th:last-child {
+  border-right: 0;
+}
+
 /*---------------------------------------------------*/
 /* Sidebars -----------------------------------------*/
 
