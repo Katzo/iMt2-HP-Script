@@ -19,10 +19,10 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 						 '<br/><div id="changepwres"></div>
 						<form id="changepwform" onsubmit="javascript:ssubmit(\'#changepwform\',\'#changepwres\'); return false;">
 							<table>
-								<tr>'.$lang["misc"]["oldpass"].'<td></td><td><input type="password" name="oldpass"></td></tr>
-								<tr>'.$lang["misc"]["pass"].'<td></td><td><input type="password" name="pass"></td></tr>
-								<tr>'.$lang["misc"]["repeat"].'<td></td><td><input type="password" name="repeat"></td></tr>
-								<tr><td></td><td><input type="submit" name="changepw" value="'.$lang["misc"]["submit"].'"></td></tr>
+								<tr><td>'.$lang["misc"]["oldpass"].'</td><td><input class="bar" type="password" name="oldpass"></td></tr>
+								<tr><td>'.$lang["misc"]["pass"].'</td><td><input class="bar" type="password" name="pass"></td></tr>
+								<tr><td>'.$lang["misc"]["repeat"].'<td></td><td><input class="bar" type="password" name="repeat"></td></tr>
+								<tr><td></td><td><input class="btn" type="submit" name="changepw" value="'.$lang["misc"]["submit"].'"></td></tr>
 							</table>
 						</form>'
 			)
@@ -36,9 +36,9 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 						 '<br/><div id="changecoderes"></div>
 						<form id="changecodeform" onsubmit="javascript:ssubmit(\'#changecodeform\',\'#changecoderes\'); return false;">
 							<table>
-								<tr>'.$lang["misc"]["pass"].'<td></td><td><input type="password" name="pass"></td></tr>
-								<tr>'.$lang["misc"]["code"].'<td></td><td><input type="password" name="code"></td></tr>
-								<tr><td></td><td><input type="submit" name="changecode" value="'.$lang["misc"]["submit"].'"></td></tr>
+								<tr><td>'.$lang["misc"]["pass"].'<td></td><td><input class="bar" type="password" name="pass"></td></tr>
+								<tr><td>'.$lang["misc"]["code"].'<td></td><td><input class="bar" type="password" name="code"></td></tr>
+								<tr><td></td><td><input class="btn" type="submit" name="changecode" value="'.$lang["misc"]["submit"].'"></td></tr>
 							</table>
 						</form>'
 			)
@@ -52,8 +52,8 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 						 '<br/><div id="changesafeboxres"></div>
 						<form id="changesafeboxform" onsubmit="javascript:ssubmit(\'#changesafeboxform\',\'#changesafeboxres\'); return false;">
 							<table>
-								<tr>'.$lang["misc"]["pass"].'<td></td><td><input type="password" name="pass"></td></tr>
-								<tr><td></td><td><input type="submit" name="resetsafebox" value="'.$lang["misc"]["submit"].'"></td></tr>
+								<tr><td>'.$lang["misc"]["pass"].'<td></td><td><input class="bar" type="password" name="pass"></td></tr>
+								<tr><td></td><td><input class="btn" type="submit" name="resetsafebox" value="'.$lang["misc"]["submit"].'"></td></tr>
 							</table>
 						</form>'
 			)
@@ -67,9 +67,9 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 						 '<br/><div id="changeemailres"></div>
 						<form id="changeemailform" onsubmit="javascript:ssubmit(\'#changeemailform\',\'#changeemailres\'); return false;">
 							<table>
-								<tr>'.$lang["misc"]["pass"].'<td></td><td><input type="password" name="pass"></td></tr>
-								<tr>'.$lang["misc"]["email"].'<td></td><td><input type="name" name="email"></td></tr>
-								<tr><td></td><td><input type="submit" name="changeemail" value="'.$lang["misc"]["submit"].'"></td></tr>
+								<tr><td>'.$lang["misc"]["pass"].'</td><td><input class="bar" type="password" name="pass"></td></tr>
+								<tr><td>'.$lang["misc"]["email"].'</td><td><input class="bar" type="name" name="email"></td></tr>
+								<tr><td></td><td><input class="btn" type="submit" name="changeemail" value="'.$lang["misc"]["submit"].'"></td></tr>
 							</table>
 						</form>'
 			)
