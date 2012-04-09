@@ -261,6 +261,28 @@ html, body, * {
 .rankingsearch {
 	margin:auto;
 }
+/* Some fancy only inner borders css here :) */
+.ranking table {
+	width:95%;
+	border-collapse: collapse;
+}
+.ranking table td,.ranking  table th {
+  border: 1px solid black;
+}
+.ranking table tr:first-child th {
+  border-top: 0;
+}
+.ranking table tr:last-child td {
+  border-bottom: 0;
+}
+.ranking table tr td:first-child,
+.ranking table tr th:first-child {
+  border-left: 0;
+}
+.ranking table tr td:last-child,
+.ranking table tr th:last-child {
+  border-right: 0;
+}
 /*---------------------------------------------------*/
 /* Sidebars -----------------------------------------*/
 
