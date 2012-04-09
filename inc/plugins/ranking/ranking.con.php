@@ -14,11 +14,11 @@ $content = array(
 	),
 	"middle" => array(
 		"text" => '<form onsubmit="javascript:g_rname=$(\'#rname\').val();ranking();return false;"><input type="text" id="rname" class="bar" onblur="javascript:g_rname=$(this).val();ranking();" placeholder="'.$lang["misc"]["charname"].'"/></form>
-				<input class="btn" type="buttom" value="'.$lang["misc"]["alljobs"].' onclick="javascript:g_rjob=-1;ranking();"/>
-				<input class="btn" type="buttom" value="'.$lang["misc"]["warrior"].' onclick="javascript:g_rjob=0;ranking();"/>
-				<input class="btn" type="buttom" value="'.$lang["misc"]["assassin"].' onclick="javascript:g_rjob=1;ranking();"/>
-				<input class="btn" type="buttom" value="'.$lang["misc"]["sura"].' onclick="javascript:g_rjob=2;ranking();"/>
-				<input class="btn" type="buttom" value="'.$lang["misc"]["shaman"].' onclick="javascript:g_rjob=3;ranking();"/>
+				<input class="btn" type="button" value="'.$lang["misc"]["alljobs"].'" onclick="javascript:g_rjob=-1;ranking();"/>
+				<input class="btn" type="button" value="'.$lang["misc"]["warrior"].'" onclick="javascript:g_rjob=0;ranking();"/>
+				<input class="btn" type="button" value="'.$lang["misc"]["assassin"].'" onclick="javascript:g_rjob=1;ranking();"/>
+				<input class="btn" type="button" value="'.$lang["misc"]["sura"].'" onclick="javascript:g_rjob=2;ranking();"/>
+				<input class="btn" type="button" value="'.$lang["misc"]["shaman"].'" onclick="javascript:g_rjob=3;ranking();"/>
 				<br/>
 				<div id="rankingres"><img src="images/ui/loading_bar.gif"/></div>'
 	)
