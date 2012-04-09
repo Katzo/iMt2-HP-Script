@@ -47,6 +47,8 @@ $lang = array(
 		"classrank" => "Klassen-#",
 		"class" => "Klasse",
 		"search" => "Suchen",
+		"download" => "Download",
+		"systemrequirements" => "Systemvoraussetzungen",
 	),
 	"reg" => array(
 		"captcha_error" => "Den Captcha, den du eingegeben hast, stimmt nicht.",
@@ -67,6 +69,14 @@ $lang = array(
 		"success" => "Deine Registration war erfolgreich!",
 		"verify_error" => "Verzifizierung fehlgeschlagen!<br/>Bitte kopiere den Link wenn du Probleme hast!",
 		"verify_success" => "Du hast deinen Account erfolgreich verifiziert!<br/>Du kannst nun mit ihm spielen!",
+	),
+	"sysreq" => array(
+		"os" => "OS",
+		"cpu" => "CPU",
+		"mem" => "RAM",
+		"hdd" => "HDD",
+		"graphics" => "Grafikkarte",
+		"sound" => "Soundkarte",
 	),
 );
 

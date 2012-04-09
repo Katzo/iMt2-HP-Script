@@ -95,12 +95,16 @@ $pages = array(
 		"plugins" => array("statistics","online_status","userpanel","sbranking","wbb_news") // List all plugins you want to load
 	),
 	"register" => array(
-		"title" => false, // Overwrite title
-		"plugins" => array("statistics","online_status","userpanel","sbranking","register") // List all plugins you want to load
+		"title" => false,
+		"plugins" => array("statistics","online_status","userpanel","sbranking","register")
 	),
 	"ranking" => array(
-		"title" => false, // Overwrite title
-		"plugins" => array("statistics","online_status","userpanel","sbranking","ranking") // List all plugins you want to load
+		"title" => false,
+		"plugins" => array("statistics","online_status","userpanel","sbranking","ranking")
+	),
+	"download" => array(
+		"title" => false,
+		"plugins" => array("statistics","online_status","userpanel","sbranking","text")
 	),
 );
 // Ajax

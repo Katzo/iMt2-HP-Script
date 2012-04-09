@@ -48,6 +48,8 @@ $lang = array(
 		"classrank" => "Class-#",
 		"class" => "Class",
 		"search" => "Search",
+		"download" => "Download",
+		"systemrequirements" => "System requirements",
 	),
 	"reg" => array(
 		"captcha_error" => "The captcha you entered is wrong.",
@@ -68,6 +70,14 @@ $lang = array(
 		"success" => "Your Registration was sucessfull!",
 		"verify_error" => "Verification failed!<br/>Please copy the link if you have trouble!",
 		"verify_success" => "You just verified your account!<br/>You may use your account to play now",
+	),
+	"sysreq" => array(
+		"os" => "OS",
+		"cpu" => "CPU",
+		"mem" => "Memory",
+		"hdd" => "HDD",
+		"graphics" => "Graphics Card",
+		"sound" => "Sound Card",
 	),
 );
 
