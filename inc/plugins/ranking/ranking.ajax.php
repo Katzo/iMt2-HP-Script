@@ -3,7 +3,7 @@
 if (isset($_POST["page"]) && isset($_POST["name"]) && isset($_POST["job"])) {
 	include($config["path"]["includes"].$config["path"]["plugins"]."ranking/config.inc.php");
 	$rpage = (int)$_POST["page"];
-	$limit = ($plugin_conf["cpp"]*($rpage-1)).",".$plugin_conf["cpp"];
+	$limit = 'LIMIT '.($plugin_conf["cpp"]*($rpage-1)).",".$plugin_conf["cpp"];
 	$where = false;
 	$name = false;
 	$job = false;
@@ -16,10 +16,10 @@ if (isset($_POST["page"]) && isset($_POST["name"]) && isset($_POST["job"])) {
 	$select = "SELECT i,ji,name,level,job";
 	$selcount = "SELECT count(i) as c"; // Optimized for InnoDB tables - when using MyISAM count(*) is way faster
 	if (isset($db->hp))
-		$bsql = ' FROM '.$db->hpdb["homepage"].'.ranking_cache '.($where?'WHERE ':'').($name?'name LIKE "%'.mysql_real_escape_string($_POST["name"]).'%" ':'').($job&&$name?'AND ':'').($job?'job ="'.(int)$_POST["job"].'"':'').'LIMIT '.$limit;
+		$bsql = ' FROM '.$db->hpdb["homepage"].'.ranking_cache '.($where?'WHERE ':'').($name?'name LIKE "%'.mysql_real_escape_string($_POST["name"]).'%" ':'').($job&&$name?'AND ':'').($job?'job ="'.(int)$_POST["job"].'"':'');
 	else
-		$bsql = ' FROM '.$db->gamedb["homepage"].'.ranking_cache '.($where?'WHERE ':'').($name?'name LIKE "%'.mysql_real_escape_string($_POST["name"]).'%" ':'').($job&&$name?'AND ':'').($job?'job ="'.(int)$_POST["job"].'"':'').'LIMIT '.$limit;
-	$q = mysql_query($select.$bsql,(isset($db->hp)?$db->hp:$db->game));
+		$bsql = ' FROM '.$db->gamedb["homepage"].'.ranking_cache '.($where?'WHERE ':'').($name?'name LIKE "%'.mysql_real_escape_string($_POST["name"]).'%" ':'').($job&&$name?'AND ':'').($job?'job ="'.(int)$_POST["job"].'"':'');
+	$q = mysql_query($select.$bsql.$limit,(isset($db->hp)?$db->hp:$db->game));
 	echo '<table><tr><th>#</th><th>'.$lang["misc"]["classrank"].'</th><th>'.$lang["misc"]["charname"].'</th><th>'.$lang["misc"]["class"].'</th><th>'.$lang["misc"]["level"].'</th></tr>';
 	while ($res = mysql_fetch_object($q)){
 		if ($res->job == 0 )
