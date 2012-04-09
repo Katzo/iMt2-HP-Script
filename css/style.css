@@ -264,7 +264,7 @@ html, body, * {
 .rankingsearch {
 	text-align:center;
 }
-.rankingsearch .btn input {
+.rankingsearch input {
 	display:inline-block !important;
 }
 /* Some fancy only inner borders css here :) */
