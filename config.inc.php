@@ -75,6 +75,7 @@ $ajax = array(
 	"dologin" => "userpanel/dologin.ajax.php",
 	"logout" => "userpanel/logout.php",
 	"regcheck" => "register/regcheck.ajax.php",
+	"ranking" => "ranking/ranking.ajax.php",
 );
 // URL Map
 $urlmap = array(

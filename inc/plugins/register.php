@@ -8,6 +8,7 @@
  * guess what it does.
  */
 $build->addContentBox($config["path"]["includes"].$config["path"]["plugins"]."register/register.con.php");
+$build->addJSFile("js/jquery.js");
 $build->addJS("function regcheck(what){
 	$.ajax({
 	  type: 'POST',

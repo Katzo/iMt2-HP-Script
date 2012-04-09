@@ -17,6 +17,7 @@ $lang = array(
 		"ok" => "&radic;",
 		"fillout" => "Bitte f&uuml;lle alle Felder aus",
 		"coin" => "Coin",
+		"charname" => "Charakter",
 		"coins" => "Coins",
 		"noacc" => "Kein Account mit diesem Usernamen oder Passwort gefunden ",
 		"pass" => "Passwort",
@@ -38,7 +39,13 @@ $lang = array(
 		"settings" => "Einstellungen",
 		"ranking" => "Rangliste",
 		"submit" => "Absenden",
-
+		"allclasses" => "Gesammt",
+		"warrior" => "Krieger",
+		"assassin" => "Ninja",
+		"sura" => "Sura",
+		"shaman" => "Schamanen",
+		"classrank" => "Klassen-#",
+		"class" => "Klasse",
 	),
 	"reg" => array(
 		"captcha_error" => "Den Captcha, den du eingegeben hast, stimmt nicht.",
