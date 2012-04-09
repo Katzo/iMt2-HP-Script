@@ -20,7 +20,7 @@ $content = array(
 				<input class="btn" type="button" value="'.$lang["misc"]["sura"].'" onclick="javascript:g_rjob=2;ranking();"/>
 				<input class="btn" type="button" value="'.$lang["misc"]["shaman"].'" onclick="javascript:g_rjob=3;ranking();"/></div>
 				<br/><br/><br/>
-				<div id="rankingres"><img src="images/ui/loading_bar.gif"/></div>'
+				<div id="rankingres" class="ranking"><img src="images/ui/loading_bar.gif"/></div>'
 	)
 );
 unset($plugin_conf);
