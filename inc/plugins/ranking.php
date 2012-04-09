@@ -13,7 +13,7 @@ $build->addJS("var g_rpage=1;
 var g_rjob=-1;
 var g_rname='';
 function ranking(){
-	$('#rloading').fadeIn(100);
+	$('#rloading').fadeIn(200);
 	$.ajax({
 		type: 'POST',
 		url: 'ajax.php?p=ranking',
@@ -22,7 +22,7 @@ function ranking(){
 			$('#rankingres').html(data);
 		},
 	});
-	$('#rloading').fadeOut(100);
+	$('#rloading').fadeOut(200);
 }
 ranking();");
 ?>
