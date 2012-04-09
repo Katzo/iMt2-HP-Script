@@ -68,11 +68,6 @@ $navilinks = array(
 			"page" => "",
 		),
 		array(
-			"url" => "http://board.examplemt2.org",
-			"text" => "Forum",
-			"page" => "",
-		),
-		array(
 			"url" => "?p=itemshop",
 			"text" => "Itemshop",
 			"page" => "itemshop",
