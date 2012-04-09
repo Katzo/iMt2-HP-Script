@@ -273,11 +273,11 @@ html, body, * {
 	text-align: center;
 }
 .ranking table {
-	width:95%;
+	width:100%;
 	border-collapse: collapse;
 }
 .ranking td,.ranking th {
-  border: 2px solid yellow;
+  border: 2px solid #cc9933;
 }
 .ranking table tr:first-child th {
   border-top: 0;
