@@ -269,12 +269,15 @@ html, body, * {
 	display:inline-block !important;
 }
 /* Some fancy only inner borders css here :) */
+.ranking {
+	text-align: center;
+}
 .ranking table {
 	width:95%;
 	border-collapse: collapse;
 }
 .ranking td,.ranking th {
-  border: 1px solid black;
+  border: 2px solid yellow;
 }
 .ranking table tr:first-child th {
   border-top: 0;
