@@ -13,7 +13,7 @@ $build->addJS("var g_rpage=1;
 var g_rjob=-1;
 var g_rname='';
 function ranking(){
-	$('$rloading').show();
+	$('#rloading').show();
 	$.ajax({
 		type: 'POST',
 		url: 'ajax.php?p=ranking',
