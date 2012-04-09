@@ -79,6 +79,16 @@ $lang = array(
 		"graphics" => "Grafikkarte",
 		"sound" => "Soundkarte",
 	),
+	"settings" => array(
+		"change_password" => "Passwort &auml;ndern",
+		"change_password_text" => "Hier kannst du dein Passwort &auml;ndern.<br/>Du musst nur dein altes Passwort eingeben, um zu best&auml;tigen, dass dies dein Account ist.<br/>",
+		"change_code" => "L&ouml;schcode &auml;ndern",
+		"change_code_text" => "Hier kannst du deinen L&ouml;schcode &auml;ndern<br/>Du musst nur dein Passwort eingeben, um zu best&auml;tigen, dass dies dein Account ist<br/>",
+		"reset_safebox" => "Lagerpasswort zur&uuml;cksetzen",
+		"reset_safebox_text" => "Hier kannst du dein Lagerpasswort zur&uuml;cksetzen<br/>Falls du dies tust, wird es zu <b>0000000</b> geändert<br/>Du musst nur dein Passwort eingeben, um zu best&auml;tigen, dass dies dein Account ist<br/>",
+		"change_email" => "Email &auml;ndern",
+		"change_email_text" => "hier kannst du deine aktuelle Email &auml;ndern<br/>Du musst nur dein Passwort eingeben, um zu best&auml;tigen, dass dies dein Account ist<br/>",
+	)
 );
 
 ?>

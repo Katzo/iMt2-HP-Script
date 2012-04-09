@@ -83,7 +83,12 @@ $lang = array(
 	"settings" => array(
 		"change_password" => "Change Password",
 		"change_password_text" => "You may change your password here.<br/>You just have to enter your old one to verify you own this account.<br/>",
-		"change_email" => "Change Email",
+		"change_code" => "Change Code",
+		"change_code_text" => "You may change your character deletion code here<br/>You just have to enter your password to verify you own this account<br/>",
+		"reset_safebox" => "Reset Safebox Password",
+		"reset_safebox_text" => "You may reset your safebox password here.<br/>It will be changed to <b>0000000</b><br/>You just have to enter your password to verify you own this account<br/>",
+		"change_email" => "Change email",
+		"change_email_text" => "You may change your current email here.<br/>You just have to enter your password to verify you own this account<br/>",
 	)
 );
 
