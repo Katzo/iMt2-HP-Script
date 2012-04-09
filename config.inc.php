@@ -53,10 +53,36 @@ $navilinks = array(
 			"page" => ((isset($_SESSION["user"]) && !empty($_SESSION["user"]))?"settings":"register"),
 		),
 		array(
+			"url" => "?p=download",
+			"text" => "Download",
+			"page" => "download",
+		),
+		array(
 			"url" => "?p=ranking",
 			"text" => "Ranking",
 			"page" => "ranking",
 		),
+		array(
+			"url" => "http://board.examplemt2.org",
+			"text" => "Forum",
+			"page" => "",
+		),
+		array(
+			"url" => "http://board.examplemt2.org",
+			"text" => "Forum",
+			"page" => "",
+		),
+		array(
+			"url" => "?p=itemshop",
+			"text" => "Itemshop",
+			"page" => "itemshop",
+		),
+		array(
+			"url" => "ts3server://energymt2.org",
+			"text" => "Teamspeak",
+			"page" => "",
+		),
+		
 	),
 	"footer" => array(
 	)
@@ -66,15 +92,15 @@ $pages = array(
 //   v this is $_GET["p"]
 	"home" => array(
 		"title" => false, // Overwrite title
-		"plugins" => array("statistics","online_status","wbb_news","userpanel") // List all plugins you want to load
+		"plugins" => array("statistics","online_status","userpanel","sbranking","wbb_news") // List all plugins you want to load
 	),
 	"register" => array(
 		"title" => false, // Overwrite title
-		"plugins" => array("statistics","online_status","register","userpanel") // List all plugins you want to load
+		"plugins" => array("statistics","online_status","userpanel","sbranking","register") // List all plugins you want to load
 	),
 	"ranking" => array(
 		"title" => false, // Overwrite title
-		"plugins" => array("statistics","online_status","ranking","userpanel") // List all plugins you want to load
+		"plugins" => array("statistics","online_status","userpanel","sbranking","ranking") // List all plugins you want to load
 	),
 );
 // Ajax
