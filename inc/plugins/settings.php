@@ -11,6 +11,6 @@ $build->addContentBox($config["path"]["includes"].$config["path"]["plugins"]."se
 $build->addJSFile("js/jquery.js");
 $build->addJSFile("js/common.js");
 $build->addJS("function ssubmit(what,rese){
-	asubmit(what,'ajax.php?p=settings',function (data){res =jQuery.parseJSON(data);if(res.error) $(rese).addClass('error').html(res.error); else if(res.ok) $(rese).addClass('ok').html(res.ok); else $(rese).addClass('error').html('Unknown error! HELP!');}
+	asubmit(what,'ajax.php?p=settings',function (data){res =jQuery.parseJSON(data);if(res.error) $(rese).addClass('error').html(res.error); else if(res.ok) $(rese).addClass('ok').html(res.ok); else $(rese).addClass('error').html('Unknown error! HELP!');});
 }");
 ?>
