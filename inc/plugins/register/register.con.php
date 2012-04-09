@@ -142,7 +142,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 				"title" => $lang["misc"]["register"],
 			),
 			"middle" => array(
-				"text" => ((isset($regerror))?'<font class="error">'.$regerror.'</font>':'').'<div class="innertable"><form method="POST"><table style="width:90%;">
+				"text" => ((isset($regerror))?'<font class="error">'.$regerror.'</font>':'').'<form method="POST"><table style="width:90%;">
 							<tr><td>'.$lang["misc"]["user"].'</td><td><input class="bar" type="text" placeholder="'.$lang["misc"]["user"].'" name="user" id="user" onblur="javascript:regcheck(\'user\');" '.((isset($_POST["user"]))?'value="'.$_POST["user"].'" ':'').'/></td><td id="userres"></td></tr>
 							<tr><td>'.$lang["misc"]["pass"].'</td><td><input class="bar" type="password" placeholder="'.$lang["misc"]["pass"].'" name="pass" id="pass" onblur="javascript:regcheck(\'pass\');" /></td><td id="passres"></td></tr>
 							<tr><td>'.$lang["misc"]["repeat"].'</td><td><input class="bar" type="password" placeholder="'.$lang["misc"]["repeat"].'" name="repeat" id="repeat" onblur="if ($(this).val() !=$(\'#pass\').val()) $(\'#repeatres\').addClass(\'error\').html(\''.$lang["reg"]["passrepeat_error"].'\')" /></td><td id="repeatres"></td></tr>
@@ -150,7 +150,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 							<tr><td>'.$lang["misc"]["code"].'</td><td><input class="bar" type="text" placeholder="'.$lang["misc"]["code"].'" name="code" id="code" onblur="javascript:regcheck(\'code\');" '.((isset($_POST["code"]))?'value="'.$_POST["code"].'" ':'').'/></td><td id="coderes"></td></tr>
 							'.((is_array($plugin_conf["captcha"]))?'<tr><td colspan="3">'.recaptcha_get_html($plugin_conf["captcha"]["public_key"]).'</td></tr>':'').'
 							<tr><td></td><td><input class="btn" type="submit" name="submit" value="'.$lang["misc"]["submit"].'"/></td><td></td>
-						</table></form></div>',
+						</table></form>',
 			)
 		);
 	}
