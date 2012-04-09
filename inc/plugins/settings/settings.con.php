@@ -16,7 +16,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 			),
 			"middle" => array(
 				"text" => $lang["settings"]["change_password_text"].
-						 '<br/><div id="changepwres"></div>
+						 '<div id="changepwres"></div>
 						<form id="changepwform" onsubmit="javascript:ssubmit(\'#changepwform\',\'#changepwres\'); return false;">
 							<table>
 								<tr><td>'.$lang["misc"]["oldpass"].'</td><td><input class="bar" type="password" name="oldpass"></td></tr>
@@ -33,7 +33,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 			),
 			"middle" => array(
 				"text" => $lang["settings"]["change_code_text"].
-						 '<br/><div id="changecoderes"></div>
+						 '<div id="changecoderes"></div>
 						<form id="changecodeform" onsubmit="javascript:ssubmit(\'#changecodeform\',\'#changecoderes\'); return false;">
 							<table>
 								<tr><td>'.$lang["misc"]["pass"].'</td><td><input class="bar" type="password" name="pass"></td></tr>
@@ -49,7 +49,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 			),
 			"middle" => array(
 				"text" => $lang["settings"]["reset_safebox_text"].
-						 '<br/><div id="changesafeboxres"></div>
+						 '<div id="changesafeboxres"></div>
 						<form id="changesafeboxform" onsubmit="javascript:ssubmit(\'#changesafeboxform\',\'#changesafeboxres\'); return false;">
 							<table>
 								<tr><td>'.$lang["misc"]["pass"].'</td><td><input class="bar" type="password" name="pass"></td></tr>
@@ -64,7 +64,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 			),
 			"middle" => array(
 				"text" => $lang["settings"]["change_email_text"].
-						 '<br/><div id="changeemailres"></div>
+						 '<div id="changeemailres"></div>
 						<form id="changeemailform" onsubmit="javascript:ssubmit(\'#changeemailform\',\'#changeemailres\'); return false;">
 							<table>
 								<tr><td>'.$lang["misc"]["pass"].'</td><td><input class="bar" type="password" name="pass"></td></tr>
