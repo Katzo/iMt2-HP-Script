@@ -255,7 +255,12 @@ html, body, * {
 						color:#fd0;
 						background-position:bottom left;
 					}
-						
+.rankingbuttons input{
+	float:left;
+}
+.rankingsearch {
+	margin:auto;
+}
 /*---------------------------------------------------*/
 /* Sidebars -----------------------------------------*/
 

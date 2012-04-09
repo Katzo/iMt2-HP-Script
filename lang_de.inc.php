@@ -46,6 +46,7 @@ $lang = array(
 		"shaman" => "Schamanen",
 		"classrank" => "Klassen-#",
 		"class" => "Klasse",
+		"search" => "Suchen",
 	),
 	"reg" => array(
 		"captcha_error" => "Den Captcha, den du eingegeben hast, stimmt nicht.",
