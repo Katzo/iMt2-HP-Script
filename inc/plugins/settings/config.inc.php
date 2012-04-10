@@ -8,10 +8,6 @@
  * It is basically a usercp where you can change your password and stuff.
  */
 $plugin_conf = array(
-	"change_email" => true, // Enable email changing
-	"email verify" => true, // Enable email verifing when changing it
-	"change_pass" => true, // Enable password changing
-	"forgot_safebox" => true, // Enable safebox password reseting
-	"change_deletecode" => true, // Enable deletecode changing
+	"email_verify" => true, // Enable email verifing when changing it
 );
 ?>

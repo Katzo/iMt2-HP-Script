@@ -92,6 +92,12 @@ $lang = array(
 		"pass_changed" => "Dein Passwort wurde erfolgreich ge&auml;ndert!",
 		"code_changed" => "Dein L&ouml;schcode wurde erfolgreich ge&auml;ndert!",
 		"safebox_reseted" => "Dein Lagerpasswort wurde erfolgreich zur&uuml;ckgesetzt! (Es ist jetzt <b>0000000</b>)",
+		"emailsubject" => "Email Änderung auf ".$config["settings"]["name"],
+		"emailbody1" => "Hallo %username,\nUm deine Email Änderung auf ".$config["settings"]["name"]." zu bestätigen, musst du auf diesen Link klicken:\n".$config["settings"]["baseurl"].$urlmap["settings"]."&key1=%key\nDein ".$config["settings"]["name"]." Team",
+		"emailbody2" => "Hallo %username,\nUm deine Email Änderung auf ".$config["settings"]["name"]." zu bestätigen, musst du auf diesen Link klicken:\n".$config["settings"]["baseurl"].$urlmap["settings"]."&key2=%key\nDein ".$config["settings"]["name"]." Team",
+		"verifymailsent" => "Wir haben eine Email zu deiner neuen und alten Email Adresse gesendet.<br/>Bitte klicke beide Links in den Emails um deine Email zu &auml;ndern.",
+		"email_changed" => "Deine Email wurde erfolgreich ge&auml;ndert!",
+		"verify_otheremail" => "Diese Email wurde best&auml;tigt!<br/> Bitte klicke nun auf den Link in der anderen.",
 	)
 );
 
