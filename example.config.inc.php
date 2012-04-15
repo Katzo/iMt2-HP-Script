@@ -105,6 +105,10 @@ $pages = array(
 		"title" => false,
 		"plugins" => array("statistics","online_status","userpanel","sbranking","settings")
 	),
+	"itemshop" => array(
+		"title" => false,
+		"plugins" => array("statistics","online_status","userpanel","sbranking","itemshop")
+	)
 );
 // Ajax
 $ajax = array(
