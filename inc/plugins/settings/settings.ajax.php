@@ -57,9 +57,9 @@ if (isset($_POST["changepw"])){
 		if (isset($db->hp))
 			mysql_query('INSERT INTO '.$db->hpdb["homepage"].'.email_change VALUES("'.$_SESSION["id"].'","'.mysql_real_escape_string($_POST["email"]).'","'.$key1.'","'.$key2.'",0)',$db->hp);
 		else
-			mysql_query('INSERT INTO '.$db->gamedb["homepage"].'.email_change VALUES("'.$_SESSION["id"].'","'.$key1.'","'.$key2.'",0)',$db->game);
-		mail($_POST["email"],str_replace("%username",$_POST["user"],$lang["settings"]["emailsubject"]),str_replace("%key",$key2,str_replace("%username",$_POST["user"],$lang["settings"]["emailbody2"])),$config["settings"]["email_header"]);
-		mail($res->email,str_replace("%username",$_POST["user"],$lang["settings"]["emailsubject"]),str_replace("%key",$key1,str_replace("%username",$_POST["user"],$lang["settings"]["emailbody1"])),$config["settings"]["email_header"]);
+			mysql_query('INSERT INTO '.$db->gamedb["homepage"].'.email_change VALUES("'.$_SESSION["id"].'","'.mysql_real_escape_string($_POST["email"]).'","'.$key1.'","'.$key2.'",0)',$db->game);
+		mail($_POST["email"],str_replace("%username",$_SESSION["user"],$lang["settings"]["emailsubject"]),str_replace("%key",$key2,str_replace("%username",$_SESSION["user"],$lang["settings"]["emailbody2"])),$config["settings"]["email_header"]);
+		mail($res->email,str_replace("%username",$_SESSION["user"],$lang["settings"]["emailsubject"]),str_replace("%key",$key1,str_replace("%username",$_SESSION["user"],$lang["settings"]["emailbody1"])),$config["settings"]["email_header"]);
 		die(json_encode(array("ok" => $lang["settings"]["verifymailsent"])));
 	}
 	mysql_query('UPDATE '.$db->gamedb.'.account SET email="'.mysql_real_escape_string($_POST["email"]).'" WHERE id="'.$_SESSION["id"].'"');
