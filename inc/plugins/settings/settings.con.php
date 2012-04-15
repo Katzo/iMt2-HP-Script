@@ -34,9 +34,9 @@ if (isset($_GET["key1"])) {
 			);
 		elseif ($res->status==0){
 			if (isset($db->hp))
-				mysql_query('UPDATE '.$db->hpdb["homepage"].'.email_change SET status=1 WHERE key1="'.mysql_real_escape_string($_GET["key1"]).'"',$db->hp);
+				mysql_query('UPDATE '.$db->hpdb["homepage"].'.email_change SET status=1 WHERE key1="'.mysql_real_escape_string($_GET["key1"]).'" LIMIT 1',$db->hp);
 			else
-				mysql_query('UPDATE '.$db->gamedb["homepage"].'.email_change SET status=1 WHERE key1="'.mysql_real_escape_string($_GET["key1"]).'"',$db->game);
+				mysql_query('UPDATE '.$db->gamedb["homepage"].'.email_change SET status=1 WHERE key1="'.mysql_real_escape_string($_GET["key1"]).'" LIMIT 1',$db->game);
 			$content= array(
 				"head" => array(
 					"title" => $lang["settings"]["change_email"]
@@ -46,7 +46,7 @@ if (isset($_GET["key1"])) {
 				)
 			);	
 		}elseif ($res->status==2){
-			mysql_query('UPDATE '.$db->gamedb["account"].'.account SET email="'.$res->email.'" WHERE id="'.$_SESSION["id"].'" LIMIT 1');
+			mysql_query('UPDATE '.$db->gamedb["account"].'.account SET email="'.$res->email.'" WHERE id="'.$res->id.'" LIMIT 1',$db->game);
 			if (isset($db->hp))
 				mysql_query('UPDATE '.$db->hpdb["homepage"].'.email_change SET status=3 WHERE key1="'.mysql_real_escape_string($_GET["key1"]).'"',$db->hp);
 			else
@@ -109,7 +109,7 @@ if (isset($_GET["key1"])) {
 				)
 			);	
 		}elseif ($res->status==1){
-			mysql_query('UPDATE '.$db->gamedb["account"].'.account SET email="'.$res->email.'" WHERE id="'.$_SESSION["id"].'" LIMIT 1');
+			mysql_query('UPDATE '.$db->gamedb["account"].'.account SET email="'.$res->email.'" WHERE id="'.$_SESSION["id"].'" LIMIT 1',$db->game);
 			if (isset($db->hp))
 				mysql_query('UPDATE '.$db->hpdb["homepage"].'.email_change SET status=3 WHERE key2="'.mysql_real_escape_string($_GET["key2"]).'"',$db->hp);
 			else
