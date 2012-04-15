@@ -17,7 +17,7 @@ $content=array(
  else
  	$q = mysql_query('SELECT id,name,`desc`,img,price FROM '.$db->gamedb["homepage"].'.itemshop_package WHERE enabled=1 ORDER BY added DESC LIMIT '.$plugin_conf["newest_count"],$db->game);
 while ($res = mysql_fetch_object($q)) {
-	$out[]=array(
+	$content[]=array(
 		"head" => array(
 			"title" => $res->name,
 		),
