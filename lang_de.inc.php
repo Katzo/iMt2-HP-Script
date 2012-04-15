@@ -98,6 +98,10 @@ $lang = array(
 		"verifymailsent" => "Wir haben eine Email zu deiner neuen und alten Email Adresse gesendet.<br/>Bitte klicke beide Links in den Emails um deine Email zu &auml;ndern.",
 		"email_changed" => "Deine Email wurde erfolgreich ge&auml;ndert!",
 		"verify_otheremail" => "Diese Email wurde best&auml;tigt!<br/> Bitte klicke nun auf den Link in der anderen.",
+	),
+	"itemshop" => array(
+		"buy" => "Kaufen",
+		"price" => "Preis",
 	)
 );
 

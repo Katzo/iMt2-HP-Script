@@ -99,6 +99,10 @@ $lang = array(
 		"verifymailsent" => "We sent an email to your new and your old email address.<br/>Please click the link in both of the emails to verify the change. Just ignore them if you don't want to anymore.",
 		"email_changed" => "Your email was successfully changed!",
 		"verify_otheremail" => "This email was verified! Please go to the other one and click the link in there to complete change your email",
+	),
+	"itemshop" => array(
+		"buy" => "Buy",
+		"price" => "Price",
 	)
 );
 

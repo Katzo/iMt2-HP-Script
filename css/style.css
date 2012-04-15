@@ -371,7 +371,7 @@ html, body, * {
 			    width:100%;
 			}
 
-	/*-------------------------------- NewWorld2 ----*/
+	/*-----------------------------------------------*/
 	/* Login ----------------------------------------*/
 	
 	form#login {
@@ -417,7 +417,10 @@ html, body, * {
 			*>input.btn {
 				padding-bottom:5px;
 			}
-		
+			input.btn:disabled{  /* fuck IE < v9 :D  */
+				background:white;
+				color:black;
+			}
 			input.btn:hover {
 				color:#ff9;
 				background-position:center center;
