@@ -402,7 +402,7 @@ html, body, * {
 			
 		input.btn {
 			border:none;
-			display:block;
+			display:inline-block;
 			height:32px;
 			width:82px;
 			margin:10px 0 4px;
