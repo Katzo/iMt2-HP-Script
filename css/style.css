@@ -238,12 +238,12 @@ html, body, * {
 					height:26px;
 					display:block;
 					background:url("../images/ui/content_button.png");
-					color:#00507a;
+					color:#ffc;
 					line-height:26px !important;
 					font-size:11px;
 					text-transform:uppercase;
 					text-indent:20px;
-					text-shadow:0 1px 0 #FFF, 0 1px 5px #FFF, 0 0px 8px #FFF;
+					text-shadow:0 0 3px #ffc;
 				}
 				
 					a.more:hover {
