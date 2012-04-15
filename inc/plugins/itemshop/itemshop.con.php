@@ -16,16 +16,16 @@ if (isset($db->hp))
 	$q = mysql_query('SELECT id,name FROM '.$db->hpdb["homepage"].'.itemshop_category WHERE enabled=1',$db->hp);
 else
 	$q = mysql_query('SELECT id,name FROM '.$db->gamedb["homepage"].'.itemshop_category WHERE enabled=1',$db->game);
-$cat = "";
+$cat = '';
 while ($res = mysql_fetch_object($q))
-	$cat.='<form method="link" action="'.$urlmap["itemshop"].'&cat='.$res->id.'"><input type="submit" class="btn" value="'.$res->name.'"/></form>';
+	$cat.='<input type="button" onclick="location.href=\''.$urlmap["itemshop"].'&cat='.$res->id.'\'"class="btn" value="'.$res->name.'"/>';
 $content[] = array(
 	"head" => array(
 		"title" => $lang["misc"]["itemshop"]
 	),
 	"middle" => array(
 		"text" => (isset($_SESSION["user"]) && !empty($_SESSION["user"])?str_replace("%coinname",$lang["misc"]["coins"],str_replace("%coins",$_SESSION["coins"],$lang["misc"]["youcoin"])).' <a href="'.$urlmap["donate"].'">'.$lang["misc"]["donate"].'?</a>
-			<div class="sep"></div>':'').$cat
+			<div class="sep"></div>':'').'<div style="margin:auto">'.$cat.'</div>'
 	)
 );
 
