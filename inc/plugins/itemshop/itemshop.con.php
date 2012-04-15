@@ -26,7 +26,7 @@ while ($res = mysql_fetch_object($q)) {
 			"text" => $res->desc,
 		),
 		"footer" => array(
-			"plain" => '<div clasS="left">'.$lang["itemshop"]["price"].': <b>'.$res->price.'</b> '.($res->price==1?$lang["misc"]["coin"]:$lang["misc"]["coins"]).'</div><div class="right"><input type="button" '.(isset($_SESSION["user"])&&!empty($_SESSION["user"])?'onclick="javascript:buy(this,'.$res->id.');"':'disabled="disabled"').' value="'.$lang["itemshop"]["buy"].'" class="btn" /></div>'
+			"plain" => '<p><div class="left">'.$lang["itemshop"]["price"].': <b>'.$res->price.'</b> '.($res->price==1?$lang["misc"]["coin"]:$lang["misc"]["coins"]).'</div><div class="right"><input type="button" '.(isset($_SESSION["user"])&&!empty($_SESSION["user"])?'onclick="javascript:buy(this,'.$res->id.');"':'disabled="disabled"').' value="'.$lang["itemshop"]["buy"].'" class="btn" /></div></p>'
 		)
 	);
 }
