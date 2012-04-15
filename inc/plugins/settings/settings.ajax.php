@@ -22,7 +22,7 @@ if (isset($_POST["changepw"])){
 	if (empty($_POST["code"]) || empty($_POST["pass"]))
 		die(json_encode(array("error" => $lang["misc"]["fillout"])));
 	if (strlen($_POST["code"])==7){
-		mysql_query("UPDATE ".$db->gamedb["account"].".account SET social_code='".mysql_real_escape_string($_POST["code"])."' WHERE id='".$_SESSION["id"]."' AND password=password('".mysql_real_escape_string($_POST["pass"])."')",$db->game);
+		mysql_query("UPDATE ".$db->gamedb["account"].".account SET social_id='".mysql_real_escape_string($_POST["code"])."' WHERE id='".$_SESSION["id"]."' AND password=password('".mysql_real_escape_string($_POST["pass"])."')",$db->game);
 		if (mysql_affected_rows($db->game)) {
 			die(json_encode(array("ok" => $lang["settings"]["code_changed"])));
 		}else
