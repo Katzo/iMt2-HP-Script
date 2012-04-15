@@ -23,7 +23,7 @@ while ($res = mysql_fetch_object($q)) {
 		),
 		"middle" => array(
 			"img" => array("src" => $res->img,"alt" => $res->name),
-			"text" => $res->desc.'<div class="sep"></div><div clasS="left">'.$lang["itemshop"]["price"].': <b>'.$res->price.'</b> '.($res->price==1?$lang["misc"]["coin"]:$lang["misc"]["coins"]).'</div><div class="right"><input type="button" '.(isset($_SESSION["user"])&&!empty($_SESSION["user"])?'onclick="javascript:buy(this,'.$res->id.');"':'disabled="disabled"').' /></div>',
+			"text" => $res->desc.'<div class="sep"></div><div clasS="left">'.$lang["itemshop"]["price"].': <b>'.$res->price.'</b> '.($res->price==1?$lang["misc"]["coin"]:$lang["misc"]["coins"]).'</div><div class="right"><input type="button" '.(isset($_SESSION["user"])&&!empty($_SESSION["user"])?'onclick="javascript:buy(this,'.$res->id.');"':'disabled="disabled"').' value="'.$lang["itemshop"]["buy"].'" class="btn" /></div>',
 		)
 	);
 }
