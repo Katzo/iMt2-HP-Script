@@ -12,10 +12,27 @@ include($config["path"]["includes"].$config["path"]["plugins"]."itemshop/config.
 $content=array(
 	"multi" => true
 );
- if (isset($db->hp))
- 	$q = mysql_query('SELECT id,name,`desc`,img,price FROM '.$db->hpdb["homepage"].'.itemshop_package WHERE enabled=1 ORDER BY added DESC LIMIT '.$plugin_conf["newest_count"],$db->hp);
- else
- 	$q = mysql_query('SELECT id,name,`desc`,img,price FROM '.$db->gamedb["homepage"].'.itemshop_package WHERE enabled=1 ORDER BY added DESC LIMIT '.$plugin_conf["newest_count"],$db->game);
+if (isset($db->hp))
+	$q = mysql_query('SELECT id,name FROM '.$db->hpdb["homepage"].'.itemshop_category WHERE enabled=1',$db->hp);
+else
+	$q = mysql_query('SELECT id,name FROM '.$db->gamedb["homepage"].'.itemshop_category WHERE enabled=1',$db->game);
+$cat = "";
+while ($res = mysql_fetch_object($q))
+	$cat.='<form method="link" action="'.$urlmap["itemshop"].'&cat='.$res->id.'"><input type="submit" class="btn" value="'.$res->name.'"/></form>';
+$content[] = array(
+	"head" => array(
+		"title" => $lang["misc"]["itemshop"]
+	),
+	"middle" => array(
+		"text" => (isset($_SESSION["user"]) && !empty($_SESSION["user"])?str_replace("%coinname",$lang["misc"]["coins"],str_replace("%coins",$_SESSION["coins"],$lang["misc"]["youcoin"])).' <a href="'.$urlmap["donate"].'">'.$lang["misc"]["donate"].'?</a>
+			<div class="sep"></div>':'').$cat
+	)
+);
+
+if (isset($db->hp))
+	$q = mysql_query('SELECT id,name,`desc`,img,price FROM '.$db->hpdb["homepage"].'.itemshop_package WHERE enabled=1 ORDER BY added DESC LIMIT '.$plugin_conf["newest_count"],$db->hp);
+else
+	$q = mysql_query('SELECT id,name,`desc`,img,price FROM '.$db->gamedb["homepage"].'.itemshop_package WHERE enabled=1 ORDER BY added DESC LIMIT '.$plugin_conf["newest_count"],$db->game);
 while ($res = mysql_fetch_object($q)) {
 	$content[]=array(
 		"head" => array(
@@ -26,7 +43,7 @@ while ($res = mysql_fetch_object($q)) {
 			"text" => $res->desc,
 		),
 		"footer" => array(
-			"plain" => $lang["itemshop"]["price"].': <b>'.$res->price.'</b> '.($res->price==1?$lang["misc"]["coin"]:$lang["misc"]["coins"]).(isset($_SESSION["user"])&&!empty($_SESSION["user"])?'<a onclick="javascript:buy(this,'.$res->id.');return false;" class="more right">'.$lang["itemshop"]["buy"].'</a>':'')
+			"plain" => $lang["itemshop"]["price"].': <b>'.$res->price.'</b> '.($res->price==1?$lang["misc"]["coin"]:$lang["misc"]["coins"]).(isset($_SESSION["user"])&&!empty($_SESSION["user"])?' <a onclick="javascript:buy(this,'.$res->id.');return false;" class="more right">'.$lang["itemshop"]["buy"].'</a>':'')
 		)
 	);
 }

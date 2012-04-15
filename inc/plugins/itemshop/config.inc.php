@@ -9,6 +9,6 @@
  * You can offer packages and single items.
  */
 $plugin_conf = array(
-	"newest_count" => "10", // How many of the newest added packages do you want it to list
+	"newest_count" => 10, // How many of the newest added packages do you want it to list
 );
 ?>
