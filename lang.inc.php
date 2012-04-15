@@ -92,7 +92,7 @@ $lang = array(
 		"pass_error" => "Your password didn't match!",
 		"pass_changed" => "Your password was successfully changed!",
 		"code_changed" => "Your code was successfully changed!",
-		"safebox_reseted" => "Your safebox password was successfully reseted! (It's <b>0000000</b> now)",
+		"safebox_reset" => "Your safebox password was successfully reset! (It's <b>0000000</b> now)",
 		"emailsubject" => "Email change on ".$config["settings"]["name"],
 		"emailbody1" => "Hello %username,\nTo complete the email change on ".$config["settings"]["name"]." you just have to click this link:\n".$config["settings"]["baseurl"].$urlmap["settings"]."&key1=%key\nYour ".$config["settings"]["name"]." Team",
 		"emailbody2" => "Hello %username,\nTo complete the email change on ".$config["settings"]["name"]." you just have to click this link:\n".$config["settings"]["baseurl"].$urlmap["settings"]."&key2=%key\nYour ".$config["settings"]["name"]." Team",
