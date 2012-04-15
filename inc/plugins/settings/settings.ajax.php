@@ -62,7 +62,7 @@ if (isset($_POST["changepw"])){
 		mail($res->email,str_replace("%username",$_SESSION["user"],$lang["settings"]["emailsubject"]),str_replace("%key",$key1,str_replace("%username",$_SESSION["user"],$lang["settings"]["emailbody1"])),$config["settings"]["email_header"]);
 		die(json_encode(array("ok" => $lang["settings"]["verifymailsent"])));
 	}
-	mysql_query('UPDATE '.$db->gamedb.'.account SET email="'.mysql_real_escape_string($_POST["email"]).'" WHERE id="'.$_SESSION["id"].'"');
+	mysql_query('UPDATE '.$db->gamedb.'.account SET email="'.mysql_real_escape_string($_POST["email"]).'" WHERE id="'.$_SESSION["id"].'"',$db->game);
 	die(json_encode(array("ok" => $lang["settings"]["email_changed"])));
 }
 ?>
