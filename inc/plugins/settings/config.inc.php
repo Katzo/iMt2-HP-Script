@@ -10,4 +10,5 @@
 $plugin_conf = array(
 	"email_verify" => true, // Enable email verifing when changing it
 );
+// The register config gets used too! 
 ?>

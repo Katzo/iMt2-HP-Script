@@ -2,7 +2,14 @@
 if (!isset($_SESSION["user"]) || empty($_SESSION["user"])) die(json_encode(array("error" => "Please login!")));
 if (isset($_POST["changepw"])){
 	if (!isset($_POST["pass"]) || !isset($_POST["repeat"]) || !isset($_POST["oldpass"])) exit;
+	if (empty($_POST["pass"]) || empty($_POST["repeat"]) || empty($_POST["oldpass"]))
+		die(json_encode(array("error" => $lang["misc"]["fillout"])));
 	if ($_POST["pass"] === $_POST["repeat"]){
+		include($config["path"]["includes"].$config["path"]["plugins"]."register/config.inc.php");
+		if (strlen($_POST["pass"]) > $plugin_conf["maxpasslen"])
+			die(json_encode(array("error" => str_replace("%len",$plugin_conf["maxpasslen"],$lang["reg"]["passmaxlen_error"]))));
+		if (strlen($_POST["pass"]) < $plugin_conf["minpasslen"])
+			die(json_encode(array("error" => str_replace("%len",$plugin_conf["minpasslen"],$lang["reg"]["passminlen_error"]))));
 		mysql_query("UPDATE ".$db->gamedb["account"].".account SET password=password('".mysql_real_escape_string($_POST["pass"])."') WHERE id='".$_SESSION["id"]."' AND password=password('".mysql_real_escape_string($_POST["oldpass"])."')",$db->game);
 		if (mysql_affected_rows($db->game)) {
 			die(json_encode(array("ok" => $lang["settings"]["pass_changed"])));
@@ -12,7 +19,9 @@ if (isset($_POST["changepw"])){
 		die(json_encode(array("error" => $lang["reg"]["passrepeat_error"])));
 }elseif(isset($_POST["changecode"])){
 		if (!isset($_POST["code"]) || !isset($_POST["pass"])) exit;
-		if (strlen($_POST["code"])== 7){
+		if (empty($_POST["code"]) || empty($_POST["pass"]))
+			die(json_encode(array("error" => $lang["misc"]["fillout"])));
+		if (strlen($_POST["code"])==7){
 		mysql_query("UPDATE ".$db->gamedb["account"].".account SET social_code='".mysql_real_escape_string($_POST["code"])."' WHERE id='".$_SESSION["id"]."' AND password=password('".mysql_real_escape_string($_POST["pass"])."')",$db->game);
 		if (mysql_affected_rows($db->game)) {
 			die(json_encode(array("ok" => $lang["settings"]["code_changed"])));
@@ -30,8 +39,10 @@ if (isset($_POST["changepw"])){
 		die(json_encode(array("error" => $lang["settings"]["pass_error"])));
 
 }elseif(isset($_POST["changeemail"])){
-	include($config["path"]["includes"].$config["path"]["plugins"]."register/config.inc.php");
+	include($config["path"]["includes"].$config["path"]["plugins"]."settings/config.inc.php");
 	if (!isset($_POST["pass"]) || !isset($_POST["email"])) exit;
+	if (empty($_POST["pass"]) || empty($_POST["email"]))
+		die(json_encode(array("error" => $lang["misc"]["fillout"])));
 	if(!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,5})^", $_POST["email"])) 
            	die(json_encode(array("error" => $lang["reg"]["email_error"])));
 	$q=mysql_query("SELECT email FROM ".$db->gamedb["account"].".account WHERE id='".$_SESSION["id"]."' AND password=password('".mysql_real_escape_string($_POST["pass"])."')",$db->game);
