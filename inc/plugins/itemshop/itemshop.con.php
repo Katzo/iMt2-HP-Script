@@ -24,8 +24,8 @@ $content[] = array(
 		"title" => $lang["misc"]["itemshop"]
 	),
 	"middle" => array(
-		"text" => (isset($_SESSION["user"]) && !empty($_SESSION["user"])?str_replace("%coinname",$lang["misc"]["coins"],str_replace("%coins",$_SESSION["coins"],$lang["misc"]["youcoin"])).' <a href="'.$urlmap["donate"].'">'.$lang["misc"]["donate"].'?</a>
-			<div class="sep"></div>':'').'<div style="margin:auto">'.$cat.'</div>'
+		"text" => '<div style="text-align:center;">'.(isset($_SESSION["user"]) && !empty($_SESSION["user"])?str_replace("%coinname",$lang["misc"]["coins"],str_replace("%coins",$_SESSION["coins"],$lang["misc"]["youcoin"])).' <a href="'.$urlmap["donate"].'">'.$lang["misc"]["donate"].'?</a>
+			<div class="sep"></div>':'').'<div style="margin:auto">'.$cat.'</div></div>'
 	)
 );
 
