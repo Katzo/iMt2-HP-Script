@@ -163,7 +163,7 @@ if (isset($_GET["key1"])) {
 						<form id="changecodeform" onsubmit="javascript:ssubmit(\'#changecodeform\',\'#changecoderes\'); return false;">
 							<table>
 								<tr><td>'.$lang["misc"]["pass"].'</td><td><input class="bar" type="password" name="pass"></td></tr>
-								<tr><td>'.$lang["misc"]["code"].'</td><td><input class="bar" type="password" name="code"></td></tr>
+								<tr><td>'.$lang["misc"]["code"].'</td><td><input class="bar" type="text" name="code"></td></tr>
 								<tr><td></td><td><input class="btn" type="submit" name="changecode" value="'.$lang["misc"]["submit"].'"></td></tr>
 							</table>
 						</form>'

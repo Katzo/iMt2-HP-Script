@@ -18,17 +18,17 @@ if (isset($_POST["changepw"])){
 	}else
 		die(json_encode(array("error" => $lang["reg"]["passrepeat_error"])));
 }elseif(isset($_POST["changecode"])){
-		if (!isset($_POST["code"]) || !isset($_POST["pass"])) exit;
-		if (empty($_POST["code"]) || empty($_POST["pass"]))
-			die(json_encode(array("error" => $lang["misc"]["fillout"])));
-		if (strlen($_POST["code"])==7){
+	if (!isset($_POST["code"]) || !isset($_POST["pass"])) exit;
+	if (empty($_POST["code"]) || empty($_POST["pass"]))
+		die(json_encode(array("error" => $lang["misc"]["fillout"])));
+	if (strlen($_POST["code"])==7){
 		mysql_query("UPDATE ".$db->gamedb["account"].".account SET social_code='".mysql_real_escape_string($_POST["code"])."' WHERE id='".$_SESSION["id"]."' AND password=password('".mysql_real_escape_string($_POST["pass"])."')",$db->game);
 		if (mysql_affected_rows($db->game)) {
 			die(json_encode(array("ok" => $lang["settings"]["code_changed"])));
 		}else
 			die(json_encode(array("error" => $lang["settings"]["pass_error"])));
 	}else
-		die(json_encode(array("error" => $lang["reg"]["code_error"])));
+		die(json_encode(array("error" => $lang["reg"]["codelen_error"])));
 }elseif(isset($_POST["safebox"])){
 	if (!isset($_POST["pass"])) exit;
 	$q=mysql_query("SELECT id FROM ".$db->gamedb["account"].".account WHERE id='".$_SESSION["id"]."' AND password=password('".mysql_real_escape_string($_POST["pass"])."')",$db->game);
