@@ -16,10 +16,10 @@ html, body, * {
 		font-size:12px;
 	}
 		.error {
-			color:#730000;
+			color:#f00;
 		}
 		.ok {
-			color:#00A300;
+			color:#0f0;
 		}
 		.left {
 			float:left;
@@ -244,6 +244,7 @@ html, body, * {
 					text-transform:uppercase;
 					text-indent:20px;
 					text-shadow:0 0 3px #ffc;
+					cursor:pointer;
 				}
 				
 					a.more:hover {
