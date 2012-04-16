@@ -11,7 +11,7 @@
 $build->addContentBox($config["path"]["includes"].$config["path"]["plugins"]."itemshop/itemshop.con.php");
 $build->addJSFile("js/jquery.js");
 $build->addJSFile("js/common.js");
-$build->addJS('function buy(id,what){
+$build->addJS('function buy(what,id){
 	$(what).append(\'<img src="images/ui/loading.gif"/>\');
 	$.ajax({
 		type: "POST",
