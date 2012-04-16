@@ -117,6 +117,7 @@ $ajax = array(
 	"regcheck" => "register/regcheck.ajax.php",
 	"ranking" => "ranking/ranking.ajax.php",
 	"settings" => "settings/settings.ajax.php",
+	"buy" => "itemshop/buy.ajax.php",
 );
 // URL Map
 $urlmap = array(

@@ -46,7 +46,7 @@ if (isset($_GET["cat"]) && !empty($_GET["cat"])) {
 				"text" => $res->desc,
 			),
 			"footer" => array(
-				"plain" => $lang["itemshop"]["price"].': <b>'.$res->price.'</b> '.($res->price==1?$lang["misc"]["coin"]:$lang["misc"]["coins"]).(isset($_SESSION["user"])&&!empty($_SESSION["user"])?' <a onclick="javascript:buy(this,'.$res->id.');return false;" class="more right">'.$lang["itemshop"]["buy"].'</a>':'')
+				"plain" => $lang["itemshop"]["price"].': <b>'.$res->price.'</b> '.($res->price==1?$lang["misc"]["coin"]:$lang["misc"]["coins"]).(isset($_SESSION["user"])&&!empty($_SESSION["user"])?' <span><a onclick="javascript:buy(this,'.$res->id.');return false;" class="more right">'.$lang["itemshop"]["buy"].'</a></span>':'')
 			)
 		);
 	}

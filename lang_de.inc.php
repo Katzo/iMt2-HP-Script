@@ -51,6 +51,7 @@ $lang = array(
 		"search" => "Suchen",
 		"download" => "Download",
 		"systemrequirements" => "Systemvoraussetzungen",
+		"needlogin" => "Bitte logge dich ein.",
 	),
 	"reg" => array(
 		"captcha_error" => "Den Captcha, den du eingegeben hast, stimmt nicht.",
@@ -103,6 +104,9 @@ $lang = array(
 	"itemshop" => array(
 		"buy" => "Kaufen",
 		"price" => "Preis",
+		"caterror" => "Ich konnte diese Kategorie leider nicht finden! Das tut mir leid! :(",
+		"itemerror" => "Ich konnte dieses Item leider nicht finden!",
+		"priceerror" => "Du hast nicht genug Coins um das zu kaufen!",
 	)
 );
 
