@@ -8,6 +8,19 @@
  * guess what it does.
  */
 include($config["path"]["includes"].$config["path"]["plugins"]."ranking/config.inc.php");
+if ($plugin_conf["buildcache"]) {
+	/*
+	 * Check if we need to rebuild the cache
+	 */
+	 if (isset($db->hp)) 
+	 	$q = mysql_query("SELECT TABLE_COMMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = '".$db->hpdb["homepage"]."' and TABLE_NAME='ranking_cache' LIMIT 1",$db->hp);
+	 else
+	 	$q = mysql_query("SELECT TABLE_COMMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = '".$db->gamedb["homepage"]."' and TABLE_NAME='ranking_cache' LIMIT 1",$db->game);
+	$res = mysql_fetch_object($q);
+	if (time() > $res->TABLE_COMMENT+$plugin_conf["cachetimeout"]) 
+		include($config["path"]["includes"].$config["path"]["plugins"]."ranking/buildcache.inc.php");
+		// I want to say this again. IT IS REALLY STUPID TO DO THIS
+}
 $content = array(
 	"head" => array(
 		"title" => $lang["misc"]["ranking"]
