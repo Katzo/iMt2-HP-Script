@@ -12,20 +12,20 @@ $build->addContentBox($config["path"]["includes"].$config["path"]["plugins"]."it
 $build->addJSFile("js/jquery.js");
 $build->addJSFile("js/common.js");
 $build->addJS('function buy(id,what){
-	$(what).append(\'<img src="img/ui/loading.gif"/>\');
+	$(what).append(\'<img src="images/ui/loading.gif"/>\');
 	$.ajax({
 		type: "POST",
-		data:{id:id},
+		data: {id:id},
 		url: "ajax.php?p=itemshop_buy",
-		success: function(result){
-			res = jQuery.parseJSON(result);
-			if (res.error)
-				$(what).addClass("error").removeClass("ok").html(res.error);
-			else if (res.ok)
-				$(what).addClass("ok").removeClass("error").html(res.ok);
-			else 
-				$(what).addClass("error").removeClass("ok").html("Server Error! Please try again!");
-		}
+		success: function(result) {
+					res = jQuery.parseJSON(result);
+					if (res.error)
+						$(what).addClass("error").removeClass("ok").html(res.error);
+					else if (res.ok)
+						$(what).addClass("ok").removeClass("error").html(res.ok);
+					else 
+						$(what).addClass("error").removeClass("ok").html("Server Error! Please try again!");
+				},
 	});
 }');
 ?>
