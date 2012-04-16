@@ -14,6 +14,7 @@ $lang = array(
 		"tformat" => "d.m.y H:i"
 	),
 	"misc" => array(
+		"notfound" => "404 - Not Found",
 		"ok" => "&radic;",
 		"fillout" => "Please fill out all fields",
 		"coin" => "Coin",
@@ -103,6 +104,7 @@ $lang = array(
 	"itemshop" => array(
 		"buy" => "Buy",
 		"price" => "Price",
+		"caterror" => "We could not find the category you were looking for.<br/>Please try one of the ones above!",
 	)
 );
 

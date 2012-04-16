@@ -14,6 +14,7 @@ $lang = array(
 		"tformat" => "d.m.y H:i"
 	),
 	"misc" => array(
+		"notfound" => "404 - Nicht Gefunden",
 		"ok" => "&radic;",
 		"fillout" => "Bitte f&uuml;lle alle Felder aus",
 		"coin" => "Coin",
