@@ -56,7 +56,7 @@ else{
 					"text" => $res->desc,
 				),
 				"footer" => array(
-					"plain" => $lang["itemshop"]["price"].': <b>'.$res->price.'</b> '.($res->price==1?$lang["misc"]["coin"]:$lang["misc"]["coins"]).(isset($_SESSION["user"])&&!empty($_SESSION["user"])?' <span><a onclick="javascript:buy($(this).parent(),'.$res->id.');return false;" class="more right">'.$lang["itemshop"]["buy"].'</a></span>':'')
+					"plain" => $lang["itemshop"]["price"].': <b>'.$res->price.'</b> '.($res->price==1?$lang["misc"]["coin"]:$lang["misc"]["coins"]).(isset($_SESSION["user"])&&!empty($_SESSION["user"])?' <span class="right"><a onclick="javascript:buy($(this).parent(),'.$res->id.');return false;" class="more">'.$lang["itemshop"]["buy"].'</a></span>':'')
 				)
 			);
 		}
