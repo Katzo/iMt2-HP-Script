@@ -202,5 +202,14 @@ if (isset($_GET["key1"])) {
 		),
 		
 	);
+}else{
+	$content = array(
+		"head" => array(
+			"title" => $lang["misc"]["needlogin"]
+		),
+		"middle" => array(
+			"text" => $lang["misc"]["needlogin"]
+		)
+	);
 }
 ?>
