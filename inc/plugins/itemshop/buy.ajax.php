@@ -20,5 +20,6 @@ while ($res = mysql_fetch_object($q)) {
 		die(json_encode(array("error" => "Server Error. Try again.")));
 }
 mysql_query('UPDATE '.$db->gamedb["account"].'.account SET '.$config["settings"]["coin"].' = "'.($realcoins-$info->price).'"');
+$_SESSION["coins"] = $realcoins-$info->price;
 die(json_encode(array("ok" => $lang["itemshop"]["success"]))); // Yay! When user reaches this he successfully bought something! money! $_$
 ?>
