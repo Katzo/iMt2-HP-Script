@@ -24,7 +24,7 @@ $build->addJS('function buy(what,id){
 					else if (res.ok)
 						$(what).addClass("ok").html(res.ok);
 					else 
-						$(what).addClass("error")..html("Server Error! Please try again!");
+						$(what).addClass("error").html("Server Error! Please try again!");
 				},
 	});
 }');
