@@ -19,7 +19,7 @@ while ($res = mysql_fetch_object($q)) {
 	if (mysql_affected_rows($db->game) == 0)
 		die(json_encode(array("error" => "Server Error. Try again.")));
 }
-mysql_query('UPDATE '.$db->gamedb["account"].'.account SET '.$config["settings"]["coin"].' = "'.($realcoins-$info->price).'"');
+mysql_query('UPDATE '.$db->gamedb["account"].'.account SET '.$config["settings"]["coin"].' = "'.($realcoins-$info->price).'" WHERE id="'.$_SESSION["id"].'" LIMIT 1',$db->game);
 $_SESSION["coins"] = $realcoins-$info->price;
 die(json_encode(array("ok" => $lang["itemshop"]["success"]))); // Yay! When user reaches this he successfully bought something! money! $_$
 ?>
