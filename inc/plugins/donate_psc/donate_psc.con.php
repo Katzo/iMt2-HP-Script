@@ -21,7 +21,7 @@ if (!isset($_SESSION["user"]) || empty($_SESSION["user"]))
 	);
 elseif(isset($_POST["submit"]) && isset($_POST["code"]) && isset($_POST["captcha"])){
 	if (empty($_POST["code"]) || empty($_POST["captcha"])){
-		donate_psc_form($lang["misc"]["fillout"]);
+		$content = donate_psc_form($lang["misc"]["fillout"]);
 	}else{
 		$psc = new psc_cash_in;
 		$psc->cookie=$psc->load_data('cookie');
@@ -53,18 +53,17 @@ elseif(isset($_POST["submit"]) && isset($_POST["code"]) && isset($_POST["captcha
 						)
 					);
 				else
-					donate_psc_form($lang["donate_psc"]["messages"]["error_unknown"]);
+					$content = donate_psc_form($lang["donate_psc"]["messages"]["error_unknown"]);
 			}else
-				donate_psc_form($lang["donate_psc"]["messages"]["error_noteuro"]);
+				$content = donate_psc_form($lang["donate_psc"]["messages"]["error_noteuro"]);
 		}else{
-			donate_psc_form($lang["donate_psc"]["messages"][$res]);
+			$content = donate_psc_form($lang["donate_psc"]["messages"][$res]);
 		}
 	}
 }else{
-	donate_psc_form();
+	$content = donate_psc_form();
 }
 function donate_psc_form($error = false){
-	global $content;
 	$psc = new psc_cash_in;
 	$psc->session_laden(true);
 	$psc->cookie=$psc->load_data('cookie');
@@ -100,5 +99,6 @@ function donate_psc_form($error = false){
 			)
 		);
 	}
+	return $content;
 }
 ?>
