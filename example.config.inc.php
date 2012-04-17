@@ -108,7 +108,12 @@ $pages = array(
 	"itemshop" => array(
 		"title" => false,
 		"plugins" => array("statistics","online_status","userpanel","sbranking","itemshop")
+	),
+	"donate" => array(
+		"title" => false,
+		"plugins" => array("statistics","online_status","userpanel","sbranking","donate_psc")
 	)
+	
 );
 // Ajax
 $ajax = array(
@@ -119,7 +124,11 @@ $ajax = array(
 	"settings" => "settings/settings.ajax.php",
 	"buy" => "itemshop/buy.ajax.php",
 );
-// URL Map
+/* URL Map
+ * Please use relative links if possible
+ * I'm only needing relative links for the donate link in the ingame itemshop at the moment - but that could change in the future
+ * ../DONATELINK is what i'm doing. :)
+ */
 $urlmap = array(
 	"forgot_password" => "?p=forgot", // URLs for Stuff - you dont have to search in every config to change them ..
 	"donate" => "?p=donate", 

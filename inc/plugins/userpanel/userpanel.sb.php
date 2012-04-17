@@ -16,7 +16,6 @@ if (isset($_SESSION["user"]) &&!empty($_SESSION["user"])) {
 		"middle" => array(
 			"text" => str_replace("%username",$_SESSION["user"],$lang["misc"]["hello"]).'<br/><br/>'.str_replace("%coinname",$lang["misc"]["coins"],str_replace("%coins",$_SESSION["coins"],$lang["misc"]["youcoin"])).' <a href="'.$urlmap["donate"].'">'.$lang["misc"]["donate"].'?</a><br/>
 						<br/><div class="sb-sep"></div>
-						<a class="sb-link" href="'.$urlmap["char"].'">'.$lang["misc"]["char"].'</a>
 						<a class="sb-link" href="'.$urlmap["itemshop"].'">'.$lang["misc"]["itemshop"].'</a>
 						<a class="sb-link" href="'.$urlmap["settings"].'">'.$lang["misc"]["settings"].'</a>
 						<a class="sb-link" href="'.$urlmap["logout"].'">'.$lang["misc"]["logout"].'</a>'
@@ -37,8 +36,7 @@ if (isset($_SESSION["user"]) &&!empty($_SESSION["user"])) {
 							<input class="btn right" type="submit" name="register" value="'.$lang["misc"]["register"].'" />
 							<div class="clear"></div></form>
 						<div class="sb-sep"></div>
-						<a class="sb-link" href="'.$urlmap["forgot_password"].'">'.$lang["misc"]["forgot"].'?</a>
-						<a class="sb-link" href="'.$urlmap["support"].'">'.$lang["misc"]["accsupport"].'</a>'
+						<a class="sb-link" href="'.$urlmap["forgot_password"].'">'.$lang["misc"]["forgot"].'?</a>'
 		),
 	); 
 }

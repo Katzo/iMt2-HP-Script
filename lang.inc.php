@@ -58,6 +58,8 @@ $lang = array(
 		"download" => "Download",
 		"systemrequirements" => "System requirements",
 		"needlogin" => "Please login",
+		"servererrorcontact" => "A server error occured!<br/>Please try again<br/> If this persists please contact a staff member!",
+		"catpcha" => "Captcha"
 	),
 	"reg" => array(
 		"captcha_error" => "The captcha you entered is wrong.",
@@ -117,6 +119,23 @@ $lang = array(
 		"priceerror" => "You dont have enough coins to buy this",
 		"success" => "You successfully bought it! You can find it in the mall",
 		"success_ingame" => "You successfully bought it!",
+	),
+	"spenden_psc" => array(
+		"code" => "Paysafecard code",
+		"coincalc" => "Coin Calculator",
+		"notecalc" => "Please note, that converting coins to euro does not take coin boni into account",
+		"success" => "Your Paysafecard is valid and was successfully submited.<br/>Please wait until a staff member controlled the Paysafecard again and gives you your coins.<br/>This should <b>not</b> take longer than <b>24 Hours</b>!",
+		"messages" => array(
+	        'error_fields_blank' => 'You did not fill out all fields',
+	        'error_code' => 'An error has occurred with your PIN and/or password. Please check the entry of your PIN and the password, if you have given a password to this paysafecard.',
+	        'error_code_pw' => 'An error has occurred with your PIN and/or password. Please check the entry of your PIN and the password, if you have given a password to this paysafecard.',
+	        'error_captcha' => 'The text entered is not the same as the one displayed.',
+	        'error_unknown' => 'An unknown error occured. Please try again',
+	        'error_online' => 'An unknown error occured. Please try again',
+	        'error_noteuro' => 'You Paysafecards currency was not accepted.',
+	        'error_empty' => 'The credit on your Paysafecard is too low',
+	        'error_try' => 'This paysafecard was blocked due to many failed attempts'
+	    )
 	)
 );
 

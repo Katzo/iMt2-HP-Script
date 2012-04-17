@@ -21,7 +21,7 @@ if (!isset($_SESSION["user"])){
 	$id = mysql_fetch_object(mysql_query('SELECT account_id FROM '.$db->gamedb["player"].'.player WHERE id="'.(int)$_GET["pid"].'"'));
 	if (!$id) exit;
 	$id = $id->account_id;
-	if ($_GET["sas"] = md5($_GET["pid"].$_GET["sid"]."GF9001")){
+	if ($_GET["sas"] = md5($_GET["pid"].$id."GF9001")){
 		$res = mysql_fetch_object(mysql_query('SELECT login,'.$config["settings"]["coin"].' as coin FROM '.$db->gamedb["account"].'.account WHERE id="'.$id.'"',$db->game));
 		$_SESSION["user"] = $res->login;
 		$_SESSION["coins"] = $res->coin;
@@ -43,7 +43,7 @@ if (!isset($_SESSION["user"])){
 				</div>
 				<div class="postui post-con">
 					<div class="con-wrap">
-						 <?php str_replace("%coinname",$lang["misc"]["coins"],str_replace("%coins",$_SESSION["coins"],$lang["misc"]["youcoin"])).' <a href="'.$urlmap["donate"].'">'.$lang["misc"]["donate"].'?</a>'; ?>
+						 <?php str_replace("%coinname",$lang["misc"]["coins"],str_replace("%coins",$_SESSION["coins"],$lang["misc"]["youcoin"])).' <a target="_blank" href="../'.$urlmap["donate"].'">'.$lang["misc"]["donate"].'?</a>'; ?>
 					</div>
 				</div> 
 				<div class="postui post-end"></div>
