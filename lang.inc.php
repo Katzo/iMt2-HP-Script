@@ -120,7 +120,7 @@ $lang = array(
 		"success" => "You successfully bought it! You can find it in the mall",
 		"success_ingame" => "You successfully bought it!",
 	),
-	"spenden_psc" => array(
+	"donate_psc" => array(
 		"code" => "Paysafecard code",
 		"coincalc" => "Coin Calculator",
 		"notecalc" => "Please note, that converting coins to euro does not take coin boni into account",
