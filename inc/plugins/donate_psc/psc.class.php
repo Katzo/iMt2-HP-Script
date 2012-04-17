@@ -111,10 +111,6 @@ class psc_cash_in
             return 'error_online';
         }
         
-        if ($this->noteuro)
-        {
-            return 'error_noteuro';
-        }
 		return 'ok';	
         }
 
@@ -194,14 +190,12 @@ class psc_cash_in
         preg_match_all("#cell2\">(.*?)</td>#", $page, $res);
         $this->id=$res[1][0];
         $this->date=$res[1][1];
-        $this->noteuro=true;
-        foreach($this->allowed_currency as $value)
+        foreach($this->allowed_currency as $value => $bla)
         {
-        if(eregi('<td>'.$value.'</td>',$page)!==FALSE)
-        {
-        $this->noteuro=false;
-        $this->currency=$value;
-        }
+	        if(eregi('<td>'.$value.'</td>',$page)!==FALSE)
+	        {
+	       		$this->currency=$value;
+	        }
         }
         
         }

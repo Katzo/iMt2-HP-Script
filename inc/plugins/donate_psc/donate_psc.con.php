@@ -69,11 +69,13 @@ elseif(isset($_POST["submit"]) && isset($_POST["code"]) && isset($_POST["captcha
 }
 function donate_psc_form($error = false){
 	global $lang;
+	global $plugin_conf;
 	$psc = new psc_cash_in;
 	$psc->session_laden(true);
 	$psc->cookie=$psc->load_data('cookie');
     $psc->cookie2=$psc->load_data('cookie2'); 
     $psc->sessionid=$psc->load_data('sessionid');  
+    $psc->allowed_currency=$plugin_conf["currency"];  
     $_SESSION["cookie"] = $psc->cookie;
     $_SESSION["cookie2"] = $psc->cookie2;
     $_SESSION["sessionid"] = $psc->sessionid;
