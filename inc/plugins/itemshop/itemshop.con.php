@@ -9,58 +9,48 @@
  * You can offer packages and single items.
  */
 include($config["path"]["includes"].$config["path"]["plugins"]."itemshop/config.inc.php");
-if (!isset($_SESSION["user"]) || empty($_SESSION["user"]))
-	$content = array(
+$content=array(
+	"multi" => true
+);
+if (isset($_GET["cat"]) && !empty($_GET["cat"])) {
+	include($config["path"]["includes"].$config["path"]["plugins"]."itemshop/category.inc.php");
+}else {
+	if (isset($db->hp))
+		$q = mysql_query('SELECT id,name FROM '.$db->hpdb["homepage"].'.itemshop_category WHERE enabled=1',$db->hp);
+	else
+		$q = mysql_query('SELECT id,name FROM '.$db->gamedb["homepage"].'.itemshop_category WHERE enabled=1',$db->game);
+	$cat = '';
+	while ($res = mysql_fetch_object($q))
+		$cat.='<input type="button" onclick="location.href=\''.$urlmap["itemshop"].'&cat='.$res->id.'\'"class="btn" value="'.$res->name.'"/>';
+	$content[] = array(
 		"head" => array(
-			"title" => $lang["misc"]["needlogin"]
+			"title" => $lang["misc"]["itemshop"]
 		),
 		"middle" => array(
-			"text" => $lang["misc"]["needlogin"]
+			"text" => '<div style="text-align:center;">'.(isset($_SESSION["user"]) && !empty($_SESSION["user"])?str_replace("%coinname",$lang["misc"]["coins"],str_replace("%coins",$_SESSION["coins"],$lang["misc"]["youcoin"])).' <a href="'.$urlmap["donate"].'">'.$lang["misc"]["donate"].'?</a>
+				<div class="sep"></div>':'').'<div style="margin:auto">'.$cat.'</div></div>'
 		)
 	);
-else{
-	$content=array(
-		"multi" => true
-	);
-	if (isset($_GET["cat"]) && !empty($_GET["cat"])) {
-		include($config["path"]["includes"].$config["path"]["plugins"]."itemshop/category.inc.php");
-	}else {
-		if (isset($db->hp))
-			$q = mysql_query('SELECT id,name FROM '.$db->hpdb["homepage"].'.itemshop_category WHERE enabled=1',$db->hp);
-		else
-			$q = mysql_query('SELECT id,name FROM '.$db->gamedb["homepage"].'.itemshop_category WHERE enabled=1',$db->game);
-		$cat = '';
-		while ($res = mysql_fetch_object($q))
-			$cat.='<input type="button" onclick="location.href=\''.$urlmap["itemshop"].'&cat='.$res->id.'\'"class="btn" value="'.$res->name.'"/>';
-		$content[] = array(
+	
+	if (isset($db->hp))
+		$q = mysql_query('SELECT id,name,`desc`,img,price FROM '.$db->hpdb["homepage"].'.itemshop_package WHERE enabled=1 ORDER BY added DESC LIMIT '.$plugin_conf["newest_count"],$db->hp);
+	else
+		$q = mysql_query('SELECT id,name,`desc`,img,price FROM '.$db->gamedb["homepage"].'.itemshop_package WHERE enabled=1 ORDER BY added DESC LIMIT '.$plugin_conf["newest_count"],$db->game);
+	while ($res = mysql_fetch_object($q)) {
+		$content[]=array(
 			"head" => array(
-				"title" => $lang["misc"]["itemshop"]
+				"title" => $res->name,
 			),
 			"middle" => array(
-				"text" => '<div style="text-align:center;">'.(isset($_SESSION["user"]) && !empty($_SESSION["user"])?str_replace("%coinname",$lang["misc"]["coins"],str_replace("%coins",$_SESSION["coins"],$lang["misc"]["youcoin"])).' <a href="'.$urlmap["donate"].'">'.$lang["misc"]["donate"].'?</a>
-					<div class="sep"></div>':'').'<div style="margin:auto">'.$cat.'</div></div>'
+				"img" => array("src" => $res->img,"alt" => $res->name),
+				"text" => $res->desc,
+			),
+			"footer" => array(
+				"plain" => $lang["itemshop"]["price"].': <b>'.$res->price.'</b> '.($res->price==1?$lang["misc"]["coin"]:$lang["misc"]["coins"]).(isset($_SESSION["user"])&&!empty($_SESSION["user"])?' <span class="right"><a onclick="javascript:buy($(this).parent(),'.$res->id.');return false;" class="more">'.$lang["itemshop"]["buy"].'</a></span>':'')
 			)
 		);
-		
-		if (isset($db->hp))
-			$q = mysql_query('SELECT id,name,`desc`,img,price FROM '.$db->hpdb["homepage"].'.itemshop_package WHERE enabled=1 ORDER BY added DESC LIMIT '.$plugin_conf["newest_count"],$db->hp);
-		else
-			$q = mysql_query('SELECT id,name,`desc`,img,price FROM '.$db->gamedb["homepage"].'.itemshop_package WHERE enabled=1 ORDER BY added DESC LIMIT '.$plugin_conf["newest_count"],$db->game);
-		while ($res = mysql_fetch_object($q)) {
-			$content[]=array(
-				"head" => array(
-					"title" => $res->name,
-				),
-				"middle" => array(
-					"img" => array("src" => $res->img,"alt" => $res->name),
-					"text" => $res->desc,
-				),
-				"footer" => array(
-					"plain" => $lang["itemshop"]["price"].': <b>'.$res->price.'</b> '.($res->price==1?$lang["misc"]["coin"]:$lang["misc"]["coins"]).(isset($_SESSION["user"])&&!empty($_SESSION["user"])?' <span class="right"><a onclick="javascript:buy($(this).parent(),'.$res->id.');return false;" class="more">'.$lang["itemshop"]["buy"].'</a></span>':'')
-				)
-			);
-		}
 	}
 }
+
 unset($plugin_conf);
 ?>
