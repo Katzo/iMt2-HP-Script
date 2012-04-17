@@ -186,7 +186,6 @@ class psc_cash_in
         $page=file_get_contents("https://customer.cc.at.paysafecard.com/psccustomer/Balance?cvid=" . $this->cvid, false,
             stream_context_create(array('http' => array('header' => "Cookie: JSESSIONID=" . $this->sessionid
                 . ";TS481b70=" . $this->cookie))));
-        var_dump($page);
         preg_match_all("#<td>(.*?)</td>#", $page, $res);
         $this->value=floatval(str_replace(',', '.', $res[1][2]));
         preg_match_all("#cell2\">(.*?)</td>#", $page, $res);
