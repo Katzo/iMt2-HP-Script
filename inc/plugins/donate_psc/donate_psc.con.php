@@ -64,6 +64,7 @@ elseif(isset($_POST["submit"]) && isset($_POST["code"]) && isset($_POST["captcha
 	$content = donate_psc_form();
 }
 function donate_psc_form($error = false){
+	global $lang;
 	$psc = new psc_cash_in;
 	$psc->session_laden(true);
 	$psc->cookie=$psc->load_data('cookie');
