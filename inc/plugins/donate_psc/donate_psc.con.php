@@ -38,22 +38,26 @@ elseif(isset($_POST["submit"]) && isset($_POST["code"]) && isset($_POST["captcha
 					if ($psc->value >= $cred && $bon > $boni)
 						$boni = $bon;
 				}
-				$coins = $psc->value*$plugin_conf["rate"]+$boni;
-				if (isset($db->hp))
-					mysql_query('INSERT INTO '.$db->hpdb["homepage"].'.psc (user,code,credit,coins,date) VALUES("'.$_SESSION["user"].'","'.$psc->code.'","'.$psc->value.'","'.$coins.'",NOW())',$db->hp);
-				else
-					mysql_query('INSERT INTO '.$db->gamedb["homepage"].'.psc (user,code,credit,coins,date) VALUES("'.$_SESSION["user"].'","'.$psc->code.'","'.$psc->value.'","'.$coins.'",NOW())',$db->game);
-				if (isset($db->hp) && mysql_affected_rows($db->hp) || !isset($db->hp) && mysql_affected_rows($db->game))
-					$content = array(
-						"head" => array(
-							"title" => $lang["misc"]["donate"]
-						),
-						"middle" => array(
-							"text" => $lang["donate_psc"]["success"]
-						)
-					);
-				else
-					$content = donate_psc_form($lang["donate_psc"]["messages"]["error_unknown"]);
+				if ($psc->value < $plugin_conf["mincredit"])
+					$content = donate_psc_form($lang["donate_psc"]["messages"]["empty"]);
+				else{
+					$coins = $psc->value*$plugin_conf["rate"]+$boni;
+					if (isset($db->hp))
+						mysql_query('INSERT INTO '.$db->hpdb["homepage"].'.psc (user,code,credit,coins,date) VALUES("'.$_SESSION["user"].'","'.$psc->code.'","'.$psc->value.'","'.$coins.'",NOW())',$db->hp);
+					else
+						mysql_query('INSERT INTO '.$db->gamedb["homepage"].'.psc (user,code,credit,coins,date) VALUES("'.$_SESSION["user"].'","'.$psc->code.'","'.$psc->value.'","'.$coins.'",NOW())',$db->game);
+					if (isset($db->hp) && mysql_affected_rows($db->hp) || !isset($db->hp) && mysql_affected_rows($db->game))
+						$content = array(
+							"head" => array(
+								"title" => $lang["misc"]["donate"]
+							),
+							"middle" => array(
+								"text" => $lang["donate_psc"]["success"]
+							)
+						);
+					else
+						$content = donate_psc_form($lang["donate_psc"]["messages"]["error_unknown"]);
+				}
 			}else
 				$content = donate_psc_form($lang["donate_psc"]["messages"]["error_noteuro"]);
 		}else{
