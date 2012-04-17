@@ -1,4 +1,9 @@
 <?php
+/*
+ * This belongs to iMers iMt2-HP-Script
+ * https://github.com/imermcmaps/iMt2-HP-Script
+ * iMer.cc 2012
+ */
 // Lang
 $lang = array(
 	"time" => array(
@@ -103,11 +108,14 @@ $lang = array(
 	),
 	"itemshop" => array(
 		"buy" => "Kaufen",
+		"buy_again" => "Nochmal Kaufen",
 		"price" => "Preis",
+		"cat" => "Kategorieren",
 		"caterror" => "Ich konnte diese Kategorie leider nicht finden! Das tut mir leid! :(",
 		"itemerror" => "Ich konnte dieses Item leider nicht finden!",
 		"priceerror" => "Du hast nicht genug Coins um das zu kaufen!",
 		"success" => "Das Item wurde erfolgreich gekauft! Es befindet sich in deinem Itemshoplager",
+		"success" => "Das Item wurde erfolgreich gekauft!",
 	)
 );
 

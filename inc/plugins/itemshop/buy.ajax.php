@@ -21,5 +21,8 @@ while ($res = mysql_fetch_object($q)) {
 }
 mysql_query('UPDATE '.$db->gamedb["account"].'.account SET '.$config["settings"]["coin"].' = "'.($realcoins-$info->price).'" WHERE id="'.$_SESSION["id"].'" LIMIT 1',$db->game);
 $_SESSION["coins"] = $realcoins-$info->price;
-die(json_encode(array("ok" => $lang["itemshop"]["success"]))); // Yay! When user reaches this he successfully bought something! money! $_$
+if ($_POST["ingame"]) // Yay! When user reaches this he successfully bought something! money! $_$
+	die(json_encode(array("ok" => $lang["itemshop"]["success_ingame"].'<a onclick="javascript:buy($(this).parent(),'.$_POST["id"].');return false;" class="more">'.$lang["itemshop"]["buy_again"].'</a>'))); 
+else
+	die(json_encode(array("ok" => $lang["itemshop"]["success"].'<a onclick="javascript:buy($(this).parent(),'.$_POST["id"].');return false;" class="more">'.$lang["itemshop"]["buy_again"].'</a>')));
 ?>
