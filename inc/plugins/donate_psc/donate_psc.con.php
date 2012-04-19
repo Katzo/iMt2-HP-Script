@@ -19,7 +19,7 @@ if (!isset($_SESSION["user"]) || empty($_SESSION["user"]))
 			"text" => $lang["misc"]["needlogin"]
 		)
 	);
-elseif(isset($_POST["submit"]) && isset($_POST["code"]) && isset($_POST["captcha"])){
+elseif(isset($_POST["submit"]) && isset($_POST["code"]) && isset($_POST["captcha"])&& isset($_POST["credit"]) && isset($_POST["currency"])){
 	if (empty($_POST["code"]) || empty($_POST["captcha"])){
 		$content = donate_psc_form($lang["misc"]["fillout"]);
 	}else{

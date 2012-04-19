@@ -9,7 +9,7 @@ if (!$info) die(json_encode(array("error" => $lang["itemshop"]["itemerror"])));
 if ($_SESSION["coins"] < $info->price) die(json_encode(array("error" => $lang["itemshop"]["priceerror"])));
 $realcoins = mysql_fetch_object(mysql_query("SELECT ".$config["settings"]["coin"]." as coins FROM ".$db->gamedb["account"].".account WHERE id='".$_SESSION["id"]."' LIMIT 1",$db->game))->coins;
 //if ($realcoins != $_SESSION["coins"]) dostuff(); <- Comming later. Probably. Maybe.
-if ($realcoins < $info->price) die(json_encode(array("error" => $lang["itemshop"]["priceerror"])));
+if ($realcoins < $info->price) die(json_encode(array("error" => $lang["itemshop"]["priceerror"],"coins" => $_SESSION["coins"])));
 if (isset($db->hp))
 	$q = mysql_query("SELECT vnum,count,socket0,socket1,socket2 FROM ".$db->hpdb["homepage"].".itemshop_item WHERE pid='".mysql_real_escape_string($_POST["id"])."'",$db->hp);
 else
@@ -24,5 +24,5 @@ $_SESSION["coins"] = $realcoins-$info->price;
 if ($_POST["ingame"]) // Yay! When user reaches this he successfully bought something! money! $_$
 	die(json_encode(array("ok" => $lang["itemshop"]["success_ingame"].'<a onclick="javascript:buy($(this).parent(),'.$_POST["id"].');return false;" class="more">'.$lang["itemshop"]["buy_again"].'</a>'))); 
 else
-	die(json_encode(array("ok" => $lang["itemshop"]["success"].'<a onclick="javascript:buy($(this).parent(),'.$_POST["id"].');return false;" class="more">'.$lang["itemshop"]["buy_again"].'</a>')));
+	die(json_encode(array("ok" => $lang["itemshop"]["success"],"coins" => $_SESSION["coins"])));
 ?>

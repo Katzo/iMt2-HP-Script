@@ -21,6 +21,7 @@ class psc_cash_in
     public $cookie;
     public $cookie2;
 	public $allowed_currency;
+	public $novalue = false;
 	
     function show_captcha($renew = false)
         {
@@ -100,7 +101,11 @@ class psc_cash_in
         if ($check != 'ok')
             return $check;
 
-        $this->get_details();
+        if ($this->get_details() == "ok"){
+        	$this->novalue = true;
+        	return "ok";
+        }
+        	
 
         if ($this->value <= 0)
         {
@@ -183,7 +188,7 @@ class psc_cash_in
 
     function get_details()
         {
-        $page=file_get_contents("https://customer.cc.at.paysafecard.com/psccustomer/Balance?cvid=" . $this->cvid, false,
+        $page=file_get_contents("https://customer.cc.at.paysafecard.com/psccustomer/Payments?cvid=" . $this->cvid, false,
             stream_context_create(array('http' => array('header' => "Cookie: JSESSIONID=" . $this->sessionid
                 . ";TS481b70=" . $this->cookie))));
         preg_match_all("#<td>(.*?)</td>#", $page, $res);
