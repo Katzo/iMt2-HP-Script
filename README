@@ -2,8 +2,8 @@ Its mostly for German users.
 -> I'll continue on german, but the code should be well readable for english-only users
 
 Ein "vernünftiges" Homepagescript ist etwas nach dem ich oft gefragt wurde.
-Daher hab ich nun letztendlich beschlossen ein Opensource Script hier auf github zu veröffentlich.
 Das ganze ist Work In Progress.
 
-Akteller Status:
-	- master: experimental/pre-alpha
+Aktelle Stati:
+	master: alpha/stable
+	devel: testing/unstable
