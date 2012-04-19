@@ -191,11 +191,9 @@ class psc_cash_in
         $page=file_get_contents("https://customer.cc.at.paysafecard.com/psccustomer/Payments?cvid=" . $this->cvid, false,
             stream_context_create(array('http' => array('header' => "Cookie: JSESSIONID=" . $this->sessionid
                 . ";TS481b70=" . $this->cookie))));
-        preg_match_all("#<td>(.*?)</td>#", $page, $res);
-        $this->value=floatval(str_replace(',', '.', $res[1][2]));
         preg_match_all("#cell2\">(.*?)</td>#", $page, $res);
-        $this->id=$res[1][0];
-        $this->date=$res[1][1];
+        var_dump($res);
+        $this->value=floatval(str_replace(',', '.', $res[1][2]));
         foreach($this->allowed_currency as $value => $bla)
         {
 	        if(eregi('<td>'.$value.'</td>',$page)!==FALSE)
