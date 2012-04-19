@@ -19,7 +19,7 @@ $build->addJS('function buy(what,id){
 		url: "ajax.php?p=itemshop_buy",
 		success: function(result) {
 					res = jQuery.parseJSON(result);
-					if (res.coins) $(.coins).html(res.coins);
+					if (res.coins) $(".coins").html(res.coins);
 					if (res.error)
 						$(what).addClass("error").html(res.error);
 					else if (res.ok)
