@@ -97,7 +97,7 @@ function donate_psc_form($error = false){
 				"text" => ($error?'<div class="error">'.$error.'</div>':'').'
 						<form method="POST">
 							<table>
-								<tr><td>'.$lang["donate_psc"]["code"].':</td><td><input class="bar" type="text" name="code" placeholder="0000111122223333" maxlength="16" onkeypress="$(this).val($(this).val().replace(/[^\d.]/g, \'\'));" /></td></tr>
+								<tr><td>'.$lang["donate_psc"]["code"].':</td><td><input class="bar" type="text" name="code" placeholder="0000111122223333" maxlength="16" onkeyup="$(this).val($(this).val().replace(/[^\d.]/g, \'\'));" /></td></tr>
 								<tr><td><img src="data:image/gif;base64,'.base64_encode($captcha).'" /></td><td><input class="bar" type="text" name="captcha" placeholder="12345" maxlength="5"/></td></tr>
 								<tr><td></td><td><input type="submit" class="btn" name="submit" value="'.$lang["misc"]["donate"].'"/></td></tr>
 							</table>
