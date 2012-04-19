@@ -39,7 +39,7 @@ $lang = array(
 		"forgot" => "Passwort vergessen",
 		"accsupport" => "Probleme beim Einloggen?",
 		"hello" => "Hallo <b>%username</b>,",
-		"youcoin" => "Du hast <span class='coins'><b>%coins</b></span> %coinname!", // Class coins is used for auto updating coins
+		"youcoin" => "Du hast <b><span class='coins'>%coins</span></b> %coinname!", // Class coins is used for auto updating coins
 		"donate" => "Spenden",
 		"char" => "Deine Charaktere",
 		"itemshop" => "Itemshop",
