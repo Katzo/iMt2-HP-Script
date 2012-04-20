@@ -73,7 +73,7 @@ $navilinks = array(
 			"page" => "itemshop",
 		),
 		array(
-			"url" => "ts3server://energymt2.org",
+			"url" => "ts3server://examplemt2.org",
 			"text" => "Teamspeak",
 			"page" => "",
 		),
