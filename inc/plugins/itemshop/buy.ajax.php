@@ -15,7 +15,7 @@ if (isset($db->hp))
 else
 	$q = mysql_query("SELECT vnum,count,socket0,socket1,socket2 FROM ".$db->gamedb["homepage"].".itemshop_item WHERE pid='".mysql_real_escape_string($_POST["id"])."'",$db->game);
 while ($res = mysql_fetch_object($q)) {
-	mysql_query('INSERT INTO '.$db->gamedb["player"].'.item_affect (login,vnum,count,given_time,why,socket0,socket1,socket2,mall) VALUES("'.$_SESSION["user"].'","'.$res->vnum.'","'.$res->count.'",NOW(),"Itemshop IP:'.$_SERVER["REMOTE_ADDR"].' Package:'.mysql_real_escape_string($_POST["pid"]).'","'.$res->socket0.'","'.$res->socket1.'","'.$res->socket2.'")',$db->game);
+	mysql_query('INSERT INTO '.$db->gamedb["player"].'.item_award (login,vnum,count,given_time,why,socket0,socket1,socket2,mall) VALUES("'.$_SESSION["user"].'","'.$res->vnum.'","'.$res->count.'",NOW(),"Itemshop IP:'.$_SERVER["REMOTE_ADDR"].' Package:'.mysql_real_escape_string($_POST["pid"]).'","'.$res->socket0.'","'.$res->socket1.'","'.$res->socket2.'")',$db->game);
 	if (mysql_affected_rows($db->game) == 0)
 		die(json_encode(array("error" => "Server Error. Try again.")));
 }

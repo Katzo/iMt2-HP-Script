@@ -1,4 +1,5 @@
 <?php
+error_reporting(0); // Dont spam any errors in browser
 if (!session_id())
 	session_start();
 include("config.inc.php");
