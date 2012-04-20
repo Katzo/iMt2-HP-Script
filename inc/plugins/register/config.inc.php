@@ -9,7 +9,7 @@
  */
 $plugin_conf=array(
 	"enabled" => true, // Enable Registration
-	"verifyemail" => false, //!!!!!!!!THIS IS NOT WORKING RIGHT YET!!!!!! Enable Email Verification (You might run into trouble here if your mail server is blocked for some reason)
+	"verifyemail" => false, //Enable Email Verification (You might run into trouble here if your mail server is blocked for some reason)
 	"multiemail" => true, // Multiple accounts per email
 	"minpasslen" => 6,
 	"maxpasslen" => 16,
