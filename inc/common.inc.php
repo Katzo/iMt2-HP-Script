@@ -4,6 +4,10 @@
  * https://github.com/imermcmaps/iMt2-HP-Script
  * iMer.cc 2012
  */
+ function exception_error_handler($errno, $errstr, $errfile, $errline ) {
+    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+}
+set_error_handler("exception_error_handler");
  spl_autoload_register("__autoload");
  function __autoload($name) {
  	global $config;

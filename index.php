@@ -1,7 +1,8 @@
 <?php
-error_reporting(0); // Dont spam any errors in browser
+
 if (!session_id())
 	session_start();
+try{
 include("config.inc.php");
 include("lang.inc.php");
 include($config["path"]["includes"]."common.inc.php");
@@ -13,4 +14,11 @@ foreach ($navilinks["header"] as $n)
 foreach ($navilinks["footer"] as $n)
 	$build->addFooter($n);
 $build->build();
+}
+catch(Exception $e){
+	new Error($e->__toString());
+}
+catch(ErrorException $e){
+	new Error($e->__toString());
+}
 ?>
