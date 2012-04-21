@@ -17,10 +17,10 @@ try{
 		$build->build();
 	}
 	catch(Exception $e){
-		new Error($e->__toString());
+		new error($e->__toString());
 	}
 }
 catch(ErrorException $e){
-	new Error($e->__toString());
+	new error($e->__toString());
 }
 ?>
