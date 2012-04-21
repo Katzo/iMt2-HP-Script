@@ -2,6 +2,7 @@ TERMS AND CONDITIONS
 0. USED TERMS
 WORK - The website script i created from scratch 
 OWNER - , Original author of the base script and all default plugins. The OWNER has full rights over their code.
+DESIGNER - , Original creator of the default design.
 USER - End user of the website, person installing it.
 
 1. LIABILITY
@@ -10,12 +11,15 @@ THE OWNER OF THIS SCRIPT TAKES NO RESPONSIBILITY FOR ANY DAMAGES INCURRED FROM T
 ALL DAMAGES CAUSED FROM THE USE OR MISUSE OF THIS SCRIPT FALL ON THE USER.
 
 2. USE
-Use of this SCRIPT to be installed manually or automatically and modified  is given to the USER without restriction.
+Use of this SCRIPT to be installed manually or automatically and modified is given to the USER without restriction.
+You may not remove the OWNERs copyright in the footer.
+You may remove the DESIGNERS copyright in the footer if you completely changed the design.
 
 3. REDISTRIBUTION
 The scripts source code may only be distributed where uploaded, mirrored, or otherwise linked to by the OWNER solely. (Namely: github.com and imer.cc)
 All mirrors of this script must have advance written permission from the OWNER.
 ANY attempts to make money off of this script - not counting self written plugins, thats fine - (selling, selling modified versions, adfly, sharecash, etc.) are STRICTLY FORBIDDEN, and the OWNER may claim damages or take other action to rectify the situation.
+You may however distribute language files you translated.
 
 4. DERIVATIVE WORKS/MODIFICATION
 This mod is provided freely and may be modified for private use. Public distribution of modified versions of this script require advance written permission of the OWNER and may be subject to certain terms.
