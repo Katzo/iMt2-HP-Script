@@ -33,7 +33,7 @@ if (isset($_SESSION["user"]) &&!empty($_SESSION["user"])) {
 							<input class="bar" type="password" name="pass" placeholder="'.$lang["misc"]["pass"].'" />
 							<input class="btn left" type="submit" name="submit" value="'.$lang["misc"]["login"].'" />
 							</form>
-							<input class="btn right" onclick="this.location.href=\''.$urlmap["register"].'\'" type="submit" name="register" value="'.$lang["misc"]["register"].'" />
+							<input class="btn right" onclick="location.href=\''.$urlmap["register"].'\'" type="submit" name="register" value="'.$lang["misc"]["register"].'" />
 							<div class="clear"></div>
 						<div class="sb-sep"></div>
 						<a class="sb-link" href="'.$urlmap["forgot_password"].'">'.$lang["misc"]["forgot"].'?</a>'
