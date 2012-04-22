@@ -22,8 +22,16 @@ function __autoload($name) {
  */
 if (isset($isajax)) // Ajax request are still using $_GET["p"]
 	$p = ((isset($_GET["p"])&&!empty($_GET["p"]))?$_GET["p"]:"home");
-else
-	$p = ((isset($_SERVER['PATH_INFO'])&&!empty($_SERVER["PATH_INFO"]))?substr($_SERVER['PATH_INFO'],1):"home");
+else{
+	if (isset($_SERVER["PATH_INFO"]) && !empty($_SERVER["PATH_INFO"])){ // No mod_rewrite
+		$p = substr($_SERVER["PATH_INFO"]);
+	// mod_rewrite 
+	}elseif($_SERVER["REQUEST_URI"] != "/" || $_SERVER["REQUEST_URI"] != $_SERVER["SCRIPT_NAME"]){ // Check if page "empty"
+		$p = $_SERVER["REQUEST_URI"];
+	}else
+		$p = "home"; //"empty"
+}
+
 function e404() {
 	header("Status: 404 Not Found");
 	die("<h1>I made a mistake! Help! :(</h1>I could not find the page you were looking for... :(");

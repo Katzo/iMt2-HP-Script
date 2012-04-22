@@ -56,9 +56,13 @@ class build {
 		 * "page" => "home", // for determining the "active" page
 		 * "other" => "onclick='dostuff();'"  // i don't know why you'd want that but meh. (doesnt need to be set))
 		 */
-		 if (is_array($what)) 
-		 	$this->navilist[]=$what;
-		 else
+		 global $config;
+		 if (is_array($what)) {
+		 	if (isURL($what["url"]))
+		 		$this->navilist[]=$what;
+		 	else
+		 		$this->navilist[]=$config["settings"]["baseurl"].$what;
+		 }else
 		 	throw new Exception("I could find an array in the variable you provided :(");
 	}
 	public function addContentBox($what) {
