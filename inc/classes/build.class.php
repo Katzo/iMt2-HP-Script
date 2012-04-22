@@ -14,10 +14,11 @@ class build {
 	private $jsfilelist = array();
 	private $config;
 	public function __construct() {
-		$this->page = (isset($_GET["p"])&&!empty($_GET["p"])?$_GET["p"]:"home");
+		global $p;
+		$this->page = $p;
 	}
 	public function build() {
-		global $lang,$urlmap,$config;
+		global $lang,$urlmap,$config,$p;
 		$db = new database;
 		$lsb = array();
 		$cont = array();

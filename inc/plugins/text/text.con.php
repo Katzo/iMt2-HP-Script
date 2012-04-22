@@ -8,6 +8,6 @@
  * It just displays.. text
  */
 include($config["path"]["includes"].$config["path"]["plugins"]."text/config.inc.php");
-$content = $plugin_conf[$this->page];
+$content = $plugin_conf[$p];
 unset($plugin_conf);
 ?>
