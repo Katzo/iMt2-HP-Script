@@ -29,7 +29,7 @@ else{
 	}elseif (isset($_GET["p"]))
 		$p = ((isset($_GET["p"])&&!empty($_GET["p"]))?$_GET["p"]:"home"); // old $_GET["p"] behaviour
 	elseif($_SERVER["REQUEST_URI"] != $_SERVER["SCRIPT_NAME"]){ // Check if page "empty"
-		$p = explode("?",substr($_SERVER["REQUEST_URI"],1));
+		$p = explode("/",explode("?",substr($_SERVER["REQUEST_URI"],1)));
 		$p = $p[0];
 		if (empty($p))
 			$p = "home";
