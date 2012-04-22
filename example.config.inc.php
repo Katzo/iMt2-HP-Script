@@ -44,22 +44,22 @@ $config = array(
 $navilinks = array(
 	"header" =>array(
 		array(
-			"url" => "?p=home",
+			"url" => "home",
 			"text" => "Home",
 			"page" => "home",
 		),
 		array( // Yay for variable header MESS! :(
-			"url" => ((isset($_SESSION["user"]) && !empty($_SESSION["user"]))?"?p=settings":"?p=register"),
+			"url" => ((isset($_SESSION["user"]) && !empty($_SESSION["user"]))?"settings":"register"),
 			"text" => ((isset($_SESSION["user"]) && !empty($_SESSION["user"]))?"Settings":"Register"),
 			"page" => ((isset($_SESSION["user"]) && !empty($_SESSION["user"]))?"settings":"register"),
 		),
 		array(
-			"url" => "?p=download",
+			"url" => "download",
 			"text" => "Download",
 			"page" => "download",
 		),
 		array(
-			"url" => "?p=ranking",
+			"url" => "ranking",
 			"text" => "Ranking",
 			"page" => "ranking",
 		),
@@ -69,7 +69,7 @@ $navilinks = array(
 			"page" => "",
 		),
 		array(
-			"url" => "?p=itemshop",
+			"url" => "itemshop",
 			"text" => "Itemshop",
 			"page" => "itemshop",
 		),
@@ -134,7 +134,7 @@ $ajax = array(
  * mod_rewrite enabled:
  */
 $urlmap = array(
-	"forgot_password" => "?p=forgot", // URLs for Stuff - you dont have to search in every config to change them ..
+	"forgot_password" => "forgot", // URLs for Stuff - you dont have to search in every config to change them ..
 	"donate" => "donate", 
 	"support" => "http://support.examplemt2.org", 
 	"settings" => "settings", 
