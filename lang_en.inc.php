@@ -75,7 +75,7 @@ $lang = array(
 		"passminlen_error" => "Your password has to be at least %len characters long",
 		"passmaxlen_error" => "Your password must be under %len characters long",
 		"emailsubject" => "Your registration on ".$config["settings"]["name"],
-		"emailbody" => "Hello %username,\nTo complete your registration on ".$config["settings"]["name"]." you just have to click this link:\n".$config["settings"]["baseurl"].$urlmap["register"]."&key=%key\nYour ".$config["settings"]["name"]." Team",
+		"emailbody" => "Hello %username,\nTo complete your registration on ".$config["settings"]["name"]." you just have to click this link:\n%url\nYour ".$config["settings"]["name"]." Team",
 		"success_emailverify" => "Your Registration was sucessfull!<br/>An email was sent to verify your email adress is valid.<br/>Please click the link in the email to verify your account.",
 		"success" => "Your Registration was sucessfull!",
 		"verify_error" => "Verification failed!<br/>Please copy the link if you have trouble!",

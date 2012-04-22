@@ -113,7 +113,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 						mysql_query('INSERT INTO '.$db->hpdb["homepage"].'.email_verify VALUES("'.mysql_insert_id($db->game).'","'.$key.'")',$db->hp);
 					else
 						mysql_query('INSERT INTO '.$db->gamedb["homepage"].'.email_verify VALUES("'.mysql_insert_id($db->game).'","'.$key.'")',$db->game);
-					mail($_POST["email"],str_replace("%username",$_POST["user"],$lang["reg"]["emailsubject"]),str_replace("%key",$key,str_replace("%username",$_POST["user"],$lang["reg"]["emailbody"])),$config["settings"]["email_header"]);
+					mail($_POST["email"],str_replace("%username",$_POST["user"],$lang["reg"]["emailsubject"]),str_replace("%url",$config["settings"]["baseurl"].$urlmap["register"].(!isUrl($urlmap["register"]) && substr($urlmap["register"],0,1) == "?"?"&":"?")."key=".$key,str_replace("%username",$_POST["user"],$lang["reg"]["emailbody"])),$config["settings"]["email_header"]);
 					$content = array(
 						"head" => array(
 							"title" => $lang["misc"]["register"],
