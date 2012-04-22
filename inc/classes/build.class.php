@@ -58,10 +58,9 @@ class build {
 		 */
 		 global $config;
 		 if (is_array($what)) {
-		 	if (isURL($what["url"]))
-		 		$this->navilist[]=$what;
-		 	else
-		 		$this->navilist[]=$config["settings"]["baseurl"].$what;
+		 	if (!isURL($what["url"]))
+		 		$what["url"] = $config["settings"]["baseurl"].$what["url"];
+		 	$this->navilist[]=$what;
 		 }else
 		 	throw new Exception("I could find an array in the variable you provided :(");
 	}
