@@ -7,6 +7,7 @@
  function exception_error_handler($errno, $errstr, $errfile, $errline ) {
     throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
 }
+date_default_timezone_set($config["settings"]["timezone"]);
 set_error_handler("exception_error_handler");
  spl_autoload_register("__autoload");
  function __autoload($name) {
