@@ -16,14 +16,16 @@ else
 $cached = mysql_fetch_object($cachedq);
 if (!isset($cached->time) || time() > $cached->time+$plugin_conf["cachetimeout"]) {
 	$status = array();
-	foreach($plugin_conf["check"] as $ar) {
-		$c = @fsockopen($ar["host"],$ar["port"],$errno,$errstr,$plugin_conf["timeout"]);
-		if ($c) {
-			fclose($c);
-			$status[] = array("name" => $ar["name"],"status" => 1);
-		}else
-			$status[] = array("name" => $ar["name"],"status" => 0);
-	}
+	try {
+		foreach($plugin_conf["check"] as $ar) {
+			$c = @fsockopen($ar["host"],$ar["port"],$errno,$errstr,$plugin_conf["timeout"]);
+			if ($c) {
+				fclose($c);
+				$status[] = array("name" => $ar["name"],"status" => 1);
+			}else
+				$status[] = array("name" => $ar["name"],"status" => 0);
+		}
+	}catch (ErrorException $e){}
 	$status = json_encode($status);
 	if (isset($db->hp)) 
 		mysql_query("INSERT INTO ".$db->hpdb["homepage"].".online_status (time,enc) VALUES('".time()."','".$status."')",$db->hp);
