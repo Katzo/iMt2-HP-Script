@@ -130,15 +130,18 @@ $ajax = array(
  * I'm only needing relative links for the donate link in the ingame itemshop at the moment - but that could change in the future
  * ../DONATELINK is what i'm doing. :)
  */
+/*
+ * mod_rewrite enabled:
+ */
 $urlmap = array(
 	"forgot_password" => "?p=forgot", // URLs for Stuff - you dont have to search in every config to change them ..
-	"donate" => "?p=donate", 
+	"donate" => "donate", 
 	"support" => "http://support.examplemt2.org", 
-	"settings" => "?p=settings", 
-	"itemshop" => "?p=itemshop",
-	"char" => "?p=char",
-	"register" => "?p=register",
+	"settings" => "settings", 
+	"itemshop" => "itemshop",
+	"char" => "char",
+	"register" => "register",
 	"logout" => "ajax.php?p=logout",
-	"ranking" => "?p=ranking",
+	"ranking" => "ranking",
 );
 ?>

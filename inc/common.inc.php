@@ -9,19 +9,28 @@
 }
 date_default_timezone_set($config["settings"]["timezone"]);
 set_error_handler("exception_error_handler");
- spl_autoload_register("__autoload");
- function __autoload($name) {
+/*
+ * Class Autoloading 
+ */
+spl_autoload_register("__autoload");
+function __autoload($name) {
  	global $config;
  	include($config["path"]["includes"].$config["path"]["classes"].$name.".class.php");
- }
- $p = ((isset($_GET["p"]))?$_GET["p"]:"home");
- function e404() {
- 	header("Status: 404 Not Found");
- 	die("<h1>I made a mistake! Help! :(</h1>I could not find the page you were looking for... :(");
- }
- function timetostr($timestamp) {
- 	global $lang;
- 	if (!$timestamp) return false;
+}
+/*
+ * Current Page
+ */
+if (isset($isajax)) // Ajax request are still using $_GET["p"]
+	$p = ((isset($_GET["p"])&&!empty($_GET["p"]))?$_GET["p"]:"home");
+else
+	$p = ((isset($_SERVER['PATH_INFO'])&&!empty($_SERVER["PATH_INFO"]))?$_SERVER['PATH_INFO']:"home");
+function e404() {
+	header("Status: 404 Not Found");
+	die("<h1>I made a mistake! Help! :(</h1>I could not find the page you were looking for... :(");
+}
+function timetostr($timestamp) {
+	global $lang;
+	if (!$timestamp) return false;
 	$now = time();
 	$dif = $now-$timestamp;
 	if ($dif < 60) 
