@@ -6,7 +6,7 @@ else
 $cat = '';
 while ($res = mysql_fetch_object($q)){
 	if ($res->id == $_GET["cat"]) $catname = $res->name;
-	$cat.='<input type="button" onclick="location.href=\''.$urlmap["itemshop"].(!isUrl($urlmap["itemshop"]) && substr($urlmap["itemshop"],0,1) == "?")?"&":"?").'cat='.$res->id.'\'"class="btn" value="'.$res->name.'"/>';
+	$cat.='<input type="button" onclick="location.href=\''.$urlmap["itemshop"].(!isUrl($urlmap["itemshop"]) && substr($urlmap["itemshop"],0,1) == "?"?"&":"?").'cat='.$res->id.'\'"class="btn" value="'.$res->name.'"/>';
 }
 $content[] = array(
 	"head" => array(
