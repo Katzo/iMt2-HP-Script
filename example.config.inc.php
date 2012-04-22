@@ -30,7 +30,7 @@ $config = array(
 		"title" => "ExampleMt2",
 		"name" => "ExampleMt2",
 		"timezone" => "Europe/Berlin", // http://www.php.net/manual/en/timezones.php
-		"baseurl" => "http://examplemt2.com",
+		"baseurl" => "http://examplemt2.com/", // Including last /
 		"coin" => "cash", // Coin column in account table
 		"email_header" => 'From: Noreply <noreply@examplemt2.com>' . "\r\n", // Mail headers for sending mails
 	),
