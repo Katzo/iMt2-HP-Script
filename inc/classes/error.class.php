@@ -8,7 +8,7 @@ class error {
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Error</title>
-		<link href="css/error.css" rel="stylesheet" type="text/css"/>
+		<link href="'.(isset($config)?$config["settings"]["baseurl"]:'/').'css/error.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
 		<div id="wrapper">
