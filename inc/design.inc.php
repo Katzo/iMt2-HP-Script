@@ -11,8 +11,8 @@ echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.or
     <title>'.$config["settings"]["title"].'</title>
     <link rel="shortcut icon" href="/favicon.gif" />
     <link rel="icon" type="image/gif" href="/favicon.gif" />
-    <link rel="stylesheet" type="text/css" media="screen" href="'.$config["baseurl"].'css/style.css" />
-    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="screen" href="/css/ie7.css" /><![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="'.$config["settings"]["baseurl"].'css/style.css" />
+    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="screen" href="'.$config["settings"]["baseurl"].'css/ie7.css" /><![endif]-->
 </head>
 <body>
 	 <div id="wrapper">
