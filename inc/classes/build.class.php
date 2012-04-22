@@ -163,7 +163,7 @@ class build {
 	 		if (isURL($what))
 	 			$this->jsfilelist[]=$what;
 	 		else 
-	 			$this->jsfilelist[]=$config["baseurl"].$what;
+	 			$this->jsfilelist[]=$config["settings"]["baseurl"].$what;
 		}
 	}
 	

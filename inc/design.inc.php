@@ -17,7 +17,7 @@ echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.or
 <body>
 	 <div id="wrapper">
 		<div id="header">
-			<a id="logo" href="'.$config["settings"]["baseurl"].'" title="Logo"><img src="'.$config["baseurl"].'images/logo/logo.png" alt="Logo" /></a>
+			<a id="logo" href="'.$config["settings"]["baseurl"].'" title="Logo"><img src="'.$config["settings"]["baseurl"].'images/logo/logo.png" alt="Logo" /></a>
 		</div>
 		<div id="navbar">
 		<div class="clearfix"></div>
@@ -56,7 +56,7 @@ if (isset($cont))
 					</div>
 					<div class="postui post-con">
 						<div class="con-wrap">
-							<p>'.((isset($ar["middle"]["img"]))?'<img class="thumb" src="'.(isURL($ar["middle"]["img"]["src"])?$ar["middle"]["img"]["src"]:$config["baseurl"].$ar["middle"]["img"]["src"]).'" alt="'.$ar["middle"]["img"]["alt"].'" />':'').$ar["middle"]["text"].'</p>
+							<p>'.((isset($ar["middle"]["img"]))?'<img class="thumb" src="'.(isURL($ar["middle"]["img"]["src"])?$ar["middle"]["img"]["src"]:$config["settings"]["baseurl"].$ar["middle"]["img"]["src"]).'" alt="'.$ar["middle"]["img"]["alt"].'" />':'').$ar["middle"]["text"].'</p>
 							'.((isset($ar["footer"]))?'<div class="sep"></div>'.((isset($ar["footer"]["more"])&&isset($ar["footer"]["what"]))?'<a href="'.$ar["footer"]["more"].'" class="more">'.$ar["footer"]["what"].'</a>':'').((isset($ar["footer"]["plain"]))?$ar["footer"]["plain"]:''):'').'
 						</div>
 					</div> 
