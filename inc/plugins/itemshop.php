@@ -12,7 +12,7 @@ $build->addContentBox($config["path"]["includes"].$config["path"]["plugins"]."it
 $build->addJSFile("js/jquery.js");
 $build->addJSFile("js/common.js");
 $build->addJS('function buy(what,id){
-	$(what).html(\'<img src="images/ui/loading.gif"/>\');
+	$(what).html(\'<img src="'.$config["settings"]["baseurl"].'images/ui/loading.gif"/>\');
 	$.ajax({
 		type: "POST",
 		data: {id:id},

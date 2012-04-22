@@ -21,7 +21,7 @@ if (isset($_GET["cat"]) && !empty($_GET["cat"])) {
 		$q = mysql_query('SELECT id,name FROM '.$db->gamedb["homepage"].'.itemshop_category WHERE enabled=1',$db->game);
 	$cat = '';
 	while ($res = mysql_fetch_object($q))
-		$cat.='<input type="button" onclick="location.href=\''.$urlmap["itemshop"].'&cat='.$res->id.'\'"class="btn" value="'.$res->name.'"/>';
+		$cat.='<input type="button" onclick="location.href=\''.$urlmap["itemshop"].(!isUrl($urlmap["itemshop"]) && substr($urlmap["itemshop"],0,1) == "?"?"&":"?").'cat='.$res->id.'\'"class="btn" value="'.$res->name.'"/>';
 	$content[] = array(
 		"head" => array(
 			"title" => $lang["misc"]["itemshop"]

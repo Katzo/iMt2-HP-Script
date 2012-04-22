@@ -11,7 +11,7 @@ $plugin_conf=array(
 	"currency" => array( // Allowed currencies and conversion rates
 						 // See http://www.paysafecard.com/exchange/exchange.php for up to date currencies and conversion rates
 		"EUR" => 1,
-		"CHF" => 1.17,
+		"CHF" => 0.81,
 	)
 );
 ?>

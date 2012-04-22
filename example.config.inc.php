@@ -29,7 +29,8 @@ $config = array(
 	"settings" => array(
 		"title" => "ExampleMt2",
 		"name" => "ExampleMt2",
-		"baseurl" => "http://examplemt2.com",
+		"timezone" => "Europe/Berlin", // http://www.php.net/manual/en/timezones.php
+		"baseurl" => "http://examplemt2.com/", // Including last /
 		"coin" => "cash", // Coin column in account table
 		"email_header" => 'From: Noreply <noreply@examplemt2.com>' . "\r\n", // Mail headers for sending mails
 	),
@@ -43,22 +44,22 @@ $config = array(
 $navilinks = array(
 	"header" =>array(
 		array(
-			"url" => "?p=home",
+			"url" => "home",
 			"text" => "Home",
 			"page" => "home",
 		),
 		array( // Yay for variable header MESS! :(
-			"url" => ((isset($_SESSION["user"]) && !empty($_SESSION["user"]))?"?p=settings":"?p=register"),
+			"url" => ((isset($_SESSION["user"]) && !empty($_SESSION["user"]))?"settings":"register"),
 			"text" => ((isset($_SESSION["user"]) && !empty($_SESSION["user"]))?"Settings":"Register"),
 			"page" => ((isset($_SESSION["user"]) && !empty($_SESSION["user"]))?"settings":"register"),
 		),
 		array(
-			"url" => "?p=download",
+			"url" => "download",
 			"text" => "Download",
 			"page" => "download",
 		),
 		array(
-			"url" => "?p=ranking",
+			"url" => "ranking",
 			"text" => "Ranking",
 			"page" => "ranking",
 		),
@@ -68,12 +69,12 @@ $navilinks = array(
 			"page" => "",
 		),
 		array(
-			"url" => "?p=itemshop",
+			"url" => "itemshop",
 			"text" => "Itemshop",
 			"page" => "itemshop",
 		),
 		array(
-			"url" => "ts3server://energymt2.org",
+			"url" => "ts3server://examplemt2.org",
 			"text" => "Teamspeak",
 			"page" => "",
 		),
@@ -122,22 +123,25 @@ $ajax = array(
 	"regcheck" => "register/regcheck.ajax.php",
 	"ranking" => "ranking/ranking.ajax.php",
 	"settings" => "settings/settings.ajax.php",
-	"buy" => "itemshop/buy.ajax.php",
+	"itemshop_buy" => "itemshop/buy.ajax.php",
 );
 /* URL Map
  * Please use relative links if possible
  * I'm only needing relative links for the donate link in the ingame itemshop at the moment - but that could change in the future
  * ../DONATELINK is what i'm doing. :)
  */
+/*
+ * mod_rewrite enabled:
+ */
 $urlmap = array(
-	"forgot_password" => "?p=forgot", // URLs for Stuff - you dont have to search in every config to change them ..
-	"donate" => "?p=donate", 
+	"forgot_password" => "forgot", // URLs for Stuff - you dont have to search in every config to change them ..
+	"donate" => "donate", 
 	"support" => "http://support.examplemt2.org", 
-	"settings" => "?p=settings", 
-	"itemshop" => "?p=itemshop",
-	"char" => "?p=char",
-	"register" => "?p=register",
+	"settings" => "settings", 
+	"itemshop" => "itemshop",
+	"char" => "char",
+	"register" => "register",
 	"logout" => "ajax.php?p=logout",
-	"ranking" => "?p=ranking",
+	"ranking" => "ranking",
 );
 ?>

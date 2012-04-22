@@ -6,13 +6,10 @@
  */
 class database {
 	private $conlist = array();
-	private function error($what) {
-		die("<h1>I made a mistake! Help!</h1>".$what);
-	}
 	public function __construct() {
 		global $config;
 		foreach ($config["db"] as $name => $dbconfig)
-			$this->create($name,$dbconfig) or $this->error("I could not connect to the database connection ".$name."! :/".mysql_error());
+			if (!$this->create($name,$dbconfig)) throw new Exception("I could not connect to the database connection ".$name."! :/".mysql_error());
 	}
 	public function create($name,$config) {
 		$this->$name = mysql_connect($config["host"],$config["user"],$config["pass"]);
