@@ -101,8 +101,8 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 				$qstrboni = "";
 				$qstrbonival = "";
 				foreach ($plugin_conf["itemshop_boni"] as $what_boni => $len_boni){
-					$qstrboni = ",".$what_boni;
-					$qstrbonival = ",DATE_ADD(NOW(),INTERVAL ".$len_boni." DAY)";
+					$qstrboni .= ",".$what_boni;
+					$qstrbonival .= ",DATE_ADD(NOW(),INTERVAL ".$len_boni." DAY)";
 				}	
 				if ($plugin_conf["verifyemail"]){
 					$key= md5(microtime().uniqid());

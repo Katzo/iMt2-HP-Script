@@ -23,7 +23,7 @@ function __autoload($name) {
 if (isset($isajax)) // Ajax request are still using $_GET["p"]
 	$p = ((isset($_GET["p"])&&!empty($_GET["p"]))?$_GET["p"]:"home");
 else
-	$p = ((isset($_SERVER['PATH_INFO'])&&!empty($_SERVER["PATH_INFO"]))?$_SERVER['PATH_INFO']:"home");
+	$p = ((isset($_SERVER['PATH_INFO'])&&!empty($_SERVER["PATH_INFO"]))?substr($_SERVER['PATH_INFO'],1):"home");
 function e404() {
 	header("Status: 404 Not Found");
 	die("<h1>I made a mistake! Help! :(</h1>I could not find the page you were looking for... :(");
