@@ -71,6 +71,6 @@ function timeformat($value,$time) {
  * Function for checking on valid URL (used for images)
  */ 
 function isURL($url){
-	return preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $url);
+	return preg_match('|^[a-z0-9-]+?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $url);
 }
 ?>
