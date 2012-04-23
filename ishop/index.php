@@ -32,6 +32,7 @@ if (!isset($_SESSION["user"])){
 		$_SESSION["id"] = $id;
 	}else exit;
 }
+include($config["path"]["includes"].$config["path"]["plugins"]."itemshop/config.inc.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
