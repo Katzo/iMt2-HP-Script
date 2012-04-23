@@ -22,7 +22,7 @@ $config["path"]["includes"] = "../".$config["path"]["includes"];
 include($config["path"]["includes"]."common.inc.php");
 $db = new database;
 if (!isset($_SESSION["user"])){
-	$id = mysql_fetch_object(mysql_query('SELECT account_id FROM '.$db->gamedb["player"].'.player WHERE id="'.(int)$_GET["pid"].'"'));
+	$id = mysql_fetch_object(mysql_query('SELECT account_id FROM '.$db->gamedb["player"].'.player WHERE id="'.(int)$_GET["pid"].'"',$db->game));
 	if (!$id) exit;
 	$id = $id->account_id;
 	if ($_GET["sas"] = md5($_GET["pid"].$id."GF9001")){
