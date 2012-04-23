@@ -9,9 +9,12 @@
  * Its probably the best solution in terms of compability
  * It also isnt coded that variable/nice but meh. whatever
  */
-// Prevent anyone from illegally accessing this.
+
 if (!session_id())
 	session_start();
+// Prevent anyone from illegally accessing this.
+
+try{
 if (!isset($_SESSION["user"]) && (!isset($_GET["sas"]) || !isset($_GET["pid"]) || !isset($_GET["sid"])) || !is_numeric($_GET["pid"]) || !is_numeric($_GET["sid"])) exit;
 include("../config.inc.php");
 include("../lang.inc.php");
@@ -138,3 +141,12 @@ if (!isset($_SESSION["user"])){
 	</script>
 	</body>
 </html>
+<?php
+}
+catch(Exception $e){
+	new error($e->__toString());
+}
+catch(ErrorException $e){
+	new error($e->__toString());
+}
+?>
