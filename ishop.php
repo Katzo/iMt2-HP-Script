@@ -17,7 +17,7 @@ if (!session_id()){
 // Prevent anyone from illegally accessing this.
 
 try{
-if (!isset($_SESSION["user"]) && (!isset($_GET["sas"]) || !isset($_GET["pid"]) || !isset($_GET["sid"]))) exit;
+if (!isset($_SESSION["user"]) || !(isset($_GET["sas"]) && isset($_GET["pid"]) && isset($_GET["sid"]))) exit;
 if (!is_numeric($_GET["pid"]) || !is_numeric($_GET["sid"])) exit;
 include("config.inc.php");
 include("lang.inc.php");
