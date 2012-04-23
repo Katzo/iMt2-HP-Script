@@ -17,10 +17,10 @@ if (!session_id()){
 // Prevent anyone from illegally accessing this.
 
 try{
-if (!isset($_SESSION["user"]) && (!isset($_GET["sas"]) || !isset($_GET["pid"]) || !isset($_GET["sid"])) || !is_numeric($_GET["pid"]) || !is_numeric($_GET["sid"])) exit;
+if (!isset($_SESSION["user"]) && (!isset($_GET["sas"]) || !isset($_GET["pid"]) || !isset($_GET["sid"]))) exit;
+if (!is_numeric($_GET["pid"]) || !is_numeric($_GET["sid"])) exit;
 include("../config.inc.php");
 include("../lang.inc.php");
-$config["path"]["includes"] = "../".$config["path"]["includes"];
 include($config["path"]["includes"]."common.inc.php");
 $db = new database;
 if (!isset($_SESSION["user"])){
@@ -41,7 +41,7 @@ include($config["path"]["includes"].$config["path"]["plugins"]."itemshop/config.
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Itemshop</title>
-		<link href="../css/ishop.css" rel="stylesheet" type="text/css"/>
+		<link href="css/ishop.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -121,8 +121,7 @@ include($config["path"]["includes"].$config["path"]["plugins"]."itemshop/config.
 			?> 
 			</div>
 		</div>
-	<script type="text/javascript" src="../js/jquery.js"></script>
-	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript">
 	function buy(what,id){
 		$(what).html('<img src="images/ui/loading.gif"/>');
