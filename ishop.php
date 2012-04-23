@@ -19,8 +19,8 @@ if (!session_id()){
 try{
 if (!isset($_SESSION["user"]) && (!isset($_GET["sas"]) || !isset($_GET["pid"]) || !isset($_GET["sid"]))) exit;
 if (!is_numeric($_GET["pid"]) || !is_numeric($_GET["sid"])) exit;
-include("../config.inc.php");
-include("../lang.inc.php");
+include("config.inc.php");
+include("lang.inc.php");
 include($config["path"]["includes"]."common.inc.php");
 $db = new database;
 if (!isset($_SESSION["user"])){
