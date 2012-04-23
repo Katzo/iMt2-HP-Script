@@ -19,13 +19,14 @@ if (!isset($cached->time) || time() > $cached->time+$plugin_conf["cachetimeout"]
 		foreach($plugin_conf["check"] as $ar) {
 			try{
 				$c = @fsockopen($ar["host"],$ar["port"],$errno,$errstr,$plugin_conf["timeout"]);
-			if (isset($c) && $c) {
+			}
+			catch (ErrorException $e){}
+			if (isset($c) && is_resource($c)) {
 				fclose($c);
 				$status[] = array("name" => $ar["name"],"status" => 1);
 			}else
 				$status[] = array("name" => $ar["name"],"status" => 0);
-			}
-			catch (ErrorException $e){}
+			
 		}
 	
 	$status = json_encode($status);
