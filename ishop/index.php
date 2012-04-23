@@ -10,8 +10,10 @@
  * It also isnt coded that variable/nice but meh. whatever
  */
 
-if (!session_id())
+if (!session_id()){
+	session_name("ishop");
 	session_start();
+}	
 // Prevent anyone from illegally accessing this.
 
 try{
