@@ -9,16 +9,22 @@
  * Its probably the best solution in terms of compability
  * It also isnt coded that variable/nice but meh. whatever
  */
-// Prevent anyone from illegally accessing this.
-if (!session_id())
+
+if (!session_id()){
+	session_name("ishop");
 	session_start();
-if (!isset($_SESSION["user"]) && (!isset($_GET["sas"]) || !isset($_GET["pid"]) || !isset($_GET["sid"])) || !is_numeric($_GET["pid"]) || !is_numeric($_GET["sid"])) exit;
-include("../config.inc.php");
-include("../lang.inc.php");
+}	
+// Prevent anyone from illegally accessing this.
+
+try{
+if (!isset($_SESSION["user"]) || !(isset($_GET["sas"]) && isset($_GET["pid"]) && isset($_GET["sid"]))) exit;
+if (!is_numeric($_GET["pid"]) || !is_numeric($_GET["sid"])) exit;
+include("config.inc.php");
+include("lang.inc.php");
 include($config["path"]["includes"]."common.inc.php");
 $db = new database;
 if (!isset($_SESSION["user"])){
-	$id = mysql_fetch_object(mysql_query('SELECT account_id FROM '.$db->gamedb["player"].'.player WHERE id="'.(int)$_GET["pid"].'"'));
+	$id = mysql_fetch_object(mysql_query('SELECT account_id FROM '.$db->gamedb["player"].'.player WHERE id="'.(int)$_GET["pid"].'"',$db->game));
 	if (!$id) exit;
 	$id = $id->account_id;
 	if ($_GET["sas"] = md5($_GET["pid"].$id."GF9001")){
@@ -28,13 +34,14 @@ if (!isset($_SESSION["user"])){
 		$_SESSION["id"] = $id;
 	}else exit;
 }
+include($config["path"]["includes"].$config["path"]["plugins"]."itemshop/config.inc.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Itemshop</title>
-		<link href="../css/ishop.css" rel="stylesheet" type="text/css"/>
+		<link href="css/ishop.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -114,8 +121,7 @@ if (!isset($_SESSION["user"])){
 			?> 
 			</div>
 		</div>
-	<script type="text/javascript" src="../js/jquery.js"></script>
-	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript">
 	function buy(what,id){
 		$(what).html('<img src="images/ui/loading.gif"/>');
@@ -137,3 +143,12 @@ if (!isset($_SESSION["user"])){
 	</script>
 	</body>
 </html>
+<?php
+}
+catch(Exception $e){
+	new error($e->__toString());
+}
+catch(ErrorException $e){
+	new error($e->__toString());
+}
+?>

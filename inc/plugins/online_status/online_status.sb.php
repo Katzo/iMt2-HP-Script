@@ -21,11 +21,12 @@ if (!isset($cached->time) || time() > $cached->time+$plugin_conf["cachetimeout"]
 				$c = @fsockopen($ar["host"],$ar["port"],$errno,$errstr,$plugin_conf["timeout"]);
 			}
 			catch (ErrorException $e){}
-			if (isset($c) && $c) {
+			if (isset($c) && is_resource($c)) {
 				fclose($c);
 				$status[] = array("name" => $ar["name"],"status" => 1);
 			}else
 				$status[] = array("name" => $ar["name"],"status" => 0);
+			
 		}
 	
 	$status = json_encode($status);
