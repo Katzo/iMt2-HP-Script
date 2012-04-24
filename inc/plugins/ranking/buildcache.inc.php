@@ -5,6 +5,11 @@
  * iMer.cc 2012
  * 
  */
+// Set update time - we don't want multiple cache updates running at the same time
+if (isset($db->hp))
+	mysql_query("ALTER TABLE ".$db->hpdb["homepage"].".ranking_cache comment='".time()."'",$db->hp);
+else
+	mysql_query("ALTER TABLE ".$db->gamedb["homepage"].".ranking_cache comment='".time()."'",$db->game);
 $q = mysql_query("SELECT player.id,player.name,player.level,player.job FROM ".$db->gamedb["player"].".player JOIN ".$db->gamedb["account"].".account ON player.account_id = account.id LEFT JOIN ".$db->gamedb["common"].".gmlist ON gmlist.mName = player.name WHERE gmlist.mName is null AND account.status = 'OK' ORDER BY level DESC,exp DESC",$db->game); 
 $i=0; // General
 $wi=0; // Warrior

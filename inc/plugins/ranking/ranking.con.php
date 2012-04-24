@@ -19,11 +19,6 @@ if ($plugin_conf["buildcache"]) {
 	$res = mysql_fetch_object($q);
 	if (time() > $res->TABLE_COMMENT+$plugin_conf["cachetimeout"]) {
 		$this->addBackgroundJob($config["path"]["includes"].$config["path"]["plugins"]."ranking/buildcache.inc.php");
-		// Set update time - we don't want multiple cache updates running at the same time
-		if (isset($db->hp))
-			mysql_query("ALTER TABLE ".$db->hpdb["homepage"].".ranking_cache comment='".time()."'",$db->hp);
-		else
-			mysql_query("ALTER TABLE ".$db->gamedb["homepage"].".ranking_cache comment='".time()."'",$db->game);
 	}
 }
 $content = array(
