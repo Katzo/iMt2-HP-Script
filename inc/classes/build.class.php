@@ -12,6 +12,7 @@ class build {
 	private $footerlist = array();
 	private $jslist = array();
 	private $jsfilelist = array();
+	private $BackgroundJobList = array();
 	private $config;
 	public function __construct() {
 		global $p;
