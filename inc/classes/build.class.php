@@ -47,6 +47,14 @@ class build {
 				$cont[] = $content;
 		}
 		include($config["path"]["includes"]."/design.inc.php"); // Pass the generated content to design.inc.php for final design echoing
+		// Background Jobs
+		flush(); // Flush all output to ensure the user has to full page and is able to use it, even if it's not fully loaded
+		ignore_user_abort(true);  // Ingore page closing
+		set_time_limit(60*60*5); // Give it a lot of time to finish the bg jobs (5hours)
+		ob_start(); // Start output buffer - we don't want anymore output to be sent to the user
+		foreach ($this->BackgroundJobList as $file)
+			include($file); // Include all the files
+		ob_end_clean(); // throw everything outputed away! :)
 	}
 	public function addNavi($what) { 
 		/* 
@@ -170,7 +178,10 @@ class build {
 	 			$this->jsfilelist[]=$config["settings"]["baseurl"].$what;
 		}
 	}
-	
+	public function addBackgroundJob($what) {
+		if (!is_file($what)) throw new Exception("Tried to add the file ".$what." to the background job list, but i could find it :(");
+		$this->BackgroundJoblist[] = $what;
+	}
 	public function __destruct (){
 		unset($this->lsidebarlist);
 		unset($this->rsidebarlist);

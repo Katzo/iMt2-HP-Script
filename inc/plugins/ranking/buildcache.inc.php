@@ -12,12 +12,6 @@ $ai=0; // Assasin (spelling..)
 $sui=0; // Sura
 $sai=0; // Shaman
 while ($res = mysql_fetch_object($q)) {
-	if (isset($db->hp)) 
-		$c = mysql_fetch_object(mysql_query("SELECT time FROM ".$db->hpdb["homepage"].".ranking_cache WHERE id='".$res->id."'",$db->hp));
-	else
-		$c = mysql_fetch_object(mysql_query("SELECT time FROM ".$db->gamedb["homepage"].".ranking_cache WHERE id='".$res->id."'",$db->game));
-	if (time() < $c->time+$plugin_cache["cachetimeout"]*1.5)
-		continue;
 	$i++;
 	if ($res->job > 3)
 		$res->job -=4;
@@ -42,8 +36,5 @@ while ($res = mysql_fetch_object($q)) {
 	else
 		mysql_query("REPLACE INTO ".$db->gamedb["homepage"].".ranking_cache VALUES('".$i."','".$jr."','".$res->id."','".$res->name."','".$res->job."','".$res->level."','".time()."')",$db->game);
 }
-if (isset($db->hp))
-	mysql_query("ALTER TABLE ".$db->hpdb["homepage"].".ranking_cache comment='".time()."'",$db->hp);
-else
-	mysql_query("ALTER TABLE ".$db->gamedb["homepage"].".ranking_cache comment='".time()."'",$db->game);
+
 ?>
