@@ -15,7 +15,7 @@ while ($res = mysql_fetch_object($q)) {
 	if (isset($db->hp)) 
 		$c = mysql_fetch_object(mysql_query("SELECT time FROM ".$db->hpdb["homepage"].".ranking_cache WHERE id='".$res->id."'",$db->hp));
 	else
-		$c = mysql_fetch_object(mysql_query("SELECT time FROM ".$db->gamedb["homepage"].".ranking_cache WHERE id='".$res->id."'",$db->hp));
+		$c = mysql_fetch_object(mysql_query("SELECT time FROM ".$db->gamedb["homepage"].".ranking_cache WHERE id='".$res->id."'",$db->game));
 	if (time() < $c->time+$plugin_cache["cachetimeout"]*1.5)
 		continue;
 	$i++;
