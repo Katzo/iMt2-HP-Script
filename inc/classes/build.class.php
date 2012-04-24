@@ -180,8 +180,8 @@ class build {
 		}
 	}
 	public function addBackgroundJob($what) {
-		if (!is_file($what)) throw new Exception("Tried to add the file ".$what." to the background job list, but i could find it :(");
-		$this->BackgroundJoblist[] = $what;
+		if (!file_exists($what)) throw new Exception("Tried to add the file ".$what." to the background job list, but i could find it :(");
+		$this->BackgroundJobList[] = $what;
 	}
 	public function __destruct (){
 		unset($this->lsidebarlist);
