@@ -61,6 +61,7 @@ $lang = array(
 		"captcha" => "Captcha",
 		"vote4coins" => "Vote 4 Coins",
 		"vote" => "Vote",
+		"banned" => "Du bist gebannt",
 	),
 	"reg" => array(
 		"captcha_error" => "Den Captcha, den du eingegeben hast, stimmt nicht.",

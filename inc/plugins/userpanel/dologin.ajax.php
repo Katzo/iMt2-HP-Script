@@ -14,13 +14,13 @@ if (!isset($db->game))
 	die(json_encode(array("error" => "Database connection game not set! Help!")));
 if (!isset($db->gamedb["account"])) 
 	die(json_encode(array("error" => "Database index account not set! Help!")));
-$q = mysql_query("SELECT ".$config["settings"]["coin"]." as coins,login,id,status FROM ".$db->gamedb["account"].".account WHERE login='".mysql_real_escape_string($_POST["user"])."' and password=password('".mysql_real_escape_string($_POST["pass"])."') LIMIT 1",$db->game);
+$q = mysql_query("SELECT ".$config["settings"]["coin"]." as coins,login,id,status,UNIX_TIMESTAMP(availDt) as bt FROM ".$db->gamedb["account"].".account WHERE login='".mysql_real_escape_string($_POST["user"])."' and password=password('".mysql_real_escape_string($_POST["pass"])."') LIMIT 1",$db->game);
 if (!$q)
 	die(json_encode(array("error" => $lang["misc"]["noacc"])));
 $res = mysql_fetch_object($q);
 if (!$res)
 	die(json_encode(array("error" => $lang["misc"]["noacc"])));
-if ($res->status != "OK")
+if ($res->status != "OK" || $res->bt > time())
 	die(json_encode(array("error" => $lang["misc"]["banned"])));
 $_SESSION["user"] = $res->login;
 $_SESSION["id"] = $res->id;
