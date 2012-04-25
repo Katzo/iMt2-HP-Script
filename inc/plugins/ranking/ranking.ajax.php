@@ -34,7 +34,7 @@ if (isset($_POST["page"]) && isset($_POST["name"]) && isset($_POST["job"])) {
 	}
 	echo "</table>";
 	$count = mysql_fetch_object(mysql_query($selcount.$bsql,(isset($db->hp)?$db->hp:$db->game)))->c;
-	$totalPages = $count/$plugin_conf["cpp"];
+	$totalPages = ceil($count/$plugin_conf["cpp"]);
 	if ($totalPages < 13) {
 		for($i=1;$i <=$totalPages;$i++) {
 			if ($i == $rpage) 
