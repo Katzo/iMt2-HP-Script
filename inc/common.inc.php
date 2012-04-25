@@ -31,8 +31,11 @@ else{
 	elseif($_SERVER["REQUEST_URI"] != $_SERVER["SCRIPT_NAME"]){ // Check if page "empty"
 		$p = explode("?",substr($_SERVER["REQUEST_URI"],1));
 		$p = $p[0];
-		$urlbase = substr(parse_url($config["settings"]["baseurl"],PHP_URL_PATH),1);
-		if (empty($p) || $urlbase==$p || substr($urlbase,0,-1) == $p)
+		$urlbase = substr(substr(parse_url($config["settings"]["baseurl"],PHP_URL_PATH),1),0,-1);
+		$p = str_replace($urlbase,"",$p);
+		if (substr($p,-1) == "/")
+			$p = substr($p,0,-1);
+		if (empty($p))
 			$p = "home";
 	}else
 		$p = "home"; //"empty"
