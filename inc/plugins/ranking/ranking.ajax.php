@@ -82,7 +82,7 @@ if (isset($_POST["page"]) && isset($_POST["name"]) && isset($_POST["job"])) {
 			else
 				echo "&nbsp;...&nbsp;";
 	}
-	echo '<br/><span style="display:block;text-align:center;"><input type="button" onclick="javascript:if (g_rpage==1) return false;g_rpage-=1;ranking();" value="'.$lang["misc"]["back"].'" class="btn" /><input type="button" onclick="javascript:if (g_rpage>'.$totalPages.') return false;g_rpage+=1;ranking();" value="'.$lang["misc"]["next"].'" class="btn" /></span>';
+	echo '<br/><span style="display:block;text-align:center;"><input type="button" onclick="javascript:if (g_rpage==1) return false;g_rpage-=1;ranking();" value="'.$lang["misc"]["back"].'" class="btn" /><input type="button" onclick="javascript:if (g_rpage>='.$totalPages.') return false;g_rpage+=1;ranking();" value="'.$lang["misc"]["next"].'" class="btn" /></span>';
 }else
 	die("Nope! I won't say anything! :<");
 
