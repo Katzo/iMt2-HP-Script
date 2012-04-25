@@ -1,6 +1,9 @@
 <?php
 class error {
 	public function __construct($content = "I made a mistake! :(<br/>I am so sorry this happened<br/>Please try again and contact someone when the problem persists!<br/><br/>Bye~",$title = "Help!"){
+		try {
+		global $config;
+		}catch (ErrorException $e){}
 		$content = str_replace("\n","<br/>",$content);
 		die('<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
@@ -8,7 +11,7 @@ class error {
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Error</title>
-		<link href="'.(isset($config)?$config["settings"]["baseurl"]:'/').'css/error.css" rel="stylesheet" type="text/css"/>
+		<link href="'.(isset($config["settings"])?$config["settings"]["baseurl"]:'/').'css/error.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
 		<div id="wrapper">
