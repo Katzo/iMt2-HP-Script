@@ -8,5 +8,5 @@
  * It shows the newest threads from a specific forum  (WBB 3)
  * (This is usefull for news :D)
  */
- $build->addContentBox($config["path"]["includes"].$config["path"]["plugins"]."wbb_news/wbb_news.con.php")
+ $build->addContentBox($config["path"]["includes"].$config["path"]["plugins"]."wbb_news/wbb_news.con.php");
 ?>

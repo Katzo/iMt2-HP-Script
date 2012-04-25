@@ -58,7 +58,9 @@ $lang = array(
 		"systemrequirements" => "Systemvoraussetzungen",
 		"needlogin" => "Bitte logge dich ein.",
 		"servererrorcontact" => "Ein schwerwiegender Fehler ist aufgetreten!<br/>Bitte versuche es nocheinmal.<br/>Falls das Problem weiterhin besteht, kontaktiere bitte einen Teamler!",
-		"captcha" => "Captcha"
+		"captcha" => "Captcha",
+		"vote4coins" => "Vote 4 Coins",
+		"vote" => "Vote",
 	),
 	"reg" => array(
 		"captcha_error" => "Den Captcha, den du eingegeben hast, stimmt nicht.",
@@ -136,6 +138,9 @@ $lang = array(
 	        'error_try' => 'Zu viele Fehlversuche'   
 	    )
 	),
+	"vote" => array(
+		"desc" => "Unterst&uuml;tze unseren Server durch voten.<br/>Als Dankesch&ouml;n bekommst du %coins Coins.<br/>Du kannst nur alle %time Stunden voten",
+	)
 );
 
 ?>

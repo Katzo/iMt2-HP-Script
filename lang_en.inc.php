@@ -59,7 +59,9 @@ $lang = array(
 		"systemrequirements" => "System requirements",
 		"needlogin" => "Please login",
 		"servererrorcontact" => "A server error occured!<br/>Please try again<br/> If this persists please contact a staff member!",
-		"catpcha" => "Captcha"
+		"catpcha" => "Captcha",
+		"vote4coins" => "Vote 4 Coins",
+		"vote" => "Vote",
 	),
 	"reg" => array(
 		"captcha_error" => "The captcha you entered is wrong.",
@@ -135,6 +137,9 @@ $lang = array(
 	        'error_empty' => 'The credit on your Paysafecard is too low',
 	        'error_try' => 'This paysafecard was blocked due to many failed attempts'
 	    )
+	),
+	"vote" => array(
+		"desc" => "Support our server by voting for it<br/>As small Thank You you get %coins coins for doing so.<br/>You are allowed to vote every %time hours",
 	)
 );
 
