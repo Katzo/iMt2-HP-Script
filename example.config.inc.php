@@ -49,10 +49,17 @@ $navilinks = array(
 			"text" => "Home",
 			"page" => "home",
 		),
-		array( // Yay for variable header MESS! :(
-			"url" => ((isset($_SESSION["user"]) && !empty($_SESSION["user"]))?"settings":"register"),
-			"text" => ((isset($_SESSION["user"]) && !empty($_SESSION["user"]))?"Settings":"Register"),
-			"page" => ((isset($_SESSION["user"]) && !empty($_SESSION["user"]))?"settings":"register"),
+		array(
+			"url" =>  "register",
+			"text" => "Register",
+			"page" => "register",
+			"loggedin" => false,
+		),
+		array(
+			"url" => "settings",
+			"text" => "Settings",
+			"page" => "settings",
+			"loggedin" => true,
 		),
 		array(
 			"url" => "download",

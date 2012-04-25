@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION["user"]) || empty($_SESSION["user"])) die(json_encode(array("error" => "Please login!")));
+if (!isset($_SESSION["user"]) || empty($_SESSION["user"])) die(json_encode(array("error" => $lang["misc"]["needlogin"])));
 if (isset($_POST["changepw"])){
 	if (!isset($_POST["pass"]) || !isset($_POST["repeat"]) || !isset($_POST["oldpass"])) exit;
 	if (empty($_POST["pass"]) || empty($_POST["repeat"]) || empty($_POST["oldpass"]))

@@ -64,8 +64,11 @@ class build {
 		 * "text" =>  "Home",
 		 * "page" => "home", // for determining the "active" page
 		 * "other" => "onclick='dostuff();'"  // i don't know why you'd want that but meh. (doesnt need to be set))
+		 * "loggedin" => true,  // only show when logged in or not logged in (doesnt need to be set)
 		 */
 		 global $config;
+		 if (isset($what["loggedin"]) && $what["loggedin"]!=(isset($_SESSION["user"]) && !empty($_SESSION["user"])))
+		 	return; // When doesnt match, return 
 		 if (is_array($what)) {
 		 	if (!isURL($what["url"]))
 		 		$what["url"] = $config["settings"]["baseurl"].$what["url"];
