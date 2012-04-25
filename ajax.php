@@ -1,7 +1,7 @@
 <?php
-if (!session_id())
-	session_start();
 include("config.inc.php");
+session_name($config["settings"]["session_name"]);
+session_start();
 include("lang.inc.php");
 $isajax = true;
 include($config["path"]["includes"]."common.inc.php");

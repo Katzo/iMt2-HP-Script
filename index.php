@@ -2,10 +2,8 @@
 try{
 	try{
 		include("config.inc.php");
-		if (!session_id()){
-			session_name($config["settings"]["session_name"]);
-			session_start();
-		}
+		session_name($config["settings"]["session_name"]);
+		session_start();
 		include("lang.inc.php");
 		include($config["path"]["includes"]."common.inc.php");
 		if (!isset($pages[$p])) throw new Exception("I could not find the page '".$p."' you where looking for.<br/>I am sorry :(");
