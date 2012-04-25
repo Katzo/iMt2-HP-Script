@@ -35,6 +35,7 @@ if (isset($_POST["page"]) && isset($_POST["name"]) && isset($_POST["job"])) {
 	echo "</table>";
 	$count = mysql_fetch_object(mysql_query($selcount.$bsql,(isset($db->hp)?$db->hp:$db->game)))->c;
 	$totalPages = ceil($count/$plugin_conf["cpp"]);
+	echo "<script type='text/javascript'>g_rmaxpage=".$totalPages.";</script>";
 	if ($totalPages < 13) {
 		for($i=1;$i <=$totalPages;$i++) {
 			if ($i == $rpage) 
@@ -82,6 +83,7 @@ if (isset($_POST["page"]) && isset($_POST["name"]) && isset($_POST["job"])) {
 			else
 				echo "&nbsp;...&nbsp;";
 	}
+	echo '<input type="button" onclick="javascript:if (g_rpage==1) return false;g_rpage-=1;ranking();" value="'.$lang["misc"]["back"].'"/><input type="button" onclick="javascript:if (g_rpage>g_rmaxpage) return false;g_rpage+=1;ranking();" value="'.$lang["misc"]["next"].'"/>';
 }else
 	die("Nope! I won't say anything! :<");
 
