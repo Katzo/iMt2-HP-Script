@@ -140,6 +140,7 @@ $lang = array(
 	),
 	"vote" => array(
 		"desc" => "Unterst&uuml;tze unseren Server durch voten.<br/>Als Dankesch&ouml;n bekommst du %coins Coins.<br/>Du kannst nur alle %time Stunden voten",
+		"howto" => "Klicke den Voten-Button und vote auf der Topliste.<br/> Wenn du damit fertig bist, klicke bitte auf den Fertig-Button um deine Coins zu erhalten.du musst eventuell Pop-Ups f&uuml;r diese Seite erlauben."
 	)
 );
 

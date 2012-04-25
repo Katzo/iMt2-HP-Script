@@ -33,6 +33,7 @@ $config = array(
 		"baseurl" => "http://examplemt2.com/", // Including last /
 		"coin" => "cash", // Coin column in account table
 		"email_header" => 'From: Noreply <noreply@examplemt2.com>' . "\r\n", // Mail headers for sending mails
+		"session_name" => "imt2_hp", // In case you are using multiple script on one domain you have to change this
 	),
 	"path" => array(
 		"includes" => "inc/", // General Path for includes
