@@ -35,6 +35,8 @@ else{
 		$p = str_replace($urlbase,"",$p);
 		if (substr($p,-1) == "/")
 			$p = substr($p,0,-1);
+		if ($p[0] == "/")
+			$p = substr($p,1);
 		if (empty($p))
 			$p = "home";
 	}else
