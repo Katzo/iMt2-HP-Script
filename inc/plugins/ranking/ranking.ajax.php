@@ -78,7 +78,7 @@ if (isset($_POST["page"]) && isset($_POST["name"]) && isset($_POST["job"])) {
 				if ($pp == $rpage)
 					echo $pp." ";
 				else
-					echo "<a onclick='javascript:g_rpage=".$i.";ranking();return false;'>".$pp."</a> ";
+					echo "<a onclick='javascript:g_rpage=".$pp.";ranking();return false;'>".$pp."</a> ";
 			else
 				echo "&nbsp;...&nbsp;";
 	}

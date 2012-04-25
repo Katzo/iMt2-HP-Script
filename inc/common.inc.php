@@ -77,6 +77,22 @@ function timeformat($value,$time) {
 	global $lang;
 	return str_replace("%ago",$lang["time"]["a"],str_replace("%time",$time,str_replace("%value",$value,$lang["time"]["format"])));
 }
+function tvtostring($time){ // Time value to string
+	global $lang;
+	$days = floor($time/86400);
+	$r = $time%86400;
+	$hours = floor($r/3600);
+	$r = $r%3600;
+	$minutes = ceil($r/60);
+	$str = "";
+	if ($days > 0)
+		$str .= $days." ".($days==1?$lang["time"]["day"]:$lang["time"]["days"]);
+	if ($hours > 0)
+		$str .= $hours." ".($hours==1?$lang["time"]["hour"]:$lang["time"]["hours"]);
+	if ($minutes > 0)
+		$str .= $minutes." ".($minutes==1?$lang["time"]["minute"]:$lang["time"]["minute"]);
+	return $str;
+}
 /*
  * Function for checking on valid URL (used for images)
  */ 

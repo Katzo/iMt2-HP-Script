@@ -2,7 +2,7 @@
 class error {
 	public function __construct($content = "I made a mistake! :(<br/>I am so sorry this happened<br/>Please try again and contact someone when the problem persists!<br/><br/>Bye~",$title = "Help!"){
 		try {
-		global $config;
+			global $config;
 		}catch (ErrorException $e){}
 		$content = str_replace("\n","<br/>",$content);
 		die('<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"

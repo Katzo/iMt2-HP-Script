@@ -16,7 +16,7 @@ $lang = array(
 		"a" => "vor",
 		"af" => "ein paar",
 		"format" => "%ago %value %time",
-		"tformat" => "d.m.y H:i"
+		"tformat" => "d.m.y H:i",
 	),
 	"misc" => array(
 		"notfound" => "404 - Nicht Gefunden",
@@ -97,7 +97,7 @@ $lang = array(
 		"change_code" => "L&ouml;schcode &auml;ndern",
 		"change_code_text" => "Hier kannst du deinen L&ouml;schcode &auml;ndern<br/>Du musst nur dein Passwort eingeben, um zu best&auml;tigen, dass dies dein Account ist<br/>",
 		"reset_safebox" => "Lagerpasswort zur&uuml;cksetzen",
-		"reset_safebox_text" => "Hier kannst du dein Lagerpasswort zur&uuml;cksetzen<br/>Falls du dies tust, wird es zu <b>0000000</b> geändert<br/>Du musst nur dein Passwort eingeben, um zu best&auml;tigen, dass dies dein Account ist<br/>",
+		"reset_safebox_text" => "Hier kannst du dein Lagerpasswort zur&uuml;cksetzen<br/>Falls du dies tust, wird es zu <b>0000000</b> ge&auml;ndert<br/>Du musst nur dein Passwort eingeben, um zu best&auml;tigen, dass dies dein Account ist<br/>",
 		"change_email" => "Email &auml;ndern",
 		"change_email_text" => "hier kannst du deine aktuelle Email &auml;ndern<br/>Du musst nur dein Passwort eingeben, um zu best&auml;tigen, dass dies dein Account ist<br/>",
 		"pass_error" => "Das Passwort stimmt nicht überein!",
@@ -141,7 +141,8 @@ $lang = array(
 	),
 	"vote" => array(
 		"desc" => "Unterst&uuml;tze unseren Server durch voten.<br/>Als Dankesch&ouml;n bekommst du %coins Coins.<br/>Du kannst nur alle %time Stunden voten",
-		"howto" => "Klicke den Voten-Button und vote auf der Topliste.<br/> Wenn du damit fertig bist, klicke bitte auf den Fertig-Button um deine Coins zu erhalten.du musst eventuell Pop-Ups f&uuml;r diese Seite erlauben."
+		"howto" => "Klicke den Voten-Button und vote auf der Topliste.<br/> Wenn du damit fertig bist, klicke bitte auf den Fertig-Button um deine Coins zu erhalten.du musst eventuell Pop-Ups f&uuml;r diese Seite erlauben.",
+		"already" => "Du hast schon gevotet! Bitte versuche es in %time nocheinmal"
 	)
 );
 
