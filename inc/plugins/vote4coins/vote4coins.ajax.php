@@ -7,21 +7,19 @@ if ($_POST["v"]==1){// Check if he has voted
 		$q = mysql_query("SELECT UNIX_TIMESTAMP(time) as t  FROM ".$db->hpdb["homepage"].".vote4coins WHERE uid='".$_SESSION["id"]."' AND ok=1 AND time > DATE_SUB(NOW(), INTERVAL ".$plugin_conf["wtime"]." SECOND) LIMIT 1",$db->hp);
 	else
 		$q = mysql_query("SELECT UNIX_TIMESTAMP(time) as t FROM ".$db->gamedb["homepage"].".vote4coins WHERE uid='".$_SESSION["id"]."' AND ok=1 AND time > DATE_SUB(NOW(), INTERVAL ".$plugin_conf["wtime"]." SECOND) LIMIT 1",$db->game);
-	if (mysql_num_rows($q) != 0) {
-		$res = mysql_fetch_object($q);
+	if ($res = mysql_fetch_object($q)) {
 		die(json_encode(array("error" => str_replace("%time",tvtostring($res->t+$plugin_conf["wtime"]-time()),$lang["vote"]["already"]))));
 	}
 	if (isset($db->hp))
 			$q = mysql_query("SELECT id,count  FROM ".$db->hpdb["homepage"].".vote4coins WHERE uid='".$_SESSION["id"]."' AND ok=0 AND time > DATE_SUB(NOW(), INTERVAL 10 MINUTE) ORDER BY time DESC LIMIT 1",$db->hp);
 		else
 			$q = mysql_query("SELECT id,count FROM ".$db->gamedb["homepage"].".vote4coins WHERE uid='".$_SESSION["id"]."' AND ok=0 AND time > DATE_SUB(NOW(), INTERVAL 10 MINUTE) ORDER BY time DESC LIMIT 1",$db->game);
-	if (mysql_num_rows($q) != 0) {
+	if (!$res = mysql_fetch_object($q)) {
 		die(json_encode(array("error" => $lang["vote"]["tryagain"])));
 	}
-	$res = mysql_fetch_object($q);
-	if (get_vote_count($plugin_conf["id"]) > $res->count ){
+	if (get_vote_count($plugin_conf["id"]) > $res->count){
 		// Give coins, update stuff.
-	if (isset($db->hp))
+		if (isset($db->hp))
 			$q = mysql_query("UPDATE ".$db->hpdb["homepage"].".vote4coins SET ok=1 WHERE id='".$res->id."' LIMIT 1",$db->hp);
 		else
 			$q = mysql_query("UPDATE ".$db->gamedb["homepage"].".vote4coins SET SET ok=1 WHERE id='".$res->id."' LIMIT 1",$db->game);
@@ -36,7 +34,7 @@ if ($_POST["v"]==1){// Check if he has voted
 		$q = mysql_query("SELECT UNIX_TIMESTAMP(time) as t  FROM ".$db->hpdb["homepage"].".vote4coins WHERE uid='".$_SESSION["id"]."' AND ok=1 AND time > DATE_SUB(NOW(), INTERVAL ".$plugin_conf["wtime"]." SECOND) LIMIT 1",$db->hp);
 	else
 		$q = mysql_query("SELECT UNIX_TIMESTAMP(time) as t FROM ".$db->gamedb["homepage"].".vote4coins WHERE uid='".$_SESSION["id"]."' AND ok=1 AND time > DATE_SUB(NOW(), INTERVAL ".$plugin_conf["wtime"]." SECOND) LIMIT 1",$db->game);
-	if (mysql_num_rows($q) != 0) {
+	if ($res = mysql_fetch_object($q)) {
 		$res = mysql_fetch_object($q);
 		die(json_encode(array("error" => str_replace("%time",tvtostring($res->t+$plugin_conf["wtime"]-time()),$lang["vote"]["already"]))));
 	}
