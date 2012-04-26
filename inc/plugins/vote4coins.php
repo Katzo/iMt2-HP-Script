@@ -26,8 +26,10 @@ function vote(){
 			$("#votebtn").val(res.btn);
 		if (res.url)
 			window.open(res.url,"_blank");
+		if (res.v)
+			g_v=res.v;
 	  },
 	});
-	g_v=!g_v;
+
 }');
 ?>
