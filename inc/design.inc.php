@@ -23,7 +23,7 @@ echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.or
 		<div class="clearfix"></div>
 			<ul>';
 foreach ($this->navilist as $ar) 
-	echo '<li><a '.(($ar["page"] == $this->page)?'class="current"':'').' href="'.$ar["url"].((isset($ar["other"]))?$ar["other"]:"").'">'.$ar["text"].'</a></li>';
+	echo '<li><a '.(($ar["page"] == $this->page)?'class="current"':'').' href="'.$ar["url"].'"'.((isset($ar["other"]))?" ".$ar["other"]." ":"").'>'.$ar["text"].'</a></li>';
 echo '			</ul>		
 		</div>
 		<hr class="hr" />
@@ -85,7 +85,7 @@ echo '</div>			<div class="clear"></div>
 			</div>
 			<div class="right">';
 			foreach ($this->footerlist as $ar)
-				echo '<a href="'.$ar["url"].((isset($ar["other"]))?$ar["other"]:"").'">'.$ar["text"].'</a>';
+				echo '<a href="'.$ar["url"].'"'.((isset($ar["other"]))?" ".$ar["other"]." ":"").'">'.$ar["text"].'</a>';
 			echo '</div>		
 		</div>
 	 </div>';
