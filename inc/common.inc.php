@@ -86,11 +86,11 @@ function tvtostring($time){ // Time value to string
 	$minutes = ceil($r/60);
 	$str = "<!--".$time."-->";
 	if ($days > 0)
-		$str .= $days." ".($days==1?$lang["time"]["day"]:$lang["time"]["days"])." ";
+		$str .= $days." ".($days==1?$lang["time"]["D"]:$lang["time"]["d"])." ";
 	if ($hours > 0)
-		$str .= $hours." ".($hours==1?$lang["time"]["hour"]:$lang["time"]["hours"])." ";
+		$str .= $hours." ".($hours==1?$lang["time"]["H"]:$lang["time"]["h"])." ";
 	if ($minutes > 0)
-		$str .= $minutes." ".($minutes==1?$lang["time"]["minute"]:$lang["time"]["minute"])." ";
+		$str .= $minutes." ".($minutes==1?$lang["time"]["M"]:$lang["time"]["m"])." ";
 	return $str;
 }
 /*
