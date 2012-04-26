@@ -10,7 +10,7 @@
 $plugin_conf = array(
 	"cpv" => 1, // Coins per Vote
 					//											 v id
-	"voteid" => 123, // http://www.topliste.top-pserver.com/Stat/123-example-mt2.htm
+	"id" => 123, // http://www.topliste.top-pserver.com/Stat/123-example-mt2.htm
 	"wtime" => 43200, // Time to wait after sucessfull vote (Default: 12h)
 );
 ?>
