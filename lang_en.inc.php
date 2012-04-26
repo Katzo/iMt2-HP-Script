@@ -147,6 +147,8 @@ $lang = array(
 		"already" => "You already voted! Please try again in %time",
 		"check" => "Check",
 		"tryagain" => "Please try again. Your session expired",
+		"success" => "You sucessfully voted.",
+		"fail" => "You did not vote. Please try again",
 	)
 );
 
