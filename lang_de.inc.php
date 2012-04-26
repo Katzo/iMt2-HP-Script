@@ -123,7 +123,6 @@ $lang = array(
 		"caterror" => "Ich konnte diese Kategorie leider nicht finden! Das tut mir leid! :(",
 		"itemerror" => "Ich konnte dieses Item leider nicht finden!",
 		"priceerror" => "Du hast nicht genug Coins um das zu kaufen!",
-		"success" => "Das Item wurde erfolgreich gekauft! Es befindet sich in deinem Itemshoplager",
 		"success" => "Das Item wurde erfolgreich gekauft!",
 	),
 	"donate_psc" => array(
