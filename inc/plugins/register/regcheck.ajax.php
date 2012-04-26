@@ -24,6 +24,20 @@ switch ($_POST["what"]){
            		die(json_encode(array("error" => str_replace("%len",$plugin_conf["maxpasslen"],$lang["reg"]["passmaxlen_error"]))));
          die(json_encode(array("ok" => $lang["misc"]["ok"])));
          break;
+	case "security_question":
+		 if (strlen($_POST["value"]) < $plugin_conf["minsecqlen"])
+           	die(json_encode(array("error" => str_replace("%len",$plugin_conf["minsecqlen"],$lang["reg"]["secqminlen_error"]))));
+         if (strlen($_POST["value"]) > $plugin_conf["maxsecqlen"])
+           		die(json_encode(array("error" => str_replace("%len",$plugin_conf["maxsecqlen"],$lang["reg"]["secqmaxlen_error"]))));
+         die(json_encode(array("ok" => $lang["misc"]["ok"])));
+         break;
+	case "security_answer":
+		 if (strlen($_POST["value"]) < $plugin_conf["minsecalen"])
+           	die(json_encode(array("error" => str_replace("%len",$plugin_conf["minsecalen"],$lang["reg"]["secaminlen_error"]))));
+         if (strlen($_POST["value"]) > $plugin_conf["maxsecalen"])
+           		die(json_encode(array("error" => str_replace("%len",$plugin_conf["maxsecalen"],$lang["reg"]["secamaxlen_error"]))));
+         die(json_encode(array("ok" => $lang["misc"]["ok"])));
+         break;
     case "code":
     	if (strlen($_POST["value"]) != 7)
     		die(json_encode(array("error" => $lang["reg"]["codelen_error"])));

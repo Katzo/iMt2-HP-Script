@@ -67,6 +67,8 @@ $lang = array(
 		"banned" => "You are banned",
 		"next" => "Next",
 		"back" => "Back",
+		"security_question" => "Security Question",
+		"security_answer" => "Answer",
 	),
 	"reg" => array(
 		"captcha_error" => "The captcha you entered is wrong.",

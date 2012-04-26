@@ -62,7 +62,7 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 	if (is_array($plugin_conf["captcha"])) include($config["path"]["includes"]."recaptchalib.php");
 	if (isset($_POST["submit"])){
 		
-		if (isset($_POST["user"]) && isset($_POST["pass"]) && isset($_POST["repeat"]) && isset($_POST["email"]) && isset($_POST["code"]) && (!is_array($plugin_conf["captcha"]) || isset($_POST["recaptcha_response_field"]))) {
+		if (isset($_POST["user"]) && isset($_POST["pass"]) && isset($_POST["repeat"]) && isset($_POST["email"]) && isset($_POST["code"]) && isset($_POST["security_question"]) && isset($_POST["security_answer"]) && (!is_array($plugin_conf["captcha"]) || isset($_POST["recaptcha_response_field"]))) {
 			$regerror="";
 			if (is_array($plugin_conf["captcha"])){
 				$captcha_check = recaptcha_check_answer ($plugin_conf["captcha"]["private_key"],
@@ -83,6 +83,14 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
             	$regerror .= str_replace("%len",$plugin_conf["minpasslen"],$lang["reg"]["passminlen_error"])."<br/>";
             if (strlen($_POST["pass"]) > $plugin_conf["maxpasslen"])
             	$regerror .= str_replace("%len",$plugin_conf["maxpasslen"],$lang["reg"]["passmaxlen_error"])."<br/>";
+            if (strlen($_POST["security_question"]) < $plugin_conf["minsecqlen"])
+            	$regerror .= str_replace("%len",$plugin_conf["minsecqlen"],$lang["reg"]["secqminlen_error"])."<br/>";
+            if (strlen($_POST["security_question"]) > $plugin_conf["maxsecqlen"])
+            	$regerror .= str_replace("%len",$plugin_conf["maxsecqlen"],$lang["reg"]["secqmaxlen_error"])."<br/>";
+            if (strlen($_POST["security_answer"]) < $plugin_conf["minsecalen"])
+            	$regerror .= str_replace("%len",$plugin_conf["minsecalen"],$lang["reg"]["secaminlen_error"])."<br/>";
+            if (strlen($_POST["security_answer"]) > $plugin_conf["maxsecalen"])
+            	$regerror .= str_replace("%len",$plugin_conf["maxsecalen"],$lang["reg"]["secamaxlen_error"])."<br/>";
             if (strlen($_POST["code"]) != 7)
             	$regerror .= $lang["reg"]["codelen_error"]."<br/>";
             if(!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,5})^", $_POST["email"])) 
@@ -106,13 +114,16 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 				}	
 				if ($plugin_conf["verifyemail"]){
 					$key= md5(microtime().uniqid());
-
 					mysql_query('INSERT INTO '.$db->gamedb["account"].'.account (login,password,social_id,email,status'.$qstrboni.') VALUES("'.mysql_real_escape_string($_POST["user"]).'",PASSWORD("'.mysql_real_escape_string($_POST["pass"]).'"),"'.mysql_real_escape_string($_POST["code"]).'","'.mysql_real_escape_string($_POST["email"]).'","EMAIL"'.$qstrbonival.')',$db->game);
-					echo mysql_error();
+					$uid = mysql_insert_id($db->game);
 					if (isset($db->hp)) 
-						mysql_query('INSERT INTO '.$db->hpdb["homepage"].'.email_verify VALUES("'.mysql_insert_id($db->game).'","'.$key.'")',$db->hp);
+						mysql_query('INSERT INTO '.$db->hpdb["homepage"].'.security_question VALUES("'.$uid.'","'.mysql_real_escape_string($_POST["security_question"]).'","'.mysql_real_escape_string($_POST["security_answer"]).'")',$db->hp);
 					else
-						mysql_query('INSERT INTO '.$db->gamedb["homepage"].'.email_verify VALUES("'.mysql_insert_id($db->game).'","'.$key.'")',$db->game);
+						mysql_query('INSERT INTO '.$db->gamedb["homepage"].'.security_question VALUES("'.$uid.'","'.mysql_real_escape_string($_POST["security_question"]).'","'.mysql_real_escape_string($_POST["security_answer"]).'")',$db->game);
+					if (isset($db->hp)) 
+						mysql_query('INSERT INTO '.$db->hpdb["homepage"].'.email_verify VALUES("'.$uid.'","'.$key.'")',$db->hp);
+					else
+						mysql_query('INSERT INTO '.$db->gamedb["homepage"].'.email_verify VALUES("'.$uid.'","'.$key.'")',$db->game);
 					mail($_POST["email"],str_replace("%username",$_POST["user"],$lang["reg"]["emailsubject"]),str_replace("%url",$config["settings"]["baseurl"].$urlmap["register"].(!isUrl($urlmap["register"]) && substr($urlmap["register"],0,1) == "?"?"&":"?")."key=".$key,str_replace("%username",$_POST["user"],$lang["reg"]["emailbody"])),$config["settings"]["email_header"]);
 					$content = array(
 						"head" => array(
@@ -148,6 +159,8 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 							<tr><td>'.$lang["misc"]["repeat"].'</td><td><input class="bar" type="password" placeholder="'.$lang["misc"]["repeat"].'" name="repeat" id="repeat" onblur="if ($(this).val() !=$(\'#pass\').val()) $(\'#repeatres\').addClass(\'error\').html(\''.$lang["reg"]["passrepeat_error"].'\')" /></td><td id="repeatres"></td></tr>
 							<tr><td>'.$lang["misc"]["email"].'</td><td><input class="bar" type="text" placeholder="'.$lang["misc"]["email"].'" name="email" id="email" onblur="javascript:regcheck(\'email\');" '.((isset($_POST["email"]))?'value="'.$_POST["email"].'" ':'').'/></td><td id="emailres"></td></tr>
 							<tr><td>'.$lang["misc"]["code"].'</td><td><input class="bar" type="text" placeholder="'.$lang["misc"]["code"].'" name="code" id="code" onblur="javascript:regcheck(\'code\');" '.((isset($_POST["code"]))?'value="'.$_POST["code"].'" ':'').'/></td><td id="coderes"></td></tr>
+							<tr><td>'.$lang["misc"]["security_question"].'</td><td><input class="bar" type="text" placeholder="'.$lang["misc"]["security_question"].'" name="security_question" id="code" onblur="javascript:regcheck(\'security_question\');" '.((isset($_POST["code"]))?'value="'.$_POST["code"].'" ':'').'/></td><td id="security_questionres"></td></tr>
+							<tr><td>'.$lang["misc"]["security_answer"].'</td><td><input class="bar" type="text" placeholder="'.$lang["misc"]["security_answer"].'" name="security_answer" id="code" onblur="javascript:regcheck(\'security_answer\');" '.((isset($_POST["code"]))?'value="'.$_POST["code"].'" ':'').'/></td><td id="security_answerres"></td></tr>
 							'.((is_array($plugin_conf["captcha"]))?'<tr><td colspan="3">'.recaptcha_get_html($plugin_conf["captcha"]["public_key"]).'</td></tr>':'').'
 							<tr><td></td><td><input class="btn" type="submit" name="submit" value="'.$lang["misc"]["submit"].'"/></td><td></td>
 						</table></form>',
