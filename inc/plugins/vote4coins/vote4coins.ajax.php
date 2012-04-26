@@ -37,7 +37,7 @@ if ($_POST["v"]==1){// Check if he has voted
 	else
 		$q = mysql_query("SELECT UNIX_TIMESTAMP(time) as t FROM ".$db->gamedb["homepage"].".vote4coins WHERE uid='".$_SESSION["id"]."' AND ok=1 AND time > ".(time()-$plugin_conf["wtime"])." LIMIT 1",$db->game);
 	if ($res = mysql_fetch_object($q)) {
-		die(json_encode(array("error" => str_replace("%time",tvtostring($res->t+$plugin_conf["wtime"]-time()),$lang["vote"]["already"]))));
+		die(json_encode(array("time" => $res->t+$plugin_conf["wtime"]-time(),"error" => str_replace("%time",tvtostring($res->t+$plugin_conf["wtime"]-time()),$lang["vote"]["already"]))));
 	}
 	if (isset($db->hp))
 		mysql_query("INSERT INTO ".$db->hpdb["homepage"].".vote4coins (uid,time,count) VALUES('".$_SESSION["id"]."','".time()."','".get_vote_count($plugin_conf["id"])."')",$db->hp);
