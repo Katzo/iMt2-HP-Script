@@ -54,7 +54,7 @@ function get_vote_count($id){
 	if (!$table) die(json_encode(array("error" => "Server error!")));
 	$cell = explode('<td align="center">',str_replace("</td>","",$table)); // 4th one
 	if (!isset($cell[4])) die(json_encode(array("error" => "Server error!")));
-	return (int)$cell[4];
+	return (int)str_replace(",",".",$cell[4]);
 }
 function str_between($string, $start, $end){
 		$string = " ".$string;
