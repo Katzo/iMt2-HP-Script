@@ -135,6 +135,12 @@ if (isset($_SESSION["user"]) && !empty($_SESSION["user"])) {
 					);
 				}else{
 					mysql_query('INSERT INTO '.$db->gamedb["account"].'.account (login,password,social_id,email'.$qstrboni.') VALUES("'.mysql_real_escape_string($_POST["user"]).'",PASSWORD("'.mysql_real_escape_string($_POST["pass"]).'"),"'.mysql_real_escape_string($_POST["code"]).'","'.mysql_real_escape_string($_POST["email"]).'",'.$qstrbonival.')',$db->game);
+					$uid = mysql_insert_id($db->game);
+					if (isset($db->hp)) 
+						mysql_query('INSERT INTO '.$db->hpdb["homepage"].'.security_question VALUES("'.$uid.'","'.mysql_real_escape_string($_POST["security_question"]).'","'.mysql_real_escape_string($_POST["security_answer"]).'")',$db->hp);
+					else
+						mysql_query('INSERT INTO '.$db->gamedb["homepage"].'.security_question VALUES("'.$uid.'","'.mysql_real_escape_string($_POST["security_question"]).'","'.mysql_real_escape_string($_POST["security_answer"]).'")',$db->game);
+	
 					$content = array(
 						"head" => array(
 							"title" => $lang["misc"]["register"],
