@@ -144,7 +144,9 @@ $lang = array(
 	"vote" => array(
 		"desc" => "Support our server by voting for it<br/>As small Thank You you get %coins coins for doing so.<br/>You are allowed to vote every %time hours",
 		"howto" => "Click the vote button and vote for out server.<br/> When you've done so, click the done button to get your coins.<br/>You may have to allow Pop-Ups for this website.",
-		"already" => "You already voted! Please try again in %time"
+		"already" => "You already voted! Please try again in %time",
+		"check" => "Check",
+		"tryagain" => "Please try again. Your session expired",
 	)
 );
 

@@ -121,6 +121,10 @@ $pages = array(
 	"donate" => array(
 		"title" => false,
 		"plugins" => array("statistics","online_status","userpanel","sbranking","donate_psc")
+	),	
+	"vote" => array(
+		"title" => false,
+		"plugins" => array("statistics","online_status","userpanel","sbranking","vote4coins")
 	)
 	
 );
@@ -132,6 +136,7 @@ $ajax = array(
 	"ranking" => "ranking/ranking.ajax.php",
 	"settings" => "settings/settings.ajax.php",
 	"itemshop_buy" => "itemshop/buy.ajax.php",
+	"vote4coins" => "vote4coins/vote4coins.ajax.php",
 );
 /* URL Map
  * Please use relative links if possible
