@@ -2,7 +2,7 @@
 if (!isset($_POST["v"]) || empty($_POST["v"])) exit;
 if (!isset($_SESSION["user"]) || empty($_SESSION["user"])) die(json_encode(array("error" => $lang["misc"]["needlogin"])));
 include($config["path"]["includes"].$config["path"]["plugins"]."vote4coins/config.inc.php");
-if ($_POST["v"]){// Check if he has voted
+if ($_POST["v"]==true){// Check if he has voted
 	if (isset($db->hp))
 		$q = mysql_query("SELECT UNIX_TIMESTAMP(time) as t  FROM ".$db->hpdb["homepage"].".vote4coins WHERE uid='".$_SESSION["id"]."' AND ok=1 AND time > DATE_SUB(NOW(), INTERVAL ".$plugin_conf["wtime"]." SECOND) LIMIT 1",$db->hp);
 	else
