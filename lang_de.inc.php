@@ -117,7 +117,7 @@ $lang = array(
 	),
 	"itemshop" => array(
 		"buy" => "Kaufen",
-		"buy_again" => "Nochmal Kaufen",
+		"buy_again" => "Nochmal",
 		"price" => "Preis",
 		"cat" => "Kategorieren",
 		"caterror" => "Ich konnte diese Kategorie leider nicht finden! Das tut mir leid! :(",

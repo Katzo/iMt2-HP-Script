@@ -24,5 +24,5 @@ $_SESSION["coins"] = $realcoins-$info->price;
 if (isset($_POST["ingame"])) // Yay! When user reaches this he successfully bought something! money! $_$
 	die(json_encode(array("ok" => $lang["itemshop"]["success_ingame"].'<a onclick="javascript:buy($(this).parent(),'.$_POST["id"].');return false;" class="more">'.$lang["itemshop"]["buy_again"].'</a>'))); 
 else
-	die(json_encode(array("ok" => $lang["itemshop"]["success"].'<br/><a onclick="javascript:buy($(this).parent(),'.$_POST["id"].');return false;" class="more">'.$lang["itemshop"]["buy_again"].'</a>',"coins" => $_SESSION["coins"])));
+	die(json_encode(array("ok" => $lang["itemshop"]["success_ingame"].'<br/><a onclick="javascript:buy($(this).parent(),'.$_POST["id"].');return false;" class="more">'.$lang["itemshop"]["buy_again"].'</a>',"coins" => $_SESSION["coins"])));
 ?>
