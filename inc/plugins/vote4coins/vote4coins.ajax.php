@@ -4,16 +4,16 @@ if (!isset($_SESSION["user"]) || empty($_SESSION["user"])) die(json_encode(array
 include($config["path"]["includes"].$config["path"]["plugins"]."vote4coins/config.inc.php");
 if ($_POST["v"]==1){// Check if he has voted
 	if (isset($db->hp))
-		$q = mysql_query("SELECT UNIX_TIMESTAMP(time) as t  FROM ".$db->hpdb["homepage"].".vote4coins WHERE uid='".$_SESSION["id"]."' AND ok=1 AND time > DATE_SUB(NOW(), INTERVAL ".$plugin_conf["wtime"]." SECOND) LIMIT 1",$db->hp);
+		$q = mysql_query("SELECT UNIX_TIMESTAMP(time) as t  FROM ".$db->hpdb["homepage"].".vote4coins WHERE uid='".$_SESSION["id"]."' AND ok=1 AND time > ".(time()-$plugin_conf["wtime"])." SECOND) LIMIT 1",$db->hp);
 	else
-		$q = mysql_query("SELECT UNIX_TIMESTAMP(time) as t FROM ".$db->gamedb["homepage"].".vote4coins WHERE uid='".$_SESSION["id"]."' AND ok=1 AND time > DATE_SUB(NOW(), INTERVAL ".$plugin_conf["wtime"]." SECOND) LIMIT 1",$db->game);
+		$q = mysql_query("SELECT UNIX_TIMESTAMP(time) as t FROM ".$db->gamedb["homepage"].".vote4coins WHERE uid='".$_SESSION["id"]."' AND ok=1 AND time > ".(time()-$plugin_conf["wtime"])." LIMIT 1",$db->game);
 	if ($res = mysql_fetch_object($q)) {
 		die(json_encode(array("error" => str_replace("%time",tvtostring($res->t+$plugin_conf["wtime"]-time()),$lang["vote"]["already"]))));
 	}
 	if (isset($db->hp))
-			$q = mysql_query("SELECT id,count  FROM ".$db->hpdb["homepage"].".vote4coins WHERE uid='".$_SESSION["id"]."' AND ok=0 AND time > DATE_SUB(NOW(), INTERVAL 10 MINUTE) ORDER BY time DESC LIMIT 1",$db->hp);
+			$q = mysql_query("SELECT id,count  FROM ".$db->hpdb["homepage"].".vote4coins WHERE uid='".$_SESSION["id"]."' AND ok=0 AND time > ".(time()-600)." ORDER BY time DESC LIMIT 1",$db->hp);
 		else
-			$q = mysql_query("SELECT id,count FROM ".$db->gamedb["homepage"].".vote4coins WHERE uid='".$_SESSION["id"]."' AND ok=0 AND time > DATE_SUB(NOW(), INTERVAL 10 MINUTE) ORDER BY time DESC LIMIT 1",$db->game);
+			$q = mysql_query("SELECT id,count FROM ".$db->gamedb["homepage"].".vote4coins WHERE uid='".$_SESSION["id"]."' AND ok=0 AND time > ".(time()-600)." ORDER BY time DESC LIMIT 1",$db->game);
 	if (!$res = mysql_fetch_object($q)) {
 		die(json_encode(array("error" => $lang["vote"]["tryagain"])));
 	}
@@ -22,7 +22,7 @@ if ($_POST["v"]==1){// Check if he has voted
 		if (isset($db->hp))
 			$q = mysql_query("UPDATE ".$db->hpdb["homepage"].".vote4coins SET ok=1 WHERE id='".$res->id."' LIMIT 1",$db->hp);
 		else
-			$q = mysql_query("UPDATE ".$db->gamedb["homepage"].".vote4coins SET SET ok=1 WHERE id='".$res->id."' LIMIT 1",$db->game);
+			$q = mysql_query("UPDATE ".$db->gamedb["homepage"].".vote4coins SET ok=1 WHERE id='".$res->id."' LIMIT 1",$db->game);
 		$_SESSION["coins"] +=$plugin_conf["cpv"];
 		mysql_query('UPDATE '.$db->gamedb["account"].'.account SET '.$config["settings"]["coin"].'='.$config["settings"]["coin"].'+'.$plugin_conf["cpv"].' WHERE id="'.$_SESSION["id"].'" LIMIT 1');
 		die(json_encode(array("ok" => $lang["vote"]["success"],"btn" => $lang["misc"]["vote"],"v" => 0)));
