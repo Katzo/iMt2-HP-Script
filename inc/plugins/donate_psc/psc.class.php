@@ -162,7 +162,7 @@ class psc_cash_in
                 {
                   $temp = fgets($result, 128);
 				  $result_page.=$temp;
-                  if (stristr('Balance?', $temp) && !stristr("\n\n", str_replace("\r", '', $result_page))){
+                  if (stristr($temp,'Balance?') && !stristr(str_replace("\r", '', $result_page),"\n\n")){
                       list($a, $cvid)=explode("cvid=", $temp);
                       $this->cvid=trim($cvid);
 					  $ok =true;
@@ -174,10 +174,10 @@ class psc_cash_in
 				$this->sessionid=strbetween($result_page,"Set-Cookie: JSESSIONID=","; Path");
 				$this->cookie=strbetween($result_page,"Set-Cookie: TS481b70=","; Path");
 				return "ok";
-			} elseif (stristr("Der eingegebene Text", $result_page) || stristr("text entered is not", $result_page))
+			} elseif (stristr($result_page,"Der eingegebene Text") || stristr($result_page,"text entered is not"))
                 return 'error_captcha';
 
-            elseif (stristr("PIN-Code und", $result_page) || stristr("error has occurred with", $result_page))
+            elseif (stristr($result_page,"PIN-Code und") || stristr($result_page,"error has occurred with"))
                 return 'error_code_pw';
 
             else
@@ -197,7 +197,7 @@ class psc_cash_in
         $this->currency=$res[1];
         foreach($this->allowed_currency as $value => $bla)
         {
-	        if(stristr('<td>'.$value.'</td>',$page)!==FALSE)
+	        if(stristr($page,'<td>'.$value.'</td>')!==FALSE)
 	        {
 	       		$this->currency=$value;
 	        }
