@@ -181,7 +181,7 @@ class psc_cash_in
             stream_context_create(array('http' => array('header' => "Cookie: JSESSIONID=" . $this->sessionid
                 . ";TSe8f342=" . $this->cookie))));
         preg_match_all("#cell2\">(.*?)</td>#", $page, $res);
-        $res = explode(" ",$res[1][4]);
+        $res = explode(" ",$res[1][count($res[1])-1]);
         $this->value=floatval(str_replace(',', '.', $res[0]));
 		$this->currency=$res[1];
 		}
