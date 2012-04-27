@@ -24,7 +24,7 @@ if ($_POST["v"]==1){// Check if he has voted
 		else
 			$q = mysql_query("UPDATE ".$db->gamedb["homepage"].".vote4coins SET ok=1 WHERE id='".$res->id."' LIMIT 1",$db->game);
 		$_SESSION["coins"] =$_SESSION["coins"]+$plugin_conf["cpv"];
-		mysql_query('UPDATE '.$db->gamedb["account"].'.account SET '.$config["settings"]["coin"].'='.$config["settings"]["coin"].'+'.$plugin_conf["cpv"].' WHERE id="'.$_SESSION["id"].'" LIMIT 1');
+		mysql_query('UPDATE '.$db->gamedb["account"].'.account SET '.$config["settings"]["coin"].'='.$config["settings"]["coin"].'+'.$plugin_conf["cpv"].' WHERE id="'.$_SESSION["id"].'" LIMIT 1',$db->game);
 		die(json_encode(array("ok" => $lang["vote"]["success"],"btn" => $lang["misc"]["vote"],"v" => 0,"coins" => $_SESSION["coins"])));
 	}else{
 		die(json_encode(array("error" => $lang["vote"]["fail"])));
