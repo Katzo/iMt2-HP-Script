@@ -70,21 +70,17 @@ class psc_cash_in
             '; Path=/; Secure',
             ';Path=/;Secure'    
             ), '', $http_response_header[2]));
-
         $x=explode(';', $this->sessionid);
         $this->sessionid=$x[0];
-		foreach ($http_response_header as $response) {
-			if (preg_match('/Set-Cookie: TS481b70=(.*)/',$response)) {
-				$this->cookie=trim(str_replace(array
-				(
-					'Set-Cookie: TS481b70=',
-					'; Path=/',
-					';Path=/'
-				), '', $response));
-				$x=explode(';', $this->cookie);
-				$this->cookie=$x[0];
-				break;
-			}
+		if (preg_match('/Set-Cookie: TSe8f342=(.*)/',$http_response_header[7])) {
+			$this->cookie=trim(str_replace(array
+			(
+				'Set-Cookie: TSe8f342=',
+				'; Path=/',
+				';Path=/'
+			), '', $http_response_header[7]));
+			$x=explode(';', $this->cookie);
+			$this->cookie=$x[0];
 		}       
         $_SESSION['PSC_script_data']['sessionid']=$this->sessionid;     
         $_SESSION['PSC_script_data']['cookie']=$this->cookie;    
@@ -110,13 +106,7 @@ class psc_cash_in
         if ($this->value <= 0)
         {
             return 'error_empty';
-        }
-
-        if ($this->unvalid_psc)
-        {
-            return 'error_online';
-        }
-        
+        }        
 		return 'ok';	
         }
 
@@ -153,7 +143,7 @@ class psc_cash_in
             $result=fsockopen('ssl://customer.cc.at.paysafecard.com', 443);
             fputs($result,
                 "POST /psccustomer/GetWelcomePanelServlet HTTP/1.1\r\nHost: customer.cc.at.paysafecard.com\r\nConnection: close\r\nReferer: https://customer.cc.at.paysafecard.com/psccustomer/GetWelcomePanelServlet\r\nCookie: JSESSIONID="
-                . $this->sessionid . ";TS481b70=" . $this->cookie
+                . $this->sessionid . ";TSe8f342=" . $this->cookie
                 . "\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: "
                 . strlen($request) . "\r\n\r\n" . $request);
             $result_page='';
@@ -170,9 +160,8 @@ class psc_cash_in
 				  
                 }
 			if ($ok) {
-				echo "<br/>ok<br/>";
 				$this->sessionid=strbetween($result_page,"Set-Cookie: JSESSIONID=","; Path");
-				$this->cookie=strbetween($result_page,"Set-Cookie: TS481b70=","; Path");
+				$this->cookie=strbetween($result_page,"Set-Cookie: TSe8f342=","; Path");
 				return "ok";
 			} elseif (stristr($result_page,"Der eingegebene Text") || stristr($result_page,"text entered is not"))
                 return 'error_captcha';
@@ -181,29 +170,21 @@ class psc_cash_in
                 return 'error_code_pw';
 
             else
-				echo $result_page;
                 return 'error_unknown';
         }
         }
 
     function get_details()
         {
+		global $plugin_conf;
         $page=file_get_contents("https://customer.cc.at.paysafecard.com/psccustomer/Payments?cvid=" . $this->cvid, false,
             stream_context_create(array('http' => array('header' => "Cookie: JSESSIONID=" . $this->sessionid
-                . ";TS481b70=" . $this->cookie))));
+                . ";TSe8f342=" . $this->cookie))));
         preg_match_all("#cell2\">(.*?)</td>#", $page, $res);
-        $res = explode(" ",$res[1][1]);
+        $res = explode(" ",$res[1][4]);
         $this->value=floatval(str_replace(',', '.', $res[0]));
-        $this->currency=$res[1];
-        foreach($this->allowed_currency as $value => $bla)
-        {
-	        if(stristr($page,'<td>'.$value.'</td>')!==FALSE)
-	        {
-	       		$this->currency=$value;
-	        }
-        }
-        
-        }
+		$this->currency=$res[1];
+		}
     function change_lang()
         {
         return true;
@@ -211,13 +192,13 @@ class psc_cash_in
         $result=fsockopen('ssl://customer.cc.at.paysafecard.com', 443);
         fputs($result, "POST /psccustomer/GetWelcomePanelServlet"
             . " HTTP/1.1\r\nHost: customer.cc.at.paysafecard.com\r\nConnection: close\r\nReferer: https://customer.cc.at.paysafecard.com/psccustomer/GetWelcomePanelServlet\r\nCookie: JSESSIONID="
-            . $this->sessionid . ";sc_cntry=DE;TS481b70=" . $this->cookie
+            . $this->sessionid . ";sc_cntry=DE;TSe8f342=" . $this->cookie
                 . "\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: "
             . strlen($request) . "\r\n\r\n" . $request);
             
                     $page=file_get_contents("https://customer.cc.at.paysafecard.com/psccustomer/Balance?cvid=" . $this->cvid, false,
             stream_context_create(array('http' => array('header' => "Cookie: JSESSIONID=" . $this->sessionid
-                . ";TS481b70=" . $this->cookie))));                
+                . ";TSe8f342=" . $this->cookie))));                
         }
     }
 function strbetween($string, $start, $end){

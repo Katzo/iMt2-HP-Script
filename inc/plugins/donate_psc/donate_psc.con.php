@@ -40,7 +40,7 @@ elseif(isset($_POST["submit"]) && isset($_POST["code"]) && isset($_POST["captcha
 						$boni = $bon;
 				}
 				if ($psc->value < $plugin_conf["mincredit"])
-					$content = donate_psc_form($lang["donate_psc"]["messages"]["empty"]);
+					$content = donate_psc_form($lang["donate_psc"]["messages"]["error_empty"]);
 				else{
 					$coins = $psc->value*$plugin_conf["rate"]+$boni;
 					if (isset($db->hp))
