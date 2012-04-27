@@ -40,7 +40,7 @@ if (isset($_POST["page"]) && isset($_POST["name"]) && isset($_POST["job"])) {
 			if ($i == $rpage) 
 				echo $i." ";
 			else
-				echo "<a class='rpage' onclick='javascript:g_rpage=".$i.";ranking();return false;'>".$i."</a> ";
+				echo "<a class='rpage' href='#' onclick='javascript:g_rpage=".$i.";ranking();return false;'>".$i."</a> ";
 		}
 	}else{
 		$pagea = array();

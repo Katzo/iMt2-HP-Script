@@ -29,7 +29,7 @@ while ($res = mysql_fetch_object($q))
 			"date" => $plugin_conf["by"].' <a href="'.$plugin_conf["boardurl"].'?page=User&userID='.$res->userID.'">'.$res->username.'</a>, '.timetostr($res->time).'',
 		),
 		"middle" => array(
-			"text" => str_replace("\n","<br/>",htmlentities($res->firstPostPreview))
+			"text" => str_replace("\n","<br/>",htmlentities($res->firstPostPreview,ENT_COMPAT,"UTF-8"))
 		), 
 		"footer" => array(
 			"more" => $plugin_conf["boardurl"].'?page=Thread&threadID='.$res->threadID,
