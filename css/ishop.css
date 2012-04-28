@@ -6,6 +6,9 @@ html, body, * {
 	padding:0; 
 	margin:0;
 }
+html {
+	overflow: auto;
+}
 #wrapper {
 	height:550px;
 	max-height:550px;
