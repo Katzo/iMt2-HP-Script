@@ -9,17 +9,16 @@
  * Its probably the best solution in terms of compability
  * It also isnt coded that variable/nice but meh. whatever
  */
-
-if (!session_id()){
-	session_name("ishop");
-	session_start();
-}	
-// Prevent anyone from illegally accessing this.
-
 try{
-if (!isset($_SESSION["user"]) || !(isset($_GET["sas"]) && isset($_GET["pid"]) && isset($_GET["sid"]))) exit;
-if (!is_numeric($_GET["pid"]) || !is_numeric($_GET["sid"])) exit;
 include("config.inc.php");
+if (!session_id()){
+	session_name($config["settings"]["session_name"]);
+	session_start();
+}
+// Prevent anyone from illegally accessing this.
+if (!isset($_SESSION["user"]) && !(isset($_GET["sas"]) && isset($_GET["pid"]) && isset($_GET["sid"]))) exit;
+if (!is_numeric($_GET["pid"]) || !is_numeric($_GET["sid"])) exit;
+
 include("lang.inc.php");
 include($config["path"]["includes"]."common.inc.php");
 $db = new database;
@@ -50,7 +49,7 @@ include($config["path"]["includes"].$config["path"]["plugins"]."itemshop/config.
 				</div>
 				<div class="postui post-con">
 					<div class="con-wrap">
-						 <?php str_replace("%coinname",$lang["misc"]["coins"],str_replace("%coins",$_SESSION["coins"],$lang["misc"]["youcoin"])).' <a target="_blank" href="../'.$urlmap["donate"].'">'.$lang["misc"]["donate"].'?</a>'; ?>
+						 <?php echo str_replace("%coinname",$lang["misc"]["coins"],str_replace("%coins",$_SESSION["coins"],$lang["misc"]["youcoin"])).' <a target="_blank" href="../'.$urlmap["donate"].'">'.$lang["misc"]["donate"].'?</a>'; ?>
 					</div>
 				</div> 
 				<div class="postui post-end"></div>
@@ -130,14 +129,14 @@ include($config["path"]["includes"].$config["path"]["plugins"]."itemshop/config.
 			data: {id:id,ingame:"1"},
 			url: "../ajax.php?p=itemshop_buy",
 			success: function(result) {
-						res = jQuery.parseJSON(result);
-						if (res.error)
-							$(what).addClass("error").html(res.error);
-						else if (res.ok)
-							$(what).addClass("ok").html(res.ok);
-						else 
-							$(what).addClass("error").html("Server Error! Please try again!");
-					},
+				res = jQuery.parseJSON(result);
+				if (res.error)
+					$(what).addClass("error").html(res.error);
+				else if (res.ok)
+					$(what).addClass("ok").html(res.ok);
+				else 
+					$(what).addClass("error").html("Server Error! Please try again!");
+			}
 		});
 	}
 	</script>
