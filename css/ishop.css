@@ -108,6 +108,14 @@ a {text-decoration:none; color:#fd0}
 						color:#fd0;
 						background-position:bottom left;
 					}
+.sep {
+	height:4px;
+	width:491px;
+	position:relative;
+	right:18px;
+	margin:5px auto 10px;
+	background:url("../images/ui/content_sep.png") no-repeat top center;
+}
 	.sb-title {
 		height:51px;
 		background:url("../images/ui/sidebar_ui_title_default.png");
@@ -119,14 +127,23 @@ a {text-decoration:none; color:#fd0}
 		height:13px;
 		margin-bottom:15px;
 	}
-	
+			.con-wrap img.thumb {
+				float:left;
+				padding:1px;
+				border:1px solid #ffc;
+				margin:0 10px 5px 0;
+			}
 	.sb-con {
 		background:url("../images/ui/sidebar_ui_con.png") repeat-y top center;
 		padding:5px 15px;
 	}
-	
-	
+		.left {
+			float:left;
+		}
 		
+		.right {
+			float:right;
+		}
 			.sidebar h3 {
 				color:#ffc;
 				text-shadow:0 1px 4px #ffc;
