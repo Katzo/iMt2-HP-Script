@@ -17,8 +17,7 @@ if (!session_id()){
 }
 // Prevent anyone from illegally accessing this.
 if (!isset($_SESSION["user"]) && !(isset($_GET["sas"]) && isset($_GET["pid"]) && isset($_GET["sid"]))) exit;
-if (!is_numeric($_GET["pid"]) || !is_numeric($_GET["sid"])) exit;
-
+if (!isset($_SESSION["user"]) && (!is_numeric($_GET["pid"]) || !is_numeric($_GET["sid"]))) exit;
 include("lang.inc.php");
 include($config["path"]["includes"]."common.inc.php");
 $db = new database;
