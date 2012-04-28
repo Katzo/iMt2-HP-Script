@@ -110,7 +110,7 @@ include($config["path"]["includes"].$config["path"]["plugins"]."itemshop/config.
 								'.$res->desc.'
 								</p>
 								<div class="sep"></div>
-								'.$lang["itemshop"]["price"].': <b>'.$res->price.'</b> '.($res->price==1?$lang["misc"]["coin"]:$lang["misc"]["coins"]).' <span class="right"><a onclick="javascript:buy($(this).parent(),'.$res->id.');return false;" class="more">'.$lang["itemshop"]["buy"].'</a></span>'.'
+								'.$lang["itemshop"]["price"].': <b>'.$res->price.'</b> '.($res->price==1?$lang["misc"]["coin"]:$lang["misc"]["coins"]).' <span style="text-align:right;"><a onclick="javascript:buy($(this).parent(),'.$res->id.');return false;" class="more">'.$lang["itemshop"]["buy"].'</a></span>'.'
 							</div>
 						</div> 
 						<div class="postui post-end"></div>';
@@ -129,6 +129,7 @@ include($config["path"]["includes"].$config["path"]["plugins"]."itemshop/config.
 			url: "../ajax.php?p=itemshop_buy",
 			success: function(result) {
 				res = jQuery.parseJSON(result);
+				if (res.coins) $(".coins").html(res.coins);
 				if (res.error)
 					$(what).addClass("error").html(res.error);
 				else if (res.ok)

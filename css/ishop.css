@@ -110,14 +110,12 @@ a {text-decoration:none; color:#fd0}
 						color:#fd0;
 						background-position:bottom left;
 					}
-.sep {
+/*.sep {
 	height:4px;
 	width:491px;
-	position:relative;
-	right:18px;
 	margin:5px auto 10px;
 	background:url("../images/ui/content_sep.png") no-repeat top center;
-}
+}*/
 	.sb-title {
 		height:51px;
 		background:url("../images/ui/sidebar_ui_title_default.png");
