@@ -80,10 +80,12 @@ a {text-decoration:none; color:#fd0}
 		}
 		.con-wrap {
 			padding:8px 25px;
+			text-align:left;
 		}
 		
 			.con-wrap p {
 				padding-bottom:15px;
+				text-align:right;
 			}
 				a.more {
 					width:101px;
