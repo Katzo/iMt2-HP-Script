@@ -12,7 +12,10 @@ class database {
 			if (!$this->create($name,$dbconfig)) throw new Exception("I could not connect to the database connection ".$name."! :/".mysql_error());
 	}
 	public function create($name,$config) {
-		$this->$name = mysql_connect($config["host"],$config["user"],$config["pass"]);
+		try {
+			$this->$name = mysql_connect($config["host"],$config["user"],$config["pass"]);
+		}
+		catch (ErrorException $e) {}
 		if (!$this->$name) return false;
 		$this->conlist[] =$name;
 		$name .="db";
