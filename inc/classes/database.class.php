@@ -16,7 +16,7 @@ class database {
 			$this->$name = mysql_connect($config["host"],$config["user"],$config["pass"]);
 		}
 		catch (ErrorException $e) {}
-		if (!isset($this->$name)||!$this->name) return false;
+		if (!isset($this->$name)||!$this->$name) return false;
 		$this->conlist[] =$name;
 		$name .="db";
 		$this->$name = $config["db"];
