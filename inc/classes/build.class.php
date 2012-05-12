@@ -27,19 +27,19 @@ class build {
 		foreach ($this->lsidebarlist as $file) {
 			if (isset($content)) unset($content);
 			include($file);
-			if (!isset($content) || !is_array($content)) throw new Exception("The file ".$file." didnt produce any kind of array :(");
+			if (!isset($content) || !is_array($content)) throw new CException("The file ".$file." didnt produce any kind of array :(");
 			$lsb[] = $content;
 		}
 		foreach ($this->rsidebarlist as $file) {
 			if (isset($content)) unset($content);
 			include($file);
-			if (!isset($content) || !is_array($content)) throw new Exception("The file ".$file." didnt produce any kind of array :(");
+			if (!isset($content) || !is_array($content)) throw new CException("The file ".$file." didnt produce any kind of array :(");
 			$rsb[] = $content;
 		}
 		foreach ($this->contentboxlist as $file) {
 			if (isset($content)) unset($content);
 			include($file);
-			if (!isset($content) || !is_array($content)) throw new Exception("The file ".$file." didnt produce any kind of array :(");
+			if (!isset($content) || !is_array($content)) throw new CException("The file ".$file." didnt produce any kind of array :(");
 			if (isset($content["multi"])) {
 				unset($content["multi"]);
 				foreach($content as $ar) 
@@ -74,7 +74,7 @@ class build {
 		 		$what["url"] = $config["settings"]["baseurl"].$what["url"];
 		 	$this->navilist[]=$what;
 		 }else
-		 	throw new Exception("I could find an array in the variable you provided :(");
+		 	throw new CException("I could find an array in the variable you provided :(");
 	}
 	public function addContentBox($what) {
 		/* 
@@ -106,7 +106,7 @@ class build {
 		if (file_exists($what))
 			$this->contentboxlist[] = $what;
 		else
-			throw new Exception("Tried to add the file ".$what." to the content box, but i could find it :(");
+			throw new CException("Tried to add the file ".$what." to the content box, but i could find it :(");
 	}
 	public function addLSidebar($what) {
 		/* 
@@ -130,7 +130,7 @@ class build {
 		if (file_exists($what))
 			$this->lsidebarlist[] = $what;
 		else
-			throw new Exception("Tried to add the file ".$what." to the left sidebar, but i could find it :(");
+			throw new CException("Tried to add the file ".$what." to the left sidebar, but i could find it :(");
 	}
 	public function addRSidebar($what) {
 		/* 
@@ -154,7 +154,7 @@ class build {
 		if (file_exists($what))
 			$this->rsidebarlist[] = $what;
 		else
-			throw new Exception("Tried to add the file ".$what." to the right sidebar, but i could find it :(");
+			throw new CException("Tried to add the file ".$what." to the right sidebar, but i could find it :(");
 	}
 	
 	public function addFooter($what) {
@@ -167,7 +167,7 @@ class build {
 		 if (is_array($what)) 
 		 	$this->navilist[]=$what;
 		 else
-		 	throw new Exception("I could find an array in the variable you provided :(");
+		 	throw new CException("I could find an array in the variable you provided :(");
 	}
 	public function addJS($what) {
 	 	if (!in_array($what,$this->jslist)) 
@@ -183,7 +183,7 @@ class build {
 		}
 	}
 	public function addBackgroundJob($what) {
-		if (!file_exists($what)) throw new Exception("Tried to add the file ".$what." to the background job list, but i could find it :(");
+		if (!file_exists($what)) throw new CException("Tried to add the file ".$what." to the background job list, but i could find it :(");
 		$this->BackgroundJobList[] = $what;
 	}
 	public function __destruct (){

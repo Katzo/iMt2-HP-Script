@@ -9,9 +9,9 @@
  * (This is usefull for news :D)
  */
 include($config["path"]["includes"].$config["path"]["plugins"]."wbb_news/config.inc.php");
-if (!isset($db->$plugin_conf["wbbcon"])) throw new Exception("I could not find the database connection ".$plugin_conf["wbbcon"]);
+if (!isset($db->$plugin_conf["wbbcon"])) throw new CException("I could not find the database connection ".$plugin_conf["wbbcon"]);
 $wbbdb = $plugin_conf["wbbcon"]."db";
-if (!array_key_exists("board",$db->$wbbdb)) throw new Exception("I could not find the database index board");
+if (!array_key_exists("board",$db->$wbbdb)) throw new CException("I could not find the database index board");
 if (is_array($plugin_conf["id"])){
 	$qstr ="";
 	foreach($plugin_conf["id"] as $i)

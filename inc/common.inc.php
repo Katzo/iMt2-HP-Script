@@ -5,7 +5,7 @@
  * iMer.cc 2012
  */
  function exception_error_handler($errno, $errstr, $errfile, $errline ) {
-    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+    throw new CErrorException($errstr, 0, $errno, $errfile, $errline);
 }
 date_default_timezone_set($config["settings"]["timezone"]);
 set_error_handler("exception_error_handler");

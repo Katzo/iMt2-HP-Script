@@ -9,7 +9,7 @@ class database {
 	public function __construct() {
 		global $config;
 		foreach ($config["db"] as $name => $dbconfig)
-			if (!$this->create($name,$dbconfig)) throw new Exception("I could not connect to the database connection ".$name."! :/".mysql_error());
+			if (!$this->create($name,$dbconfig)) throw new CException("I could not connect to the database connection ".$name."! :/".mysql_error());
 	}
 	public function create($name,$config) {
 		try {
