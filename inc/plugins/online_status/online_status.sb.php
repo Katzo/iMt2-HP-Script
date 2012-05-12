@@ -45,6 +45,6 @@ if (isset($cached->enc)) {
 		else
 			$out .= '<p class="off">'.$stat["name"]." ".$plugin_conf["offline"].'</p><div class="sb-sep"></div>';
 }
-$content = array("head" => array("title" => $plugin_conf["title"]),"middle" => array("text" => $out));
+$content = array("head" => array("title" => $plugin_conf["title"]),"middle" => array("text" => substr($out,0,-27)));
 unset($plugin_conf);
 ?>
