@@ -13,41 +13,14 @@ class build {
 	private $jslist = array();
 	private $jsfilelist = array();
 	private $BackgroundJobList = array();
-	private $config;
 	public function __construct() {
 		global $p;
 		$this->page = $p;
 	}
 	public function build() {
-		global $lang,$urlmap,$config,$p;
-		$db = new database;
-		$lsb = array();
-		$cont = array();
-		$srb = array();
-		foreach ($this->lsidebarlist as $file) {
-			if (isset($content)) unset($content);
-			include($file);
-			if (!isset($content) || !is_array($content)) throw new CException("The file ".$file." didnt produce any kind of array :(");
-			$lsb[] = $content;
-		}
-		foreach ($this->rsidebarlist as $file) {
-			if (isset($content)) unset($content);
-			include($file);
-			if (!isset($content) || !is_array($content)) throw new CException("The file ".$file." didnt produce any kind of array :(");
-			$rsb[] = $content;
-		}
-		foreach ($this->contentboxlist as $file) {
-			if (isset($content)) unset($content);
-			include($file);
-			if (!isset($content) || !is_array($content)) throw new CException("The file ".$file." didnt produce any kind of array :(");
-			if (isset($content["multi"])) {
-				unset($content["multi"]);
-				foreach($content as $ar) 
-					$cont[] = $ar;
-			}else
-				$cont[] = $content;
-		}
-		include($config["path"]["includes"]."/design.inc.php"); // Pass the generated content to design.inc.php for final design echoing
+		global $lang,$urlmap,$p,$db,$ConfigProvider;
+		$settings = $ConfigProvider->get("settings");
+		include($settings->get("path","includes")."/design.inc.php"); // Pass the generated content to design.inc.php for final design echoing
 		// Background Jobs
 		flush(); // Flush all output to ensure the user has to full page and is able to use it, even if it's not fully loaded
 		ignore_user_abort(true);  // Ingore page closing
@@ -56,6 +29,26 @@ class build {
 		foreach ($this->BackgroundJobList as $file)
 			include($file); // Include all the files
 		ob_end_clean(); // throw everything outputed away! :)
+	}
+	public function getValidAddLocations(){
+		return array("lside","rside","lsidebar","rsidebar","navi","contentbox","footer","js","jsfile","bgjob","backgroundjob");
+	}
+	public function add($where,$what){
+		switch($where){
+			case "lsidebar":$this->addLSidebar($what);break;
+			case "rsidebar":$this->addRSidebar($what);break;
+			case "lside":$this->addLSidebar($what);break;
+			case "rside":$this->addRSidebar($what);break;
+			case "navi":$this->addNavi($what);break;
+			case "contentbox":$this->addContentBox($what);break;
+			case "content":$this->addContentBox($what);break;
+			case "footer":$this->addFooter($what);break;
+			case "js":$this->addJS($what);break;
+			case "jsfile":$this->addJSFile($what);break;
+			case "bgjob":$this->addBackgroundJob($what);break;
+			case "backgroundjob":$this->addBackgroundJob($what);break;
+			default:throw new CException("Tried to add element to unknown location (".$where.")!");break;
+		}
 	}
 	public function addNavi($what) { 
 		/* 
@@ -66,12 +59,13 @@ class build {
 		 * "other" => "onclick='dostuff();'"  // i don't know why you'd want that but meh. (doesnt need to be set))
 		 * "loggedin" => true,  // only show when logged in or not logged in (doesnt need to be set)
 		 */
-		 global $config;
+		 global $ConfigProvider;
+		 $settings = $ConfigProvider->get("settings");
 		 if (isset($what["loggedin"]) && $what["loggedin"]!=(isset($_SESSION["user"]) && !empty($_SESSION["user"])))
 		 	return; // When doesnt match, return 
 		 if (is_array($what)) {
 		 	if (!isURL($what["url"]))
-		 		$what["url"] = $config["settings"]["baseurl"].$what["url"];
+		 		$what["url"] = $settings->get("baseurl").$what["url"];
 		 	$this->navilist[]=$what;
 		 }else
 		 	throw new CException("I could find an array in the variable you provided :(");
@@ -174,12 +168,13 @@ class build {
 	 		$this->jslist[]=$what;
 	}
 	public function addJSFile($what) {
-		global $config;
+		global $ConfigProvider;
+		$settings = $ConfigProvider->get("settings");
 		if (!in_array($what,$this->jsfilelist)) {
 	 		if (isURL($what))
 	 			$this->jsfilelist[]=$what;
 	 		else 
-	 			$this->jsfilelist[]=$config["settings"]["baseurl"].$what;
+	 			$this->jsfilelist[]=$settings->get("baseurl").$what;
 		}
 	}
 	public function addBackgroundJob($what) {

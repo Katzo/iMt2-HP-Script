@@ -1,5 +1,5 @@
 <?php
-class config{
+class Config{
 	private $config;
 	private $meta;
 	private $modified=false;

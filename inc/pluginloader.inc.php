@@ -11,8 +11,8 @@
 	include($filename);
 }else
 	 foreach ($pages[$p]["plugins"] as $file) { 
-	    $filename =$config["path"]["includes"].$config["path"]["plugins"]. $file.".php";
+	    $filename =$config["path"]["includes"].$config["path"]["plugins"].$file."/".$file.".class.php";
 	    include($filename);
-}
- 
+	}
+
 ?>
