@@ -8,6 +8,7 @@ try{
 	$db = new database;
 	$ConfigProvider = new ConfigProvider;
 	$settings = $ConfigProvider->get("settings");
+	$lang = new lang($ConfigProvider->get("lang"));
 	session_name($settings->get("session_name"));
 	session_start();
 	date_default_timezone_set($settings->get("timezone"));

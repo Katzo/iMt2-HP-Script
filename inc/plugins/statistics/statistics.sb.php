@@ -16,15 +16,15 @@ else
 $cached = mysql_fetch_object($cachedq);
 if (!isset($cached->time) || time() > $cached->time+$plugin_conf["cachetimeout"]) {
 	// Acc total
-	$acc = mysql_fetch_object(mysql_query("SELECT count(*) as c FROM ".$db->gamedb["account"].".account",$db->game));
+	$acc = mysql_fetch_object(mysql_query("SELECT count(id) as c FROM ".$db->gamedb["account"].".account",$db->game));
 	// Player total
-	$player = mysql_fetch_object(mysql_query("SELECT count(*) as c FROM ".$db->gamedb["player"].".player",$db->game));
+	$player = mysql_fetch_object(mysql_query("SELECT count(id) as c FROM ".$db->gamedb["player"].".player",$db->game));
 	// Guild total
-	$guild = mysql_fetch_object(mysql_query("SELECT count(*) as c FROM ".$db->gamedb["player"].".guild",$db->game));
+	$guild = mysql_fetch_object(mysql_query("SELECT count(id) as c FROM ".$db->gamedb["player"].".guild",$db->game));
 	// Item total
-	$item = mysql_fetch_object(mysql_query("SELECT count(*) as c FROM ".$db->gamedb["player"].".item",$db->game));
+	$item = mysql_fetch_object(mysql_query("SELECT sum(count) as c FROM ".$db->gamedb["player"].".item",$db->game));
 	// Player online
-	$playero = mysql_fetch_object(mysql_query("SELECT count(*) as c FROM ".$db->gamedb["player"].".player WHERE last_play > DATE_SUB(NOW(), INTERVAL 10 MINUTE)",$db->game));
+	$playero = mysql_fetch_object(mysql_query("SELECT count(id) as c FROM ".$db->gamedb["player"].".player WHERE last_play > DATE_SUB(NOW(), INTERVAL 10 MINUTE)",$db->game));
 	if (isset($db->hp))
 		mysql_query("INSERT INTO ".$db->hpdb["homepage"].".statistics (time,acc,player,guild,item,playero) VALUES('".time()."','".$acc->c."','".$player->c."','".$guild->c."','".$item->c."','".$playero->c."')",$db->hp);
 	else

@@ -130,23 +130,6 @@ $lang = array(
 		"priceerror" => "Du hast nicht genug Coins um das zu kaufen!",
 		"success" => "Das Item wurde erfolgreich gekauft!",
 	),
-	"donate_psc" => array(
-		"code" => "Paysafecard Code",
-		"coincalc" => "Coin Rechner",
-		"notecalc" => "Bitte beachte, dass bei der Konvertierung von Coins zu Euro keine Coinboni mitberechnet werden.",
-		"success" => "Deine Paysafecard ist g&uuml;ltig und wurde erfolgreich eingetragen!<br/> Warte nun, bis ein Teamler deine Paysafecard erneut kontrolliert und dir deine Coins gutschreibt!<br/>Dies sollte <b>maximal 24 Stunden</b> dauern.",
-		"messages" => array(
-	        'error_fields_blank' => 'Sie haben nicht alle Felder ausgef&uuml;llt.',
-	        'error_code' => 'Bei deinem PIN-Code und/oder Passwort ist ein Fehler aufgetreten. Bitte &uuml;berpr&uuml;fe die korrekte Eingabe des PIN-Code oder Passwort.',
-	        'error_code_pw' => 'Bei deinem PIN-Code und/oder Passwort ist ein Fehler aufgetreten. Bitte &uuml;berpr&uuml;fe die korrekte Eingabe des PIN-Code oder Passwort.',
-	        'error_captcha' => 'Der eingegebene Text stimmt nicht mit dem angezeigten &Uuml;berein.',
-	        'error_unknown' => 'Es ist ein unbekannter Fehler aufgetreten',
-	        'error_online' => 'Es ist ein unbekannter Fehler aufgetreten. Bitte versuche es sp&auml;ter nocheinmal.',
-	        'error_noteuro' => 'Die Paysafecard hat eine nicht akzeptierte W&auml;hrung',
-	        'error_empty' => 'Die Paysafecard hat ein zu geringes Guthaben.',
-	        'error_try' => 'Zu viele Fehlversuche'   
-	    )
-	),
 	"vote" => array(
 		"desc" => "Unterst&uuml;tze unseren Server durch voten.<br/>Als Dankesch&ouml;n bekommst du %coins Coins.<br/>Du kannst nur alle %time Stunden voten",
 		"howto" => "Klicke den Voten-Button und vote auf der Topliste.<br/> Wenn du damit fertig bist, klicke bitte auf den Fertig-Button um deine Coins zu erhalten.du musst eventuell Pop-Ups f&uuml;r diese Seite erlauben.",

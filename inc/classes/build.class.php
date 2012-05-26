@@ -18,8 +18,21 @@ class build {
 		$this->page = $p;
 	}
 	public function build() {
-		global $lang,$urlmap,$p,$db,$ConfigProvider;
+		global $lang,$urlmap,$p,$db,$ConfigProvider,$config;
 		$settings = $ConfigProvider->get("settings");
+		$pages = $ConfigProvider->get("pages");
+		foreach ($pages->get($p,"plugins") as $file) { 
+		    $filename =$config["path"]["includes"].$config["path"]["plugins"].$file."/".$file.".class.php";
+		    include($filename);
+		    $fclass = "plugin_".$file;
+		    // Class has to be named plugin_PLUGINNAME
+		    $plugin = new $fclass;
+		    foreach ($plugin->addContent() as $ar) {
+		    	if (!in_array($ar[0],$build->getValidAddLocations())) throw new CException("Tried to add element to invalid Location(".$ar[0].")\nPlugin: ".$file."\nOutdated Version?");
+		    	else 
+		    		$this->add($ar[0],$ar[1]);
+		    }
+		}
 		include($settings->get("path","includes")."/design.inc.php"); // Pass the generated content to design.inc.php for final design echoing
 		// Background Jobs
 		flush(); // Flush all output to ensure the user has to full page and is able to use it, even if it's not fully loaded
@@ -72,8 +85,7 @@ class build {
 	}
 	public function addContentBox($what) {
 		/* 
-		 * Provide an array to the file for generating the content (will be included)
-		 * It needs to generate following var:
+		 * Provide an array:
 		 * $content = array(
 		 * 		"head" => array(
 		 * 			"title" => "News",
@@ -90,22 +102,21 @@ class build {
 		 * 			"plain" => "<img src='stuff.png'/>"
 		 * 		)
 		 * )
-		 * it can alternatively provide this:
+		 * you can alternatively provide this:
 		 * $content = array(
 		 * 		"plain" => "<div class='fanybox'>Somestuff :D</div>"
 		 * )
-		 * Pro tip: This causes it to output $content["plain"]
+		 * This causes it to output $content["plain"]
 		 * 
 		 */
-		if (file_exists($what))
+		if (is_array($what))
 			$this->contentboxlist[] = $what;
 		else
-			throw new CException("Tried to add the file ".$what." to the content box, but i could find it :(");
+			throw new CException("Provided what is not an array!");
 	}
 	public function addLSidebar($what) {
 		/* 
-		 * Provide an array to the file for generating the content (will be included)
-		 * It needs to generate following var:
+		 * Provide an array:
 		 * $content = array(
 		 * 		"head" => array(
 		 * 			"title" => "News",
@@ -114,22 +125,21 @@ class build {
 		 * 			"text" => "Bla bla bla..", // This is plain text (can contain html and such)
 		 * 		)
 		 * )
-		 * it can alternatively provide this:
+		 * You can alternatively provide this:
 		 * $content = array(
 		 * 		"plain" => "<div class='fanybox'>Somestuff :D</div>"
 		 * )
-		 * Pro tip: This causes it to output $content["plain"]
+		 * This causes it to output $content["plain"]
 		 * 
 		 */
-		if (file_exists($what))
-			$this->lsidebarlist[] = $what;
+		if (is_array($what))
+			$this->contentboxlist[] = $what;
 		else
-			throw new CException("Tried to add the file ".$what." to the left sidebar, but i could find it :(");
+			throw new CException("Provided what is not an array!");
 	}
 	public function addRSidebar($what) {
 		/* 
-		 * Provide an array to the file for generating the content (will be included)
-		 * It needs to generate following var:
+		 * Provide an array:
 		 * $content = array(
 		 * 		"head" => array(
 		 * 			"title" => "News",
@@ -138,17 +148,17 @@ class build {
 		 * 			"text" => "Bla bla bla..", // This is plain text (can contain html and such)
 		 * 		)
 		 * )
-		 * it can alternatively provide this:
+		 * You can alternatively provide this:
 		 * $content = array(
 		 * 		"plain" => "<div class='fanybox'>Somestuff :D</div>"
 		 * )
-		 * Pro tip: This causes it to output $content["plain"]
+		 * This causes it to output $content["plain"]
 		 * 
 		 */
-		if (file_exists($what))
-			$this->rsidebarlist[] = $what;
+		if (is_array($what))
+			$this->contentboxlist[] = $what;
 		else
-			throw new CException("Tried to add the file ".$what." to the right sidebar, but i could find it :(");
+			throw new CException("Provided what is not an array!");
 	}
 	
 	public function addFooter($what) {
@@ -161,10 +171,10 @@ class build {
 		 if (is_array($what)) 
 		 	$this->navilist[]=$what;
 		 else
-		 	throw new CException("I could find an array in the variable you provided :(");
+			throw new CException("Provided what is not an array!");
 	}
 	public function addJS($what) {
-	 	if (!in_array($what,$this->jslist)) 
+	 	if (!in_array($what,$this->jslist)) // Prevent multiple addings of the same code
 	 		$this->jslist[]=$what;
 	}
 	public function addJSFile($what) {
