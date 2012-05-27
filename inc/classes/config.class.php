@@ -1,5 +1,5 @@
 <?php
-class Config{
+class config{
 	private $config;
 	private $meta;
 	private $modified=false;
@@ -16,13 +16,28 @@ class Config{
 	 * and so on
 	 */
 	public function get($what,$sub = false,$sub2 = false,$sub3=false) {
-		if ($sub3)
-			return $this->config[$what][$sub][$sub2][$sub3];
-		if ($sub2)
-			return $this->config[$what][$sub][$sub2];
-		if ($sub)
-			return $this->config[$what][$sub];
-		return $this->config[$what];
+		if ($sub3){
+			if (isset($this->config[$what][$sub][$sub2][$sub3]))
+				return $this->config[$what][$sub][$sub2][$sub3];
+			else 
+				return false;
+		}
+		if ($sub2){
+			if (isset($this->config[$what][$sub][$sub2]))
+				return $this->config[$what][$sub][$sub2];
+			else 
+				return false;
+		}
+		if ($sub){
+			if (isset($this->config[$what][$sub]))
+				return $this->config[$what][$sub];
+			else 
+				return false;
+		}
+		if (isset($this->config[$what]))
+			return $this->config[$what];
+		else 
+			return false;
 	}
 	/*
 	 *  Set a config element

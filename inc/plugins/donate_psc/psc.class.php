@@ -20,7 +20,6 @@ class psc_cash_in
     public $id;
     public $cookie;
     public $cookie2;
-	public $allowed_currency;
 	public $novalue = false;
 	
     function show_captcha($renew = false)

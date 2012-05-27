@@ -59,9 +59,13 @@ class Plugin {
 					return false;
 				}
 				foreach($dbarray as $database => $tablearray){
-					$select_db = mysql_select_db($database,$db->$connection);
+					if (!isset($db->{$connection."db"}[$database])){
+						$this->lerror="Database index '".$database."' does not exist (".$connection.")! Required by ".$this->getName();
+						return  false;
+					}
+					$select_db = mysql_select_db($db->{$connection."db"}[$database],$db->$connection);
 					if (!$select_db) {
-						$this->lerror="MySQL database '".$database."' does not exist (".$connection.")! Required by ".$this->getName();
+						$this->lerror="MySQL database '".$db->{$connection."db"}[$database]."' does not exist (".$connection.")! Required by ".$this->getName();
 						return false;
 					}
 					foreach($tablearray as $table){
@@ -94,7 +98,7 @@ class Plugin {
 	final public function addContent() {
 		$this->check();
 		$this->generate();
-		$this->getContent();
+		return $this->getContent();
 	}
 	// Content functions
 	private function add($where,$what){

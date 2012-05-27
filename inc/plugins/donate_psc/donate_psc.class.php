@@ -1,4 +1,12 @@
 <?php
+/*
+ * This belongs to iMers iMt2-HP-Script
+ * https://github.com/imermcmaps/iMt2-HP-Script
+ * iMer.cc 2012
+ * 
+ * This is a default plugin called donate_psc
+ * It allowes users to donate... via guess what! PSC! :D
+ */
 class plugin_donate_psc extends Plugin{
 	private $meta = array(
 		"information" => array(
@@ -46,7 +54,7 @@ class plugin_donate_psc extends Plugin{
 		return $content;
 	}
 	private function generate() {
-		global $ConfigProvider,$config,$lang;
+		global $ConfigProvider,$config,$lang,$db;
 		$plugin_conf=$ConfigProvider->get("plugin_donate_psc");
 		if (!file_exists($config["path"]["includes"].$config["path"]["plugins"]."donate_psc/psc.class.php")) throw new CException("Could not find ".$config["path"]["includes"].$config["path"]["plugins"]."donate_psc/psc.class.php!");
 		include($config["path"]["includes"].$config["path"]["plugins"]."donate_psc/psc.class.php");
@@ -67,22 +75,21 @@ class plugin_donate_psc extends Plugin{
 				$psc->cookie=$psc->load_data('cookie');
 			    $psc->cookie2=$psc->load_data('cookie2'); 
 			    $psc->sessionid=$psc->load_data('sessionid');  
-			    $psc->allowed_currency=$plugin_conf["currency"];  
 				$psc->code=mysql_real_escape_string($_POST["code"]);
 				$psc->captcha=mysql_real_escape_string($_POST["captcha"]);
 				$res = $psc->cash_in();
 				if ($res == "ok"){
-					if (isset($plugin_conf["currency"][$psc->currency])){
-						$psc->value = $psc->value*$plugin_conf["currency"][$psc->currency];
+					if ($plugin_conf->get("currency",$psc->currency)){
+						$psc->value = $psc->value*$plugin_conf->get("currency",$psc->currency);
 						$boni=0;
-						foreach($plugin_conf["boni"] as $cred => $bon) {
+						foreach($plugin_conf->get("boni") as $cred => $bon) {
 							if ($psc->value >= $cred && $bon > $boni)
 								$boni = $bon;
 						}
-						if ($psc->value < $plugin_conf["mincredit"])
+						if ($psc->value < $plugin_conf->get("mincredit"))
 							$this->add("content",$this->form($lang->get("psc_error_empty")));
 						else{
-							$coins = $psc->value*$plugin_conf["rate"]+$boni;
+							$coins = $psc->value*$plugin_conf->get("rate")+$boni;
 							if (isset($db->hp))
 								mysql_query('INSERT INTO '.$db->hpdb["homepage"].'.psc (user,code,credit,coins,date) VALUES("'.$_SESSION["user"].'","'.$psc->code.'","'.$psc->value.'","'.$coins.'",NOW())',$db->hp);
 							else
