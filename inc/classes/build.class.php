@@ -21,6 +21,11 @@ class build {
 		global $lang,$urlmap,$p,$db,$ConfigProvider,$config;
 		$settings = $ConfigProvider->get("settings");
 		$pages = $ConfigProvider->get("pages");
+		$navilinks=$ConfigProvider->get("navilinks");
+		foreach ($navilinks->get("header") as $n)
+			$build->addNavi($n);
+		foreach ($navilinks->get("footer") as $n)
+			$build->addFooter($n);
 		foreach ($pages->get($p,"plugins") as $file) { 
 		    $filename =$config["path"]["includes"].$config["path"]["plugins"].$file."/".$file.".class.php";
 		    include($filename);

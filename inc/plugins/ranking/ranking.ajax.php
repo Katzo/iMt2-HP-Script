@@ -1,9 +1,9 @@
 <?php
 
 if (isset($_POST["page"]) && isset($_POST["name"]) && isset($_POST["job"])) {
-	include($config["path"]["includes"].$config["path"]["plugins"]."ranking/config.inc.php");
+	$plugin_conf=$ConfigProvider->get("plugin_ranking");
 	$rpage = (int)$_POST["page"];
-	$limit = 'LIMIT '.($plugin_conf["cpp"]*($rpage-1)).",".$plugin_conf["cpp"];
+	$limit = 'LIMIT '.($plugin_conf->get("cpp")*($rpage-1)).",".$plugin_conf->get("cpp");
 	$where = false;
 	$name = false;
 	$job = false;
@@ -20,21 +20,21 @@ if (isset($_POST["page"]) && isset($_POST["name"]) && isset($_POST["job"])) {
 	else
 		$bsql = ' FROM '.$db->gamedb["homepage"].'.ranking_cache '.($where?'WHERE ':'').($name?'name LIKE "%'.mysql_real_escape_string($_POST["name"]).'%" ':'').($job&&$name?'AND ':'').($job?'job ="'.(int)$_POST["job"].'"':'');
 	$q = mysql_query($select.$bsql.$limit,(isset($db->hp)?$db->hp:$db->game));
-	echo '<table><tr><th>#</th><th>'.$lang["misc"]["classrank"].'</th><th>'.$lang["misc"]["charname"].'</th><th>'.$lang["misc"]["class"].'</th><th>'.$lang["misc"]["level"].'</th></tr>';
+	echo '<table><tr><th>#</th><th>'.$lang->get("ranking_classrank").'</th><th>'.$lang->get("charname").'</th><th>'.$lang->get("class").'</th><th>'.$lang->get("level").'</th></tr>';
 	while ($res = mysql_fetch_object($q)){
 		if ($res->job == 0 )
-			$j = $lang["misc"]["warrior"];
+			$j = $lang->get("warrior");
 		elseif ($res->job == 1) 
-			$j = $lang["misc"]["assassin"];
+			$j = $lang->get("assassin");
 		elseif ($res->job == 2) 
-			$j = $lang["misc"]["sura"];
+			$j = $lang->get("sura");
 		elseif ($res->job == 3) 
-			$j = $lang["misc"]["shaman"];
+			$j = $lang->get("shaman");
 		echo '<tr><td>'.$res->i.'</td><td>'.$res->ji.'</td><td>'.$res->name.'</td><td>'.$j.'</td><td>'.$res->level.'</td></tr>';
 	}
 	echo "</table>";
 	$count = mysql_fetch_object(mysql_query($selcount.$bsql,(isset($db->hp)?$db->hp:$db->game)))->c;
-	$totalPages = ceil($count/$plugin_conf["cpp"]);
+	$totalPages = ceil($count/$plugin_conf->get("cpp"));
 	if ($totalPages < 13) {
 		for($i=1;$i <=$totalPages;$i++) {
 			if ($i == $rpage) 
@@ -82,7 +82,7 @@ if (isset($_POST["page"]) && isset($_POST["name"]) && isset($_POST["job"])) {
 			else
 				echo "&nbsp;...&nbsp;";
 	}
-	echo '<br/><span style="display:block;text-align:center;"><input type="button" onclick="javascript:if (g_rpage==1) return false;g_rpage-=1;ranking();" value="'.$lang["misc"]["back"].'" class="btn" /><input type="button" onclick="javascript:if (g_rpage>='.$totalPages.') return false;g_rpage+=1;ranking();" value="'.$lang["misc"]["next"].'" class="btn" /></span>';
+	echo '<br/><span style="display:block;text-align:center;"><input type="button" onclick="javascript:if (g_rpage==1) return false;g_rpage-=1;ranking();" value="'.$lang->get("back").'" class="btn" /><input type="button" onclick="javascript:if (g_rpage>='.$totalPages.') return false;g_rpage+=1;ranking();" value="'.$lang->get("next").'" class="btn" /></span>';
 }else
 	die("Nope! I won't say anything! :<");
 

@@ -14,18 +14,22 @@ try{
 	date_default_timezone_set($settings->get("timezone"));
 	$p = loadp();
 	if (!isset($pages[$p])) throw new CException("I could not find the page '".$p."' you where looking for.<br/>I am sorry :(");
-	include($config["path"]["includes"]."pluginloader.inc.php");
+	$filename =$config["path"]["includes"].$config["path"]["plugins"].$ajax[$p];
+	if (!file_exists($file)) throw new CException($file." does not exist!");
+	include($filename);
 }catch(CException $e){
 	if (isset($_GET["json"]))
 		echo '{"error":"An error occured, please view the error log for more information!"}';
 	else
 		echo "An error occured, please view the error log for more information!";
+	flush();
 	throw $e;
 }catch(CErrorException $e){
 	if (isset($_GET["json"]))
 		echo '{"error":"An error occured, please view the error log for more information!"}';
 	else
 		echo "An error occured, please view the error log for more information!";
+	flush();
 	throw $e;
 }
 ?>
