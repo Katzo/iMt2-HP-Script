@@ -17,13 +17,14 @@ class plugin_register extends Plugin{
 		)
 	);
 	private function loggedin() {
-		global $lang;
+		global $lang,$ConfigProvider;
+		$urlmap=$ConfigProvider->get("urlmap");
 		$this->add("content",array(
 				"head" => array(
 					"title" => $lang->get("register"),
 				),
 				"middle" => array(
-					"text" => $lang->get("register_loggedin"),
+					"text" => $lang->get("register_loggedin",array("logouturl"=>$urlmap->get("logout"))),
 				)
 			));
 	}
@@ -140,7 +141,7 @@ class plugin_register extends Plugin{
 							mysql_query('INSERT INTO '.$db->hpdb["homepage"].'.email_verify VALUES("'.$uid.'","'.$key.'")',$db->hp);
 						else
 							mysql_query('INSERT INTO '.$db->gamedb["homepage"].'.email_verify VALUES("'.$uid.'","'.$key.'")',$db->game);
-						mail($_POST["email"],$lang->get("register_email_subject",array("username"=>$_POST["user"])),$lang->get("register_email_body",array("username"=>$_POST["user"],"url"=>$settings->get("baseurl").$urlmap->get("register").(!isUrl($urlmap->get("register")) && substr($urlmap->get("register"),0,1) == "?"?"&":"?")."key=".$key)),$settings->get("email_header"));
+						mail($_POST["email"],$lang->get("register_email_subject",array("username"=>$_POST["user"],"servername"=>$settings->get("name"))),$lang->get("register_email_body",array("servername"=>$settings->get("name"),"username"=>$_POST["user"],"url"=>$settings->get("baseurl").$urlmap->get("register").(!isUrl($urlmap->get("register")) && substr($urlmap->get("register"),0,1) == "?"?"&":"?")."key=".$key)),$settings->get("email_header"));
 						$this->add("content",array(
 							"head" => array(
 								"title" => $lang->get("register"),
