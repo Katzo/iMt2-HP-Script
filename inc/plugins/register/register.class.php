@@ -197,9 +197,9 @@ class plugin_register extends Plugin{
 			$this->loggedin(); 
 		elseif (isset($_GET["key"])) 
 			$this->key();
-		elseif ($plugin_conf->get("enabled")){
+		elseif ($plugin_conf->get("enabled"))
 			$this->reg();
-		}else
+		else
 			$this->add("content",array(
 				"head" => array(
 					"title" => $lang->get("register")
@@ -208,5 +208,23 @@ class plugin_register extends Plugin{
 					"text" => $lang->get("register_closed")
 				)
 			));
+		$this->add("jsfile","js/jquery.js");
+		$this->add("js","function regcheck(what){
+			$.ajax({
+			  type: 'POST',
+			  url: 'ajax.php?p=regcheck',
+			  data: {what:what,value:$('#'+what).val()},
+			  success: function(data){
+			  	res = jQuery.parseJSON(data);
+			  	if (res.error) 
+			  		$('#'+what+'res').addClass('error').removeClass('ok').html(res.error);
+			  	else if(res.ok)
+			  		$('#'+what+'res').addClass('ok').removeClass('error').html(res.ok);
+			  	else
+			  		$('#'+what+'res').addClass('error').removeClass('ok').html('Unknown error');
+			  },
+			});
+		}
+		");
 	}
 }
