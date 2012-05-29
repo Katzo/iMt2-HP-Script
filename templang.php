@@ -9,7 +9,6 @@
 array(
 	"de" => array(
 		// General stuff
-		"donate" => "Spenden",
 		"fillout" => "Bitte f&uuml;lle alle Felder aus",
 		"needlogin" => "Bitte logge dich ein.",
 		"youcoin" => "Du hast <b><span class='coins'>%coins</span></b> %coinname!",
@@ -27,6 +26,8 @@ array(
 		"class" => "Klasse",
 		"level" => "Level",
 		"ok"=>"&radic;",
+		"logout"=>"Logout",
+		"login"=>"Login",
 		// Time class
 		"time_s" => "Sekunden",
 		"time_S" => "Sekunde",
@@ -47,6 +48,7 @@ array(
 		"time_fformat" => "%ago %value %time %at",
 		"time_dformat" => "d.m.y H:i",
 		// Donate_psc
+		"donate" => "Spenden",
 		"psc_code_name" => "Code",
 		"psc_donate_success" => "Deine Paysafecard ist g&uuml;ltig und wurde erfolgreich eingetragen!<br/> Warte nun, bis ein Teamler deine Paysafecard erneut kontrolliert und dir deine Coins gutschreibt!<br/>Dies sollte <b>maximal 24 Stunden</b> dauern.",
 	    "psc_error_fields_blank" => "Sie haben nicht alle Felder ausgef&uuml;llt.",
@@ -140,6 +142,14 @@ array(
 		"statistics_items"=>"Items",
 		"statistics_guilds"=>"Gilden",
 		"statistics_accounts"=>"Accounts",
+		// Userpanel
+		"userpanel_title_loggedin" => "Mein Account",
+		"userpanel_title_login" => "Login",
+		"userpanel_user_placeholder"=> "Account",
+		"userpanel_password_placeholder"=> "Passwort",
+		"userpanel_login_failed"=> "Login fehlgeschlagen",
+		"userpanel_banned"=>"Dein Account ist gebannt",
+		"userpanel_hello" => "Hey %username,"
 	),
 	"en" => array(
 		// General stuff
@@ -161,6 +171,8 @@ array(
 		"class" => "Class",
 		"level" => "Level",
 		"ok"=>"&radic;",
+		"logout"=>"Logout",
+		"login"=>"Login",
 		// Time class
 		"time_s" => "seconds",
 		"time_S" => "second",
@@ -269,6 +281,14 @@ array(
 		"statistics_items"=>"Items",
 		"statistics_guilds"=>"Guilds",
 		"statistics_accounts"=>"Accounts",
-	),
+		// Userpanel
+		"userpanel_title_loggedin" => "Userpanel",
+		"userpanel_title_login" => "Login",
+		"userpanel_user_placeholder"=> "Account",
+		"userpanel_password_placeholder"=> "Password",
+		"userpanel_login_failed"=> "Login failed",
+		"userpanel_banned"=>"You are banned",
+		"userpanel_hello" => "Hey %username,"
+	)
 );
 ?>

@@ -1,4 +1,4 @@
 <?php
 $_SESSION = array();
-header("Location:".$config["settings"]["baseurl"]);
+header("Location:".$settings->get("baseurl"));
 ?>
