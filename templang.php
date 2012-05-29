@@ -133,6 +133,13 @@ array(
 		"settings_submit_change_code"=>"&Auml;ndern",
 		"settings_submit_reset_safebox"=>"Zur&uuml;cksetzen",
 		"settings_submit_change_email"=>"&Auml;ndern",
+		// Statistics
+		"statistics"=>"Statistik",
+		"statistics_player"=>"Spieler",
+		"statistics_playero"=>"Spieler Online",
+		"statistics_items"=>"Items",
+		"statistics_guilds"=>"Gilden",
+		"statistics_accounts"=>"Accounts",
 	),
 	"en" => array(
 		// General stuff
@@ -255,6 +262,13 @@ array(
 		"settings_submit_change_code"=>"Change",
 		"settings_submit_reset_safebox"=>"Reset",
 		"settings_submit_change_email"=>"Change",
+		// Statistics
+		"statistics"=>"Statistics",
+		"statistics_player"=>"Player",
+		"statistics_playero"=>"Player Online",
+		"statistics_items"=>"Items",
+		"statistics_guilds"=>"Guilds",
+		"statistics_accounts"=>"Accounts",
 	),
 );
 ?>
