@@ -28,6 +28,8 @@ array(
 		"ok"=>"&radic;",
 		"logout"=>"Logout",
 		"login"=>"Login",
+		"read_more"=>"Mehr",
+		"by"=>"von",
 		// Time class
 		"time_s" => "Sekunden",
 		"time_S" => "Sekunde",
@@ -149,7 +151,16 @@ array(
 		"userpanel_password_placeholder"=> "Passwort",
 		"userpanel_login_failed"=> "Login fehlgeschlagen",
 		"userpanel_banned"=>"Dein Account ist gebannt",
-		"userpanel_hello" => "Hey %username,"
+		"userpanel_hello" => "Hey %username,",
+		// Vote4Coins
+		"vote" => "Voten",
+		"vote4coins_desc" => "Unterst&uuml;tze unseren Server durch voten.<br/>Als Dankesch&ouml;n bekommst du %coins Coins.<br/>Du kannst nur alle %time Stunden voten",
+		"vote4coins_howto" => "Klicke den Voten-Button und vote auf der Topliste.<br/> Wenn du damit fertig bist, klicke bitte auf den Fertig-Button um deine Coins zu erhalten.du musst eventuell Pop-Ups f&uuml;r diese Seite erlauben.",
+		"vote4coins_already" => "Du hast schon gevotet! Bitte versuche es in %time nocheinmal",
+		"vote4coins_check" => "Prüfen",
+		"vote4coins_tryagain" => "Versuche es bitte erneut. Deine Session ist abgelaufen",
+		"vote4coins_success" => "Du hast erfolgreich gevoted!",
+		"vote4coins_fail" => "Du hast nicht gevoted. Bitte versuche es erneut",
 	),
 	"en" => array(
 		// General stuff
@@ -173,6 +184,8 @@ array(
 		"ok"=>"&radic;",
 		"logout"=>"Logout",
 		"login"=>"Login",
+		"read_more"=>"More",
+		"by"=>"by",
 		// Time class
 		"time_s" => "seconds",
 		"time_S" => "second",
@@ -288,7 +301,16 @@ array(
 		"userpanel_password_placeholder"=> "Password",
 		"userpanel_login_failed"=> "Login failed",
 		"userpanel_banned"=>"You are banned",
-		"userpanel_hello" => "Hey %username,"
+		"userpanel_hello" => "Hey %username,",
+		// Vote4coins
+		"vote" => "Vote",
+		"vote4coins_desc" => "Support our server by voting for it<br/>As small Thank You you get %coins coins for doing so.<br/>You are allowed to vote every %time hours",
+		"vote4coins_howto" => "Click the vote button and vote for out server.<br/> When you've done so, click the done button to get your coins.<br/>You may have to allow Pop-Ups for this website.",
+		"vote4coins_already" => "You already voted! Please try again in %time",
+		"vote4coins_check" => "Check",
+		"vote4coins_tryagain" => "Please try again. Your session expired",
+		"vote4coins_success" => "You sucessfully voted.",
+		"vote4coins_fail" => "You did not vote. Please try again",
 	)
 );
 ?>

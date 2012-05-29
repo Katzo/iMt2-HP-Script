@@ -67,19 +67,19 @@ class time{
 			));
 		return date($lang->get("time_dformat"),$this->time);
 	}
-	public function vtostr($time){ // Time value to string
+	public function vtostr(){ // Time value to string
 		global $lang;
-		$days = floor($time/86400);
-		$r = $time%86400;
+		$days = floor($this->time/86400);
+		$r = $this->time%86400;
 		$hours = floor($r/3600);
 		$r = $r%3600;
 		$minutes = ceil($r/60);
 		if ($days > 0)
-			$str .= $days." ".($days==1?$lang["time"]["D"]:$lang["time"]["d"])." ";
+			$str .= $days." ".($days==1?$lang->get("time_D"):$lang->get("time_d"))." ";
 		if ($hours > 0)
-			$str .= $hours." ".($hours==1?$lang["time"]["H"]:$lang["time"]["h"])." ";
+			$str .= $hours." ".($hours==1?$lang->get("time_H"):$lang->get("time_h"))." ";
 		if ($minutes > 0)
-			$str .= $minutes." ".($minutes==1?$lang["time"]["M"]:$lang["time"]["m"])." ";
+			$str .= $minutes." ".($minutes==1?$lang->get("time_M"):$lang->get("time_m"))." ";
 		return $str;
 	}
 }
