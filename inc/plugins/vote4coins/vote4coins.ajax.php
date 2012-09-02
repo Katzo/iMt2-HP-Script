@@ -50,7 +50,7 @@ function get_vote_count($id){
         $page = file_get_contents("http://www.topliste.top-pserver.com/detail/".$id."-iMer.html");
         if (!$page) die(json_encode(array("error" => "Server error!")));
 		$table = str_between(str_replace("\n","",$page),'<tr class="lightbgalt"><td>Heute</td>','</tr>');
-        if ($table === false) die(json_encode(array("error" => "Server error! u")));
+        if ($table === false) return 0;
         $cell = explode('<td align="center">',str_replace("</td>","",$table)); // 1st one
         if (!isset($cell[1])) die(json_encode(array("error" => "Server error!")));
         return (int)str_replace(",","",$cell[1]);
