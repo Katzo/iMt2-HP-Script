@@ -43,7 +43,7 @@ if ($_POST["v"]==1){// Check if he has voted
 		mysql_query("INSERT INTO ".$db->hpdb["homepage"].".vote4coins (uid,time,count) VALUES('".$_SESSION["id"]."','".time()."','".get_vote_count($plugin_conf["id"])."')",$db->hp);
 	else
 		mysql_query("INSERT INTO ".$db->gamedb["homepage"].".vote4coins (uid,time,count) VALUES('".$_SESSION["id"]."','".time()."','".get_vote_count($plugin_conf["id"])."')",$db->game);
-	die(json_encode(array("btn" => utf8_encode($lang["vote"]["check"]),"url" => "http://www.topliste.top-pserver.com/in/".$plugin_conf["id"]."-d.htm","v" => 1)));
+	die(json_encode(array("btn" => utf8_encode($lang["vote"]["check"]),"url" => "http://www.topliste.top-pserver.com/in/".$plugin_conf["id"]."-iMer.html","v" => 1)));
 }
 function get_vote_count($id){
         ini_set("user_agent","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:12.0) Gecko/20100101 Firefox/12.0"); // You need to set a user agen$
@@ -52,7 +52,7 @@ function get_vote_count($id){
 		$table = str_between(str_replace("\n","",$page),'<tr class="lightbgalt"><td>Heute</td>','</tr>');
         if ($table === false) return 0;
         $cell = explode('<td align="center">',str_replace("</td>","",$table)); // 1st one
-        if (!isset($cell[1])) die(json_encode(array("error" => "Server error!")));
+        if (!isset($cell[1])) return 0;
         return (int)str_replace(",","",$cell[1]);
 }
 function str_between($string, $start, $end){
