@@ -35,7 +35,7 @@ if (isset($_POST["changepw"])){
 		die(json_encode(array("error" => $lang["misc"]["fillout"])));
 	$q=mysql_query("SELECT id FROM ".$db->gamedb["account"].".account WHERE id='".$_SESSION["id"]."' AND password=password('".mysql_real_escape_string($_POST["pass"])."')",$db->game);
 	if (mysql_num_rows($q)) {
-		mysql_query("UPDATE ".$db->gamedb["player"].".safebox SET password='' WHERE accound_id='".$_SESSION["id"]."'",$db->game);
+		mysql_query("UPDATE ".$db->gamedb["player"].".safebox SET password='' WHERE account_id='".$_SESSION["id"]."'",$db->game);
 		die(json_encode(array("ok" => $lang["settings"]["safebox_reset"])));
 	}else
 		die(json_encode(array("error" => $lang["settings"]["pass_error"])));
